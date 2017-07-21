@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import WeatherSearchBar from './containers/WeatherSearchBar';
+import WeatherDiv from './containers/WeatherDiv';
 
 import Navbar from './containers/Navbar';
 import Home from './containers/Home';
@@ -12,6 +14,9 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
+					HEAD
+					<WeatherSearchBar />
+					<WeatherDiv />
 					<Navbar />
 					<div className="container">
 						<Route exact path="/" component={Home} />
