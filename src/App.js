@@ -14,10 +14,9 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-<<<<<<< HEAD
+					HEAD
 					<WeatherSearchBar />
 					<WeatherDiv />
-=======
 					<Navbar />
 					<div className="container">
 						<Route exact path="/" component={Home} />
@@ -25,7 +24,6 @@ class App extends Component {
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/register" component={Register} />
 					</div>
->>>>>>> 0f38f0e82f917105a71d57fc631678e28d05962d
 				</div>
 			</Router>
 		);
