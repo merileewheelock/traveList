@@ -1,4 +1,10 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+/src/config.js
+import weatherAPIKey from './config'
+import axios from 'axios';
+
+const API_key = '0ac8ad11115ab6d948598a01b0cc8aa5';
+const baseURL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_key}`;
 
 # dependencies
 /node_modules

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import WeatherSearchBar from './containers/WeatherSearchBar';
+import WeatherDiv from './containers/WeatherDiv';
 
 class App extends Component {
 	render() {
 		return (
 			<Router>
 				<div className="App">
-					<div className="container">
-						<h1>traveList</h1>
-					</div>
+					<WeatherSearchBar />
+					<WeatherDiv />
 				</div>
 			</Router>
 		);
