@@ -14,9 +14,9 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					HEAD
+					{ /* HEAD
 					<WeatherSearchBar />
-					<WeatherDiv />
+					<WeatherDiv /> */ }
 					<Navbar />
 					<div className="container">
 						<Route exact path="/" component={Home} />

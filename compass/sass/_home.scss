@@ -1,0 +1,30 @@
+@import 'variables';
+
+.homepage{
+	height: 100vh;
+}
+
+.header-div{
+	top: 30vh;
+	text-align: center;
+	position: relative;
+}
+
+.logo{
+	height: 180px;
+	display: inline-block;
+}
+
+.site-title{
+	font-size: 100px;
+	text-align: left;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+@media screen only and (max-width: 960px){
+	.header-div{
+		top: 10vh;
+		position: relative;
+	}
+}

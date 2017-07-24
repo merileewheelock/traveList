@@ -4,9 +4,11 @@ import {Link} from 'react-router-dom'
 class Home extends Component{
 	render(){
 		return(
-			<div>
-				<h1>Welcome page</h1>
-				<p><Link to="/register">Register</Link> or <Link to="/login">Login</Link> to begin</p>
+			<div className="container homepage">
+				<div className="header-div">
+					<img className="logo" src="/images/travelist_logo_white.png" />
+					<h1 className="site-title">traveList</h1>
+				</div>
 			</div>
 		)
 	}
