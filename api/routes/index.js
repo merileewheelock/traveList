@@ -27,10 +27,10 @@ router.post('/login', (req, res)=>{
 	var password = req.body.password;
 	var checkEmailQuery = `SELECT * FROM users
 		WHERE email=?`
-	connection.query(checkLoginQuery, [email], (error,results)=>{
+	connection.query(checkEmailQuery, [email], (error,results)=>{
 		// console.log(results)
 		if (error) throw error;
-		if (results.length == 0){
+		if (results.length === 0){
 			// Email is not in the database
 			res.json({
 				msg: 'badUsername'
@@ -43,7 +43,7 @@ router.post('/login', (req, res)=>{
 					WHERE email=?`;
 				var token = randToken.uid(40);
 				connection.query(updateToken, [token,email], (error2, results2)=>{
-					
+
 					res.json({
 						msg: 'loginSuccess',
 						name: results[0].username,
