@@ -15,19 +15,42 @@ connection.connect();
 
 router.post('/register', (req, res)=>{
 	var email = req.body.email;
-	var password = req.body.password;
-	var username = req.body.username;
+	var password = bcrypt.hashSync(req.body.password);
 	var name = req.body.name;
 	var gender = req.body.gender;
+	var created = parseInt(Date.now() / 1000);
+	var token = randToken.uid(40);
 
+	const checkEmailQuery = "SELECT * FROM users WHERE email = ?";
+	connection.query(checkEmailQuery,[email],(error,results)=>{
+		if(error) throw error;
+		if(results.length > 0){
+			{msg: "userAlreadyExists"};
+		}else{
+			var insertIntoUsers = "INSERT INTO users (email, password, name, gender, token, created) VALUES (?,?,?,?,?,?)"
+			connection.query(insertIntoUsers,[email, password, name, gender, token, created],(error2, results2)=>{
+				if(error2){
+					res.json({
+						msg: error2
+					})
+				}else{
+					res.json({
+						msg: "userInserted",
+						token: token,
+						name: name
+					});
+				}
+			})
+		}
+	})
 })
 
 router.post('/login', (req, res)=>{
 	var email = req.body.email;
 	var password = req.body.password;
-	var checkEmailQuery = `SELECT * FROM users
+	var checkLoginQuery = `SELECT * FROM users
 		WHERE email=?`
-	connection.query(checkEmailQuery, [email], (error,results)=>{
+	connection.query(checkLoginQuery, [email], (error,results)=>{
 		// console.log(results)
 		if (error) throw error;
 		if (results.length === 0){

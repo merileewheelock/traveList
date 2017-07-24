@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import $ from 'jquery'
 import  {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import LoginAction from '../actions/LoginAction';
-import { Form, FormGroup, ControlLabel, FormControl, Button, Col, MenuItem} from 'react-bootstrap'
+import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap'
 
 class Login extends Component{
 	constructor(props) {
@@ -51,8 +50,8 @@ class Login extends Component{
 	render(){
 		return(
 			<div>
-				<h1>Login</h1>
-				<h3>{this.state.registerMessage}</h3>
+				<h1 className="text-center">Login</h1>
+				<h3 className="text-center">{this.state.registerMessage}</h3>
 				<Form horizontal onSubmit={this.handleLogin}>
 					<FormGroup controlId="formHorizontalName">
 						<Col componentClass={ControlLabel} sm={2}>
