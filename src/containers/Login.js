@@ -16,7 +16,7 @@ class Login extends Component{
 
 	handleLogin(event){
 		event.preventDefault();
-		console.log("User Submitted the form!!")
+		// console.log("User Submitted the form!!")
 		var email = event.target[0].value
 		var password = event.target[1].value
 		var error = false;
@@ -36,8 +36,8 @@ class Login extends Component{
 	componentWillReceiveProps(nextProps) {
 		console.log(nextProps)
 		if(nextProps.registerResponse.msg === 'loginSuccess'){
-			// console.log(nextProps.registerResponse.token)
-			this.props.getCart(nextProps.registerResponse.token)
+			console.log(nextProps.registerResponse.token)
+			console.log("User is logged in")
 			this.props.history.push('/');
 		}else if(nextProps.registerResponse.msg === 'userAlreadyExists'){
 			// Username already taken
