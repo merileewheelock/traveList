@@ -1,6 +1,23 @@
 import React, {Component} from 'react';
 
 class Survey extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            surveyStatus: '1'
+        }
+        this.handleSurvey = this.handleSurvey.bind(this);
+        this.handleVisbility = this.handleVisbility.bind(this);
+    }
+
+    handleSurvey(event){
+        return true;
+    }
+
+    handleVisbility(event){
+        return true;
+
+    }
 
 
 
@@ -8,13 +25,13 @@ class Survey extends Component{
 		return(
 			<div className="survey-box text-center col-sm-6 col-sm-offset-3">
 				<form>
-                    <div className="survey question-1 text-center">
+                    <div className="survey question-1 text-center visible">
                         <h1>What Type of trip is this?</h1>
                         <input type="checkbox"/> I'm a big ol' business person.
                         <br/>
                         <input type="checkbox"/> Time for a vay-cay, hey hey!
                     </div>
-                    <div className="survey question-2 text-center">
+                    <div className="survey question-2 text-center not-visible">
                         <h1>And what is the setting?</h1>
                         <select className="leisure">
                             <option value="beach">On the water and in the sun!</option>
@@ -33,19 +50,23 @@ class Survey extends Component{
                             <option value="busformal">Business formal, sir.</option>
                         </select> ------This one if business
                     </div>
-                    <div className="survey question-3 text-center">
+                    <div className="survey question-3 text-center not-visible">
                         <h1>Where'll it be, gov?</h1>
                         <input type="text"/>
                     </div>
-                    <div className="survey question-4 text-center">
+                    <div className="survey question-4 text-center not-visible">
                         <h1>For best results, pick a date!</h1>
                         <input type="date"/>
                     </div>
-                    <div className="survey question-5 text-center">
+                    <div className="survey question-5 text-center not-visible">
                         <h1>Finally, will there be any kids going with you?</h1>
                         <input type="checkbox"/>No. Never.
                         <br/>
                         <input type="checkbox"/>Yes, of course!
+                        <br/>
+                        <button bsStyle="primary" bsSize="small" type="submit">
+                            Submit
+                        </button>
                     </div>
                 </form>
 			</div>
