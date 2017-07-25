@@ -13,7 +13,6 @@ class ListView extends Component{
 		}
 		
 		this.getListItems = this.getListItems.bind(this);
-		this.toggleCheckbox = this.toggleCheckbox.bind(this);
 	}
 
 	componentDidMount() {
@@ -28,10 +27,6 @@ class ListView extends Component{
 			})
 			console.log(this.state.listData)
 		})
-	}
-
-	toggleCheckbox(element){
-		element.checked = !element.checked;
 	}
 
 	render(){
@@ -57,7 +52,7 @@ class ListView extends Component{
 		return(
 			<div className="">
 				<h1>Your Packing List</h1>
-				<table className="table table-bordered">
+				<table className="table">
                     <thead>
                         <th className="text-center">Status</th>
                         <th className="text-center">Item</th>
