@@ -41,6 +41,12 @@ class Survey extends Component{
                         <h1>For best results, pick a date!</h1>
                         <input type="date"/>
                     </div>
+                    <div className="survey question-5 text-center">
+                        <h1>Finally, will there be any kids going with you?</h1>
+                        <input type="checkbox"/>No. Never.
+                        <br/>
+                        <input type="checkbox"/>Yes, of course!
+                    </div>
                 </form>
 			</div>
 		)
