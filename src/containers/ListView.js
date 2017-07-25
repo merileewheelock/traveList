@@ -13,6 +13,7 @@ class ListView extends Component{
 		}
 		
 		this.getListItems = this.getListItems.bind(this);
+		this.toggleCheckbox = this.toggleCheckbox.bind(this);
 	}
 
 	componentDidMount() {
@@ -29,21 +30,52 @@ class ListView extends Component{
 		})
 	}
 
+	toggleCheckbox(element){
+		element.checked = !element.checked;
+	}
+
 	render(){
 
 		var listArray = [];
+
 		this.state.listData.map((listItem, index)=>{
+			var inlineStyle = {}
+            var finished = 0;
+            if (this.state.listData[index].finished === 1){
+                inlineStyle = {
+                    "textDecoration": "line-through",
+                    "color": "black"
+                }
+                finished = true;
+            }
 			listArray.push(
-				<div key={index}>
-					{this.state.listData[index].item}
-				</div>
+				<tr key={index}>
+                	<td className="switch text-center">
+						<input type="checkbox" />
+						<span className="slider round"></span>
+					</td>
+                	<td className="text-center" style={inlineStyle}>{this.state.listData[index].item}</td>
+                    <td className="text-center">{this.state.listData[index].itemCategory}</td>
+                </tr> 
+				// <div key={index}>
+				// 	{this.state.listData[index].item}
+				// </div>
 			)
 		})
 
 		return(
 			<div className="">
-				<h1>List View</h1>
-				{listArray}
+				<h1>Your Packing List</h1>
+				<table className="table table-bordered">
+                    <thead>
+                        <th className="text-center">Status</th>
+                        <th className="text-center">Item</th>
+                        <th className="text-center">Category</th>
+                    </thead>
+                    <tbody>
+                        {listArray}
+                    </tbody>
+                </table>
 			</div>
 		)
 	}

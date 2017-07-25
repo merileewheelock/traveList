@@ -179,7 +179,26 @@ a:hover:before {
     position: relative;
   }
 }
-/* line 6, ../../compass/sass/styles.scss */
+/* line 1, ../../compass/sass/_listview.scss */
+.circle-check {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* line 14, ../../compass/sass/_listview.scss */
+.circle-check:checked {
+  background-color: gray;
+}
+
+/* line 7, ../../compass/sass/styles.scss */
 body {
   margin: 0;
   padding: 0;
@@ -188,7 +207,7 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-/* line 14, ../../compass/sass/styles.scss */
+/* line 15, ../../compass/sass/styles.scss */
 h1, h2, h3, h4 {
   font-family: "Poiret One", cursive;
 }
