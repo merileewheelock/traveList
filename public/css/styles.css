@@ -179,6 +179,11 @@ a:hover:before {
     position: relative;
   }
 }
+/* line 33, ../../compass/sass/_home.scss */
+.howitworks a {
+  color: pink;
+}
+
 /* line 1, ../../compass/sass/_listview.scss */
 .circle-check {
   width: 1.3em;
@@ -209,7 +214,18 @@ a:hover:before {
   color: #cdcdcd;
 }
 
-/* line 8, ../../compass/sass/styles.scss */
+/* line 1, ../../compass/sass/_howitworks.scss */
+.how-box {
+  border: solid 2px gray;
+  height: 200px;
+}
+
+/* line 6, ../../compass/sass/_howitworks.scss */
+.how-boxes-row {
+  margin-top: 100px;
+}
+
+/* line 9, ../../compass/sass/styles.scss */
 body {
   margin: 0;
   padding: 0;
@@ -218,7 +234,7 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-/* line 16, ../../compass/sass/styles.scss */
+/* line 17, ../../compass/sass/styles.scss */
 h1, h2, h3, h4 {
   font-family: "Poiret One", cursive;
 }

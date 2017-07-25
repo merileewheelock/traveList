@@ -5,6 +5,7 @@ import WeatherDiv from './containers/WeatherDiv';
 
 import Navbar from './containers/Navbar';
 import Home from './containers/Home';
+import HowItWorks from './components/HowItWorks';
 import Survey from './containers/Survey';
 import Login from './containers/Login';
 import Register from './containers/Register';
@@ -22,6 +23,7 @@ class App extends Component {
 					<Navbar />
 					<div className="container">
 						<Route exact path="/" component={Home} />
+						<Route exact path="/howitworks" component={HowItWorks} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/survey" component={Survey} />
