@@ -8,6 +8,7 @@ import Home from './containers/Home';
 import Survey from './containers/Survey';
 import Login from './containers/Login';
 import Register from './containers/Register';
+import Profile from './containers/Profile';
 import ListView from './containers/ListView';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/survey" component={Survey} />
 						<Route exact path="/listview" component={ListView} />
+						<Route exact path="/profile" component={Profile} />
 					</div>
 				</div>
 			</Router>

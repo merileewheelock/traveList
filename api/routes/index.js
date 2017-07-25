@@ -22,6 +22,13 @@ router.get('/listview', (req, res)=> {
 	})
 });
 
+router.get('/profile', (req, res)=>{
+	connection.query('SELECT * FROM users', (error, results)=>{
+		if (error) throw error;
+		res.json(results);
+	})
+})
+
 
 router.post('/register', (req, res)=>{
 	var email = req.body.email;
@@ -82,8 +89,10 @@ router.post('/login', (req, res)=>{
 				connection.query(updateToken, [token,email], (error2, results2)=>{
 					res.json({
 						msg: 'loginSuccess',
+						token: token,
 						name: results[0].name,
-						token: token
+						email: results[0].email,
+						gender: results[0].gender
 					})
 				})
 			}else{

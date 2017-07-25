@@ -11,7 +11,6 @@ class ListView extends Component{
 		this.state = {
 			listData: []
 		}
-		
 		this.getListItems = this.getListItems.bind(this);
 	}
 
@@ -54,9 +53,11 @@ class ListView extends Component{
 				<h1>Your Packing List</h1>
 				<table className="table">
                     <thead>
-                        <th className="text-center">Status</th>
-                        <th className="text-center">Item</th>
-                        <th className="text-center">Category</th>
+	                    <tr>
+	                        <th className="text-center">Status</th>
+	                        <th className="text-center">Item</th>
+	                        <th className="text-center">Category</th>
+                       </tr>
                     </thead>
                     <tbody>
                         {listArray}
