@@ -39,22 +39,13 @@ class ListView extends Component{
 		var listArray = [];
 
 		this.state.listData.map((listItem, index)=>{
-			var inlineStyle = {}
-            var finished = 0;
-            if (this.state.listData[index].finished === 1){
-                inlineStyle = {
-                    "textDecoration": "line-through",
-                    "color": "black"
-                }
-                finished = true;
-            }
 			listArray.push(
 				<tr key={index}>
                 	<td className="switch text-center">
 						<input type="checkbox" />
 						<span className="slider round"></span>
 					</td>
-                	<td className="text-center" style={inlineStyle}>{this.state.listData[index].item}</td>
+                	<td className="text-center">{this.state.listData[index].item}</td>
                     <td className="text-center">{this.state.listData[index].itemCategory}</td>
                 </tr> 
 				// <div key={index}>
