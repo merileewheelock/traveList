@@ -8,7 +8,7 @@ class Login extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			registerMessage: "",
+			loginMessage: "",
 			formError: false
 		}
 		this.handleLogin = this.handleLogin.bind(this);
@@ -35,23 +35,27 @@ class Login extends Component{
 
 	componentWillReceiveProps(nextProps) {
 		console.log(nextProps)
-		if(nextProps.registerResponse.msg === 'loginSuccess'){
-			console.log(nextProps.registerResponse.token)
+		if(nextProps.loginResponse.msg === 'loginSuccess'){
+			console.log(nextProps.loginResponse.token)
 			console.log("User is logged in")
-			this.props.history.push('/');
-		}else if(nextProps.registerResponse.msg === 'userAlreadyExists'){
+			this.props.history.push('/survey');
+		}else if(nextProps.loginResponse.msg === 'badEmail'){
 			// Username already taken
 			this.setState({
-				registerMessage: "Sorry, this username is already taken."
+				loginMessage: "Sorry, that is not a valid email."
 			})
-		}		
+		}else if(nextProps.loginResponse.msg === 'wrongPassword'){
+			this.setState({
+				loginMessage: "Password is incorrect."
+			})
+		}
 	}
 
 	render(){
 		return(
 			<div>
 				<h1 className="text-center">Login</h1>
-				<h3 className="text-center">{this.state.registerMessage}</h3>
+				<h3 className="text-center">{this.state.loginMessage}</h3>
 				<Form horizontal onSubmit={this.handleLogin}>
 					<FormGroup controlId="formHorizontalName">
 						<Col componentClass={ControlLabel} sm={2}>
@@ -84,7 +88,7 @@ class Login extends Component{
 
 function mapStateToProps(state){
 	return{
-		registerResponse: state.registerReducer
+		loginResponse: state.registerReducer
 	}
 }
 

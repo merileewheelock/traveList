@@ -42,7 +42,7 @@ class Register extends Component{
 		console.log(nextProps.registerResponse)
 		if(nextProps.registerResponse.msg === 'userInserted'){
 			console.log("User added!")
-			this.props.history.push('/');
+			this.props.history.push('/survey');
 		}else if(nextProps.registerResponse.msg === 'userAlreadyExists'){
 			console.log("User name taken!")
 			this.setState({

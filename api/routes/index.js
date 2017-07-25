@@ -23,9 +23,13 @@ router.post('/register', (req, res)=>{
 
 	const checkEmailQuery = "SELECT * FROM users WHERE email = ?";
 	connection.query(checkEmailQuery,[email],(error,results)=>{
+		// console.log(results)
+		// console.log(error)
 		if(error) throw error;
 		if(results.length > 0){
-			{msg: "userAlreadyExists"};
+			res.json({
+				msg: "userAlreadyExists"
+			});
 		}else{
 			var insertIntoUsers = "INSERT INTO users (email, password, name, gender, token, created) VALUES (?,?,?,?,?,?)"
 			connection.query(insertIntoUsers,[email, password, name, gender, token, created],(error2, results2)=>{
@@ -56,20 +60,19 @@ router.post('/login', (req, res)=>{
 		if (results.length === 0){
 			// Email is not in the database
 			res.json({
-				msg: 'badUsername'
+				msg: 'badEmail'
 			})
 		}else{
-			// The username is valid. Check password:
+			// The email is valid. Check password:
 			var checkHash = bcrypt.compareSync(password, results[0].password);
 			if (checkHash == true){
 				const updateToken = `UPDATE users SET token=?, token_exp=DATE_ADD(NOW(), INTERVAL 1 HOUR)
 					WHERE email=?`;
 				var token = randToken.uid(40);
 				connection.query(updateToken, [token,email], (error2, results2)=>{
-
 					res.json({
 						msg: 'loginSuccess',
-						name: results[0].username,
+						name: results[0].name,
 						token: token
 					})
 				})
