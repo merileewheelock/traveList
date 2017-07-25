@@ -3,14 +3,9 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class NavBar extends Component{
-	constructor(props) {
-		super(props);
-		
-	}
-
 
 	render(){
-		console.log(this.props.registerInfo.name)
+		// console.log(this.props.registerInfo.name)
 		if(this.props.registerInfo.name === undefined){
 			var userLoginStatus = [
 				<Link to="/login" key="1"><li>Login</li></Link>,
@@ -36,8 +31,8 @@ class NavBar extends Component{
 				    
 					<ul id="menu">
 						<Link to="/"><li>Home</li></Link>
-						<a href="#"><li>How It Works</li></a>
-						<a href="#"><li>About</li></a>
+						<Link to="/"><li>How It Works</li></Link>
+						<Link to="/"><li>About</li></Link>
 						<hr className="linebreak" />
 						{userLoginStatus}
 						{/*<Link to="/login"><li>Login</li></Link>

@@ -34,10 +34,10 @@ class Login extends Component{
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log(nextProps)
+		// console.log(nextProps)
 		if(nextProps.loginResponse.msg === 'loginSuccess'){
-			console.log(nextProps.loginResponse.token)
-			console.log("User is logged in")
+			// console.log(nextProps.loginResponse.token)
+			// console.log("User is logged in")
 			this.props.history.push('/survey');
 		}else if(nextProps.loginResponse.msg === 'badEmail'){
 			// Username already taken

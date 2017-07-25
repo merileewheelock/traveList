@@ -13,6 +13,16 @@ var connection = mysql.createConnection({
 })
 connection.connect();
 
+
+
+router.get('/listview', (req, res)=> {
+	connection.query('SELECT * FROM packList', (error, results)=>{
+		if (error) throw error;
+		res.json(results);
+	})
+});
+
+
 router.post('/register', (req, res)=>{
 	var email = req.body.email;
 	var password = bcrypt.hashSync(req.body.password);

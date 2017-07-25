@@ -8,6 +8,7 @@ import Home from './containers/Home';
 import Survey from './containers/Survey';
 import Login from './containers/Login';
 import Register from './containers/Register';
+import ListView from './containers/ListView';
 
 class App extends Component {
 	render() {
@@ -20,9 +21,10 @@ class App extends Component {
 					<Navbar />
 					<div className="container">
 						<Route exact path="/" component={Home} />
-						<Route exact path="/survey" component={Survey} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/register" component={Register} />
+						<Route exact path="/survey" component={Survey} />
+						<Route exact path="/listview" component={ListView} />
 					</div>
 				</div>
 			</Router>

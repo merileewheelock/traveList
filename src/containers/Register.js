@@ -17,7 +17,7 @@ class Register extends Component{
 
 	handleRegistration(event){
 		event.preventDefault();
-		console.log("User Submitted the form!!")
+		// console.log("User Submitted the form!!")
 		var name = event.target[0].value
 		var email = event.target[1].value
 		var password = event.target[2].value
@@ -39,12 +39,12 @@ class Register extends Component{
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log(nextProps.registerResponse)
+		// console.log(nextProps.registerResponse)
 		if(nextProps.registerResponse.msg === 'userInserted'){
-			console.log("User added!")
+			// console.log("User added!")
 			this.props.history.push('/survey');
 		}else if(nextProps.registerResponse.msg === 'userAlreadyExists'){
-			console.log("User name taken!")
+			// console.log("User name taken!")
 			this.setState({
 				registerMessage: "Sorry, this username is already taken."
 			})
