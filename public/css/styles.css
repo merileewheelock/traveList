@@ -198,7 +198,18 @@ a:hover:before {
   background-color: gray;
 }
 
-/* line 7, ../../compass/sass/styles.scss */
+/* line 1, ../../compass/sass/_profile.scss */
+.route-user-info {
+  border-top: solid 1px darkgray;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+/* line 5, ../../compass/sass/_profile.scss */
+.route-user-info a {
+  color: #cdcdcd;
+}
+
+/* line 8, ../../compass/sass/styles.scss */
 body {
   margin: 0;
   padding: 0;
@@ -207,7 +218,7 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-/* line 15, ../../compass/sass/styles.scss */
+/* line 16, ../../compass/sass/styles.scss */
 h1, h2, h3, h4 {
   font-family: "Poiret One", cursive;
 }
