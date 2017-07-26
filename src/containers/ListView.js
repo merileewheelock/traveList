@@ -31,38 +31,34 @@ class ListView extends Component{
 	render(){
 
 		var listArray = [];
+		var lastCategory = "";
+		var key = 0;
 
 		this.state.listData.map((listItem, index)=>{
+			if(this.state.listData[index].itemCategory !== lastCategory){
+				listArray.push(
+					<div className="col-sm-offset-6" key={index}>
+						<h3 className="category-title">{this.state.listData[index].itemCategory}</h3>
+					</div>
+				)
+				lastCategory = this.state.listData[index].itemCategory;
+				key++;
+			}
 			listArray.push(
-				<tr key={index}>
-                	<td className="switch text-center">
+				<div key={index}>
+                	<div className="col-sm-6 text-right">
 						<input type="checkbox" />
 						<span className="slider round"></span>
-					</td>
-                	<td className="text-center">{this.state.listData[index].item}</td>
-                    <td className="text-center">{this.state.listData[index].itemCategory}</td>
-                </tr> 
-				// <div key={index}>
-				// 	{this.state.listData[index].item}
-				// </div>
+					</div>
+                	<div className="col-sm-6 item">{this.state.listData[index].item}</div>
+                </div> 
 			)
 		})
 
 		return(
-			<div className="">
+			<div>
 				<h1>Your Packing List</h1>
-				<table className="table">
-                    <thead>
-	                    <tr>
-	                        <th className="text-center">Status</th>
-	                        <th className="text-center">Item</th>
-	                        <th className="text-center">Category</th>
-                       </tr>
-                    </thead>
-                    <tbody>
-                        {listArray}
-                    </tbody>
-                </table>
+				{listArray}
 			</div>
 		)
 	}

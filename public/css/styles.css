@@ -185,22 +185,13 @@ a:hover:before {
 }
 
 /* line 1, ../../compass/sass/_listview.scss */
-.circle-check {
-  width: 1.3em;
-  height: 1.3em;
-  background-color: white;
-  border-radius: 50%;
-  vertical-align: middle;
-  border: 1px solid #ddd;
-  -webkit-appearance: none;
-  outline: none;
-  cursor: pointer;
-  outline: none;
+.category-title {
+  font-size: 20px;
 }
 
-/* line 14, ../../compass/sass/_listview.scss */
-.circle-check:checked {
-  background-color: gray;
+/* line 5, ../../compass/sass/_listview.scss */
+.item {
+  padding-bottom: 5px;
 }
 
 /* line 1, ../../compass/sass/_profile.scss */
