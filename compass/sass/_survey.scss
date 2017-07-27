@@ -1,5 +1,41 @@
 .survey-box{
 	border: 5px solid lightgray;
-	height: 610px;
-	margin-top: 100px;
+	height: 100vh;
+	width: 100%;
+	// margin-top: 100px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.not-visible, .visible{
+	width: 100vw;
+	height: 100vh;
+	
+}
+
+.not-visible{
+	visibility: hidden;
+}
+
+.visible{
+	padding-top: 15vh;
+	// transform: translate(0,-100vw);
+	// transition-timing-function: ease-out;
+	// transition-duration: 1s;
+	input{
+		height: 200px;
+		width: 200px;
+	}
+}
+
+.btn {
+    display: inline-block;
+    border: 2px solid #ccc;
+    margin-right: 5px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+.btn.on {
+    background-color: #777;
+    color: white;
 }

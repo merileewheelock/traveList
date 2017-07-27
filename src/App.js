@@ -21,7 +21,7 @@ class App extends Component {
 					<WeatherSearchBar />
 					<WeatherDiv /> */ }
 					<Navbar />
-					<div className="container">
+					<div className="container-fluid">
 						<Route exact path="/" component={Home} />
 						<Route exact path="/howitworks" component={HowItWorks} />
 						<Route exact path="/login" component={Login} />

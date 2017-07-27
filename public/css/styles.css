@@ -142,8 +142,46 @@ a:hover:before {
 /* line 1, ../../compass/sass/_survey.scss */
 .survey-box {
   border: 5px solid lightgray;
-  height: 610px;
-  margin-top: 100px;
+  height: 100vh;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* line 10, ../../compass/sass/_survey.scss */
+.not-visible, .visible {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* line 16, ../../compass/sass/_survey.scss */
+.not-visible {
+  visibility: hidden;
+}
+
+/* line 20, ../../compass/sass/_survey.scss */
+.visible {
+  padding-top: 15vh;
+}
+/* line 25, ../../compass/sass/_survey.scss */
+.visible input {
+  height: 200px;
+  width: 200px;
+}
+
+/* line 31, ../../compass/sass/_survey.scss */
+.btn {
+  display: inline-block;
+  border: 2px solid #ccc;
+  margin-right: 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+/* line 38, ../../compass/sass/_survey.scss */
+.btn.on {
+  background-color: #777;
+  color: white;
 }
 
 /* line 3, ../../compass/sass/_home.scss */
