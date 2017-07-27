@@ -2,23 +2,49 @@ import React, {Component} from 'react';
 import  {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import ProfileAction from '../actions/ProfileAction';
 import $ from 'jquery';
-import hostAddress from '../config'
+import hostAddress from '../config';
 
 class Profile extends Component{
-	constructor(props) {
-		super(props);
-	}
+    constructor(props) {
+        super(props);
+        this.state = {
+            savedRoutes: []
+        }
+    }
+
+    componentDidMount() {
+        const url = hostAddress + '/profile'
+        $.getJSON(url,(data)=>{
+            this.setState({
+                savedRoutes: data
+            })
+            console.log(this.state.savedRoutes)
+        })
+    }
 
     render(){
-    	// console.log(this.props.registerInfo)
+        // console.log(this.state.savedRoutes.name)
     	var userInfoArray = [
     		<div className="col-sm-2" key='1'>
-    			<div>{this.props.registerInfo.name}</div>
-    			<div>{this.props.registerInfo.email}</div>
-    			<div>{this.props.registerInfo.gender}</div>
+    			<div>{this.state.savedRoutes.name}</div>
+    			<div>{this.state.savedRoutes.email}</div>
+    			<div>{this.state.savedRoutes.gender}</div>
     		</div>
     	]
+
+        var savedRoutesArray = []
+
+        this.state.savedRoutes.map((route, index)=>{
+            savedRoutesArray.push(
+                <div key={index}>
+                    <div className="col-sm-offset-4 col-sm-4 text-center">            
+                        <div>{this.state.savedRoutes[index].item}</div>
+                    </div>
+                </div> 
+            )
+        })
 
         return(
         	<div className="user-profile">
@@ -31,8 +57,9 @@ class Profile extends Component{
             	{userInfoArray}
             	<div className="route-user-info col-sm-offset-4 col-sm-4 text-center">
             		<div><Link to="/survey">Add a Route</Link></div>
-            		<div>View Saved Routes</div>
             	</div>
+                <h4 className="col-sm-offset-4 col-sm-4 text-center">Saved Routes</h4>
+                {savedRoutesArray}
             </div>
         )
     }
@@ -40,8 +67,14 @@ class Profile extends Component{
 
 function mapStateToProps(state){
 	return{
-		registerInfo: state.registerReducer
+		profileInfo: state.profileReducer
 	}
 }
 
-export default connect(mapStateToProps)(Profile)
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        profileAction: ProfileAction
+    }, dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);

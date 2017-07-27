@@ -235,10 +235,13 @@ a:hover:before {
 /* line 1, ../../compass/sass/_profile.scss */
 .route-user-info {
   border-top: solid 1px darkgray;
+  border-bottom: solid 1px darkgray;
   margin-top: 10px;
   padding-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
-/* line 5, ../../compass/sass/_profile.scss */
+/* line 8, ../../compass/sass/_profile.scss */
 .route-user-info a {
   color: #cdcdcd;
 }
