@@ -30,11 +30,34 @@ router.get('/profile', (req, res)=>{
 })
 
 router.post('/survey', (req, res)=>{
+	// console.log(req.body)
 	var tripType = req.body.tripType;
     var tripSetting = req.body.tripSetting;
     var destination = req.body.destination;
     var tripDate = req.body.tripDate;
     var children = req.body.children;
+    var token = req.body.token;
+    // console.log(token)
+
+    const getUidQuery = `SELECT id from users WHERE token=?`
+	connection.query(getUidQuery, [token], (error,results)=>{
+		// console.log(token)
+		if(error) throw error;
+		if(results.length == 0 ){
+			res.json({msg:"badToken"})
+		}else{
+			// console.log(results[0].id)
+			const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
+				VALUES (?,?,?,?,?,?)`
+			connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
+				if(error2){
+					res.json(error2)
+				}else{
+					res.json(results2)
+				}
+			})
+		}
+	})
 })
 
 
@@ -96,6 +119,7 @@ router.post('/login', (req, res)=>{
 					WHERE email=?`;
 				var token = randToken.uid(40);
 				connection.query(updateToken, [token,email], (error2, results2)=>{
+					console.log(token)
 					res.json({
 						msg: 'loginSuccess',
 						token: token,

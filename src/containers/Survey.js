@@ -15,7 +15,7 @@ class Survey extends Component{
     }
 
     handleSurvey(event){
-        console.dir(event.target)
+        // console.dir(event.target)
         event.preventDefault();
 
         var tripType = event.target.childNodes[0].childNodes[1].value;
@@ -23,6 +23,9 @@ class Survey extends Component{
         var destination = event.target.childNodes[2].childNodes[1].value;
         var tripDate = event.target.childNodes[3].childNodes[1].value;
         var children = event.target.childNodes[4].childNodes[1].value;
+
+        var token = this.props.loginInfo.token
+        // console.log(this.props.loginInfo)
         // console.log(tripType)
         // console.log(tripSetting)
         // console.log(destination)
@@ -33,7 +36,8 @@ class Survey extends Component{
             tripSetting: tripSetting,
             destination: destination,
             tripDate: tripDate,
-            children: children
+            children: children,
+            token: token
         });
     }
 
@@ -101,7 +105,8 @@ class Survey extends Component{
 
 function mapStateToProps(state){
     return{
-        surveyResponse: state.surveyReducer
+        surveyResponse: state.surveyReducer,
+        loginInfo: state.registerReducer
     }
 }
 
