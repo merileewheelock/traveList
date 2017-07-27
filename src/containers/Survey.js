@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import  {bindActionCreators} from 'redux';
 import SurveyAction from '../actions/SurveyAction';
 import {connect} from 'react-redux';
+import $ from 'jquery';
 
 class Survey extends Component{
     constructor(props) {
@@ -14,14 +15,20 @@ class Survey extends Component{
     }
 
     handleSurvey(event){
+        console.dir(event.target)
         event.preventDefault();
-        var tripType = event.target[0].value;
-        var tripSetting = event.target[1].value;
-        var destination = event.target[2].value;
-        var tripDate = event.target[3].value;
-        var children = event.target[4].value;
 
-        this.props.registerAction({
+        var tripType = event.target.childNodes[0].childNodes[1].value;
+        var tripSetting = event.target.childNodes[1].childNodes[1].value;
+        var destination = event.target.childNodes[2].childNodes[1].value;
+        var tripDate = event.target.childNodes[3].childNodes[1].value;
+        var children = event.target.childNodes[4].childNodes[1].value;
+        // console.log(tripType)
+        // console.log(tripSetting)
+        // console.log(destination)
+        // console.log(tripDate)
+        // console.log(children)
+        this.props.surveyAction({
             tripType: tripType,
             tripSetting: tripSetting,
             destination: destination,
@@ -40,12 +47,13 @@ class Survey extends Component{
 	render(){
 		return(
 			<div className="survey-box text-center col-sm-6 col-sm-offset-3">
-				<form onSubmit={this.handleSurvey}>
+				<form method="get" onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What Type of trip is this?</h1>
-                        <input type="checkbox"/> I'm a big ol' business person.
-                        <br/>
-                        <input type="checkbox"/> Time for a vay-cay, hey hey!
+                        <select className="tripType">
+                            <option value="business">I'm a big ol' business person.</option>
+                            <option value="leisure">Time for a vay-cay, hey hey!</option>
+                        </select>
                     </div>
                     <div className="survey question-2 text-center not-visible">
                         <h1>And what is the setting?</h1>
@@ -76,16 +84,15 @@ class Survey extends Component{
                     </div>
                     <div className="survey question-5 text-center not-visible">
                         <h1>Finally, will there be any kids or babies going with you?</h1>
-                        <input type="checkbox"/>No. Never.
-                        <br/>
-                        <input type="checkbox"/>Yes, children aged beings!
-                        <br/>
-                        <input type="checkbox"/>Yes, babies!!!
-                        <br/>
-                        <button bsStyle="primary" bsSize="small" type="submit">
-                            Submit
-                        </button>
+                        <select className="children">
+                            <option value="noChildren">No. Never.</option>
+                            <option value="yesChildren">Yes, children aged beings!</option>
+                            <option value="yesBabies">Yes, babies!!!</option>
+                        </select>
                     </div>
+                    <button bsStyle="primary" bsSize="small" type="submit">
+                        Submit
+                    </button>
                 </form>
 			</div>
 		)

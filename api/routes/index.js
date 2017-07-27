@@ -30,8 +30,13 @@ router.get('/profile', (req, res)=>{
 })
 
 router.post('/survey', (req, res)=>{
-
+	var tripType = req.body.tripType;
+    var tripSetting = req.body.tripSetting;
+    var destination = req.body.destination;
+    var tripDate = req.body.tripDate;
+    var children = req.body.children;
 })
+
 
 
 router.post('/register', (req, res)=>{

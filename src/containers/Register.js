@@ -57,7 +57,7 @@ class Register extends Component{
 				<h1 className="text-center">Register</h1>
 				<h3 className="text-center">{this.state.registerMessage}</h3>
 				<Form horizontal onSubmit={this.handleRegistration}>
-					<FormGroup controlId="formHorizontalName" validationState={this.state.nameError}>
+					<FormGroup controlId="formHorizontalName">
 						<Col componentClass={ControlLabel} sm={2}>
 							Name
 						</Col>
@@ -65,7 +65,7 @@ class Register extends Component{
 							<FormControl type="text" name="fullName" placeholder="Full Name" />
 						</Col>
 					</FormGroup>
-					<FormGroup controlId="formHorizontalName" validationState={this.state.emailError}>
+					<FormGroup controlId="formHorizontalName">
 						<Col componentClass={ControlLabel} sm={2}>
 							Email
 						</Col>
