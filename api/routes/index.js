@@ -20,13 +20,17 @@ router.get('/listview', (req, res)=> {
 		if (error) throw error;
 		res.json(results);
 	})
-});
+})
 
 router.get('/profile', (req, res)=>{
 	connection.query('SELECT * FROM users', (error, results)=>{
 		if (error) throw error;
 		res.json(results);
 	})
+})
+
+router.post('/survey', (req, res)=>{
+
 })
 
 

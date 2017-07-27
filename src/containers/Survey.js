@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import  {bindActionCreators} from 'redux';
+import SurveyAction from '../actions/SurveyAction';
+import {connect} from 'react-redux';
 
 class Survey extends Component{
     constructor(props) {
@@ -11,7 +14,20 @@ class Survey extends Component{
     }
 
     handleSurvey(event){
-        return true;
+        event.preventDefault();
+        var tripType = event.target[0].value;
+        var tripSetting = event.target[1].value;
+        var destination = event.target[2].value;
+        var tripDate = event.target[3].value;
+        var children = event.target[4].value;
+
+        this.props.registerAction({
+            tripType: tripType,
+            tripSetting: tripSetting,
+            destination: destination,
+            tripDate: tripDate,
+            children: children
+        });
     }
 
     handleVisbility(event){
@@ -24,7 +40,7 @@ class Survey extends Component{
 	render(){
 		return(
 			<div className="survey-box text-center col-sm-6 col-sm-offset-3">
-				<form>
+				<form onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What Type of trip is this?</h1>
                         <input type="checkbox"/> I'm a big ol' business person.
@@ -59,10 +75,12 @@ class Survey extends Component{
                         <input type="date"/>
                     </div>
                     <div className="survey question-5 text-center not-visible">
-                        <h1>Finally, will there be any kids going with you?</h1>
+                        <h1>Finally, will there be any kids or babies going with you?</h1>
                         <input type="checkbox"/>No. Never.
                         <br/>
-                        <input type="checkbox"/>Yes, of course!
+                        <input type="checkbox"/>Yes, children aged beings!
+                        <br/>
+                        <input type="checkbox"/>Yes, babies!!!
                         <br/>
                         <button bsStyle="primary" bsSize="small" type="submit">
                             Submit
@@ -74,4 +92,17 @@ class Survey extends Component{
 	}
 }
 
-export default Survey;
+function mapStateToProps(state){
+    return{
+        surveyResponse: state.surveyReducer
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        surveyAction: SurveyAction
+    }, dispatch)
+}
+
+// export default Register;
+export default connect(mapStateToProps,mapDispatchToProps)(Survey);
