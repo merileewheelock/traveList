@@ -43,7 +43,7 @@ router.post('/survey', (req, res)=>{
 
     const getUidQuery = `SELECT id from users WHERE token=?`
 	connection.query(getUidQuery, [token], (error,results)=>{
-		// console.log(token)
+		console.log(token)
 		if(error) throw error;
 		if(results.length == 0 ){
 			res.json({msg:"badToken"})
@@ -52,16 +52,20 @@ router.post('/survey', (req, res)=>{
 			const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
 				VALUES (?,?,?,?,?,?)`
 			connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
-				if(error2){
-					res.json(error2)
-				}else{
-					res.json(results2)
-				}
+				router.get('/survey', (req,res)=>{
+					const createListQuery = `SELECT * from packList WHERE destination = 1`
+					connection.query(createListQuery, (error3,results3)=>{
+						res.json(results3)
+					})
+				})	
 			})
-		}
+		}  
 	})
 })
 
+// store trip you're looking for as a variable.
+
+// select * from packlist where thetripyourestoringasavariable = 1 and children = 
 
 
 router.post('/register', (req, res)=>{
