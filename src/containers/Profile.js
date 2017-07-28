@@ -10,7 +10,7 @@ class Profile extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            savedRoutes: []
+            savedTrips: []
         }
     }
 
@@ -18,32 +18,46 @@ class Profile extends Component{
         const url = hostAddress + '/profile'
         $.getJSON(url,(data)=>{
             this.setState({
-                savedRoutes: data
+                savedTrips: data
             })
-            console.log(this.state.savedRoutes)
         })
     }
 
     render(){
-        // console.log(this.state.savedRoutes.name)
+        // console.log(this.props.registerInfo)
     	var userInfoArray = [
     		<div className="col-sm-2" key='1'>
-    			<div>{this.state.savedRoutes.name}</div>
-    			<div>{this.state.savedRoutes.email}</div>
-    			<div>{this.state.savedRoutes.gender}</div>
+    			<div>{this.props.registerInfo.name}</div>
+    			<div>{this.props.registerInfo.email}</div>
+    			<div>{this.props.registerInfo.gender}</div>
     		</div>
     	]
 
-        var savedRoutesArray = []
+        var savedTripsArray = []
 
-        this.state.savedRoutes.map((route, index)=>{
-            savedRoutesArray.push(
-                <div key={index}>
-                    <div className="col-sm-offset-4 col-sm-4 text-center">            
-                        <div>{this.state.savedRoutes[index].item}</div>
+        this.state.savedTrips.map((trip, index)=>{
+            if((this.state.savedTrips[index].email == this.props.registerInfo.email) && (this.state.savedTrips[index].tripType == undefined)){
+                savedTripsArray.push(
+                    <div className="col-sm-offset-4 col-sm-4 text-center" key={index}>
+                        No saved routes
                     </div>
-                </div> 
-            )
+                )
+            }else if (this.state.savedTrips[index].email == this.props.registerInfo.email){
+                savedTripsArray.push(
+                    <div key={index}>
+                        <div className="col-sm-offset-4 col-sm-4 text-center">            
+                            <div className="savedRoutesLink">
+                                <Link to="/listview">
+                                    <span>{this.state.savedTrips[index].tripType} | </span>
+                                    <span>{this.state.savedTrips[index].tripSetting} | </span>
+                                    <span>{this.state.savedTrips[index].destination} | </span>
+                                    <span>{this.state.savedTrips[index].children}</span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div> 
+                )
+            }
         })
 
         return(
@@ -55,11 +69,11 @@ class Profile extends Component{
             		<div>Gender:</div>
             	</div>
             	{userInfoArray}
-            	<div className="route-user-info col-sm-offset-4 col-sm-4 text-center">
-            		<div><Link to="/survey">Add a Route</Link></div>
+            	<div className="trip-user-info col-sm-offset-4 col-sm-4 text-center">
+            		<div><Link to="/survey">Add a Trip</Link></div>
             	</div>
-                <h4 className="col-sm-offset-4 col-sm-4 text-center">Saved Routes</h4>
-                {savedRoutesArray}
+                <h4 className="col-sm-offset-4 col-sm-4 text-center">Saved Trips</h4>
+                {savedTripsArray}
             </div>
         )
     }
@@ -67,7 +81,8 @@ class Profile extends Component{
 
 function mapStateToProps(state){
 	return{
-		profileInfo: state.profileReducer
+		profileInfo: state.profileReducer,
+        registerInfo: state.registerReducer
 	}
 }
 

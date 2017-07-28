@@ -114,7 +114,7 @@ class Survey extends Component{
                             <option value="yesBabies">Yes, babies!!!</option>
                         </select>
                     </div>
-                    <button bsStyle="primary" bsSize="small" type="submit">
+                    <button type="submit">
                         Submit
                     </button>
                 </form>

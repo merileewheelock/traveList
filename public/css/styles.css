@@ -233,7 +233,7 @@ a:hover:before {
 }
 
 /* line 1, ../../compass/sass/_profile.scss */
-.route-user-info {
+.trip-user-info {
   border-top: solid 1px darkgray;
   border-bottom: solid 1px darkgray;
   margin-top: 10px;
@@ -242,7 +242,12 @@ a:hover:before {
   padding-bottom: 10px;
 }
 /* line 8, ../../compass/sass/_profile.scss */
-.route-user-info a {
+.trip-user-info a {
+  color: #cdcdcd;
+}
+
+/* line 14, ../../compass/sass/_profile.scss */
+.savedRoutesLink a {
   color: #cdcdcd;
 }
 

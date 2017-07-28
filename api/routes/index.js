@@ -23,7 +23,9 @@ router.get('/listview', (req, res)=> {
 })
 
 router.get('/profile', (req, res)=>{
-	connection.query('SELECT * FROM users', (error, results)=>{
+	profileQuery = `SELECT * FROM users
+	LEFT JOIN tripInfo ON users.id = tripInfo.uid`
+	connection.query(profileQuery, (error, results)=>{
 		if (error) throw error;
 		res.json(results);
 	})
