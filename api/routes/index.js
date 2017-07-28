@@ -41,6 +41,28 @@ router.post('/survey', (req, res)=>{
     var token = req.body.token;
     // console.log(token)
 
+    var tripSettingWhereClause = ""
+    if (tripSetting == 'beach'){
+    	tripSettingWhereClause += ' AND beach = 1'
+    }else if (tripSetting == 'winter'){
+    	tripSettingWhereClause += ' AND winter = 1'
+    }else if (tripSetting == 'camping'){
+    	tripSettingWhereClause += ' AND camping = 1'
+    }else if (tripSetting == 'formal'){
+    	tripSettingWhereClause += ' AND formal = 1'
+    }else if (tripSetting == 'international'){
+    	tripSettingWhereClause += ' AND international = 1'
+    }else if (tripSetting == 'business international'){
+    	tripSettingWhereClause += ' AND businessInternational = 1'
+    }else if (tripSetting == 'business casual'){
+    	tripSettingWhereClause += ' AND businessCasual = 1'
+    }else if (tripSetting == 'business formal'){
+    	tripSettingWhereClause += ' AND businessFormal = 1'
+    }
+
+    var childrenWhereClause = ""
+    
+
     const getUidQuery = `SELECT id from users WHERE token=?`
 	connection.query(getUidQuery, [token], (error,results)=>{
 		console.log(token)
@@ -52,14 +74,20 @@ router.post('/survey', (req, res)=>{
 			const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
 				VALUES (?,?,?,?,?,?)`
 			connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
-				router.get('/survey', (req,res)=>{
-					const createListQuery = `SELECT * from packList WHERE destination = 1`
+				// router.get('/survey', (req,res)=>{
+					const createListQuery = `SELECT * from packList WHERE 1 ${tripSettingWhereClause}`
 					connection.query(createListQuery, (error3,results3)=>{
-						res.json(results3)
+						console.log(results3)
 					})
-				})	
+				// })	
 			})
-		}  
+		}
+
+
+	// Update redux state with results
+	// Redirect list page
+
+
 	})
 })
 

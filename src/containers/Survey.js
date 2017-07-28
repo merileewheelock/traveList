@@ -25,12 +25,7 @@ class Survey extends Component{
         var children = event.target.childNodes[4].childNodes[1].value;
 
         var token = this.props.loginInfo.token
-        // console.log(this.props.loginInfo)
-        // console.log(tripType)
-        // console.log(tripSetting)
-        // console.log(destination)
-        // console.log(tripDate)
-        // console.log(children)
+
         this.props.surveyAction({
             tripType: tripType,
             tripSetting: tripSetting,
@@ -41,7 +36,7 @@ class Survey extends Component{
         });
     }
 
-    handleVisbility(event){
+    handleVisibility(event){
         return true;
 
     }
@@ -86,8 +81,8 @@ class Survey extends Component{
                             <option value="winter">Leisure: Winter</option>
                             <option value="camping">Leisure: Camping</option>
                             <option value="formal">Leisure: Formal</option>
-                            <option value="abroad">Leisure: International</option>
-                            <option value="international">Business: International</option>
+                            <option value="international">Leisure: International</option>
+                            <option value="business international">Business: International</option>
                             <option value="business casual">Business: Casual</option>
                             <option value="business formal">Business: Formal</option>
                         </select>
