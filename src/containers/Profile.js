@@ -2,16 +2,29 @@ import React, {Component} from 'react';
 import  {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import ProfileAction from '../actions/ProfileAction';
 import $ from 'jquery';
-import hostAddress from '../config'
+import hostAddress from '../config';
 
 class Profile extends Component{
-	constructor(props) {
-		super(props);
-	}
+    constructor(props) {
+        super(props);
+        this.state = {
+            savedTrips: []
+        }
+    }
+
+    componentDidMount() {
+        const url = hostAddress + '/profile'
+        $.getJSON(url,(data)=>{
+            this.setState({
+                savedTrips: data
+            })
+        })
+    }
 
     render(){
-    	// console.log(this.props.registerInfo)
+        // console.log(this.props.registerInfo)
     	var userInfoArray = [
     		<div className="col-sm-2" key='1'>
     			<div>{this.props.registerInfo.name}</div>
@@ -19,6 +32,33 @@ class Profile extends Component{
     			<div>{this.props.registerInfo.gender}</div>
     		</div>
     	]
+
+        var savedTripsArray = []
+
+        this.state.savedTrips.map((trip, index)=>{
+            if((this.state.savedTrips[index].email == this.props.registerInfo.email) && (this.state.savedTrips[index].tripType == undefined)){
+                savedTripsArray.push(
+                    <div className="col-sm-offset-4 col-sm-4 text-center" key={index}>
+                        No saved trips
+                    </div>
+                )
+            }else if (this.state.savedTrips[index].email == this.props.registerInfo.email){
+                savedTripsArray.push(
+                    <div key={index}>
+                        <div className="col-sm-offset-4 col-sm-4 text-center">            
+                            <div className="saved-trips-link">
+                                <Link to="/listview">
+                                    <div className="col-sm-3">{this.state.savedTrips[index].tripType}</div>
+                                    <div className="col-sm-3">{this.state.savedTrips[index].tripSetting}</div>
+                                    <div className="col-sm-3">{this.state.savedTrips[index].destination}</div>
+                                    <div className="col-sm-3">{this.state.savedTrips[index].children}</div>
+                                </Link>
+                            </div>
+                        </div>
+                    </div> 
+                )
+            }
+        })
 
         return(
         	<div className="user-profile">
@@ -29,10 +69,21 @@ class Profile extends Component{
             		<div>Gender:</div>
             	</div>
             	{userInfoArray}
-            	<div className="route-user-info col-sm-offset-4 col-sm-4 text-center">
-            		<div><Link to="/survey">Add a Route</Link></div>
-            		<div>View Saved Routes</div>
+            	<div className="trip-user-info col-sm-offset-4 col-sm-4 text-center">
+            		<div><Link to="/survey">Add a Trip</Link></div>
             	</div>
+                <h4 className="col-sm-offset-4 col-sm-4 text-center">Saved Trips</h4>
+                <div className="col-sm-offset-4 col-sm-4 text-center">            
+                    <div className="saved-trips-link">
+                        <Link to="/listview">
+                            <div className="col-sm-3">Trip Type</div>
+                            <div className="col-sm-3">Setting</div>
+                            <div className="col-sm-3">Destination</div>
+                            <div className="col-sm-3">Children</div>
+                        </Link>
+                    </div>
+                </div>
+                {savedTripsArray}
             </div>
         )
     }
@@ -40,8 +91,15 @@ class Profile extends Component{
 
 function mapStateToProps(state){
 	return{
-		registerInfo: state.registerReducer
+		profileInfo: state.profileReducer,
+        registerInfo: state.registerReducer
 	}
 }
 
-export default connect(mapStateToProps)(Profile)
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        profileAction: ProfileAction
+    }, dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);
