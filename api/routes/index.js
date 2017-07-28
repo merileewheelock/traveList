@@ -58,10 +58,13 @@ router.post('/survey', (req, res)=>{
 					res.json(results2)
 				}
 			})
-		}
+		}  
 	})
 })
 
+// store trip you're looking for as a variable.
+
+// select * from packlist where thetripyourestoringasavariable = 1 and children = 
 
 
 router.post('/register', (req, res)=>{
