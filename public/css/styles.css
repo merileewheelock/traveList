@@ -281,6 +281,15 @@ nav a:hover:before {
   color: #cdcdcd;
 }
 
+/* line 20, ../../compass/sass/_profile.scss */
+.saved-trips-link {
+  border-bottom: solid 1px darkgray;
+}
+/* line 22, ../../compass/sass/_profile.scss */
+.saved-trips-link a {
+  color: #cdcdcd;
+}
+
 /* line 1, ../../compass/sass/_howitworks.scss */
 .hiw-container-div {
   height: 100vh;

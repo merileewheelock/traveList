@@ -76,10 +76,10 @@ class Profile extends Component{
                 <div className="col-sm-offset-4 col-sm-4 text-center">            
                     <div className="saved-trips-link">
                         <Link to="/listview">
-                            <div className="col-sm-3">Trip Type</div>
-                            <div className="col-sm-3">Setting</div>
-                            <div className="col-sm-3">Destination</div>
-                            <div className="col-sm-3">Children</div>
+                            <div className="saved-header col-sm-3">Trip Type</div>
+                            <div className="saved-header col-sm-3">Setting</div>
+                            <div className="saved-header col-sm-3">Destination</div>
+                            <div className="saved-header col-sm-3">Children</div>
                         </Link>
                     </div>
                 </div>
