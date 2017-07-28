@@ -82,21 +82,16 @@ class Survey extends Component{
                     <div className="survey question-2 text-center not-visible">
                         <h1>And what is the setting?</h1>
                         <select className="leisure">
-                            <option value="beach">On the water and in the sun!</option>
-                            <option value="winter">Snow outside and warm inside</option>
-                            <option value="camping">Something in-tents! (Intense, get it?)</option>
-                            <option value="weekend">Just a few days away from home</option>
-                            <option value="formal">Black tie</option>
-                            <option value="abroad">Trying out a new country for a change</option>
-                            <option value="space">space.</option>
-                        </select> -----This one if leisure
-                        <br/>
-                        <select className="business">
-                            <option value="international">I'm James Bond - ing it.</option>
-                            <option value="domestic">In country</option>
-                            <option value="buscasual">Business casual, fool!</option>
-                            <option value="busformal">Business formal, sir.</option>
-                        </select> ------This one if business
+                            <option value="beach">Leisure: On the water and in the sun!</option>
+                            <option value="winter">Leisure: Snow outside and warm inside</option>
+                            <option value="camping">Leisure: Something in-tents! (Intense, get it?)</option>
+                            <option value="formal">Leisure: Black tie</option>
+                            <option value="abroad">Leisure: Trying out a new country for a change</option>
+                            <option value="international">Business: I'm James Bond - ing it.</option>
+                            <option value="domestic">Business: In country</option>
+                            <option value="business casual">Business: Business casual, fool!</option>
+                            <option value="business formal">Business: Business formal, sir.</option>
+                        </select>
                     </div>
                     <div className="survey question-3 text-center not-visible">
                         <h1>Where'll it be, gov?</h1>
@@ -109,9 +104,9 @@ class Survey extends Component{
                     <div className="survey question-5 text-center not-visible">
                         <h1>Finally, will there be any kids or babies going with you?</h1>
                         <select className="children">
-                            <option value="noChildren">No. Never.</option>
-                            <option value="yesChildren">Yes, children aged beings!</option>
-                            <option value="yesBabies">Yes, babies!!!</option>
+                            <option value="none">No. Never.</option>
+                            <option value="children">Yes, children aged beings!</option>
+                            <option value="babies">Yes, babies!!!</option>
                         </select>
                     </div>
                     <button type="submit">

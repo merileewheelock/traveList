@@ -39,19 +39,19 @@ class Profile extends Component{
             if((this.state.savedTrips[index].email == this.props.registerInfo.email) && (this.state.savedTrips[index].tripType == undefined)){
                 savedTripsArray.push(
                     <div className="col-sm-offset-4 col-sm-4 text-center" key={index}>
-                        No saved routes
+                        No saved trips
                     </div>
                 )
             }else if (this.state.savedTrips[index].email == this.props.registerInfo.email){
                 savedTripsArray.push(
                     <div key={index}>
                         <div className="col-sm-offset-4 col-sm-4 text-center">            
-                            <div className="savedRoutesLink">
+                            <div className="saved-trips-link">
                                 <Link to="/listview">
-                                    <span>{this.state.savedTrips[index].tripType} | </span>
-                                    <span>{this.state.savedTrips[index].tripSetting} | </span>
-                                    <span>{this.state.savedTrips[index].destination} | </span>
-                                    <span>{this.state.savedTrips[index].children}</span>
+                                    <div className="col-sm-3">{this.state.savedTrips[index].tripType}</div>
+                                    <div className="col-sm-3">{this.state.savedTrips[index].tripSetting}</div>
+                                    <div className="col-sm-3">{this.state.savedTrips[index].destination}</div>
+                                    <div className="col-sm-3">{this.state.savedTrips[index].children}</div>
                                 </Link>
                             </div>
                         </div>
@@ -73,6 +73,16 @@ class Profile extends Component{
             		<div><Link to="/survey">Add a Trip</Link></div>
             	</div>
                 <h4 className="col-sm-offset-4 col-sm-4 text-center">Saved Trips</h4>
+                <div className="col-sm-offset-4 col-sm-4 text-center">            
+                    <div className="saved-trips-link">
+                        <Link to="/listview">
+                            <div className="col-sm-3">Trip Type</div>
+                            <div className="col-sm-3">Setting</div>
+                            <div className="col-sm-3">Destination</div>
+                            <div className="col-sm-3">Children</div>
+                        </Link>
+                    </div>
+                </div>
                 {savedTripsArray}
             </div>
         )

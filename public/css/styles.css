@@ -148,17 +148,6 @@ a:hover:before {
   overflow: hidden;
 }
 
-/* line 10, ../../compass/sass/_survey.scss */
-.not-visible, .visible {
-  width: 100vw;
-  height: 100vh;
-}
-
-/* line 16, ../../compass/sass/_survey.scss */
-.not-visible {
-  visibility: hidden;
-}
-
 /* line 20, ../../compass/sass/_survey.scss */
 .visible {
   padding-top: 15vh;
@@ -246,8 +235,12 @@ a:hover:before {
   color: #cdcdcd;
 }
 
-/* line 14, ../../compass/sass/_profile.scss */
-.savedRoutesLink a {
+/* line 13, ../../compass/sass/_profile.scss */
+.saved-trips-link {
+  border-bottom: solid 1px darkgray;
+}
+/* line 15, ../../compass/sass/_profile.scss */
+.saved-trips-link a {
   color: #cdcdcd;
 }
 
