@@ -32,7 +32,7 @@ router.get('/profile', (req, res)=>{
 })
 
 router.post('/survey', (req, res)=>{
-	// console.log(req.body)
+	console.log(req.body)
 	var tripType = req.body.tripType;
     var tripSetting = req.body.tripSetting;
     var destination = req.body.destination;
