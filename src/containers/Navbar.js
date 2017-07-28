@@ -32,8 +32,8 @@ class NavBar extends Component{
 				    
 					<ul id="menu">
 						<Link to="/"><li>Home</li></Link>
-						<Link to="/"><li>How It Works</li></Link>
-						<Link to="/"><li>About</li></Link>
+						<Link to="/howitworks"><li>How It Works</li></Link>
+						<Link to="/about"><li>About</li></Link>
 						<hr className="linebreak" />
 						{userLoginStatus}
 						{/*<Link to="/login"><li>Login</li></Link>

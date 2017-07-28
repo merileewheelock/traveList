@@ -2,41 +2,40 @@
 
 // HAMBURGER NAV MENU //
 
-nav a{
-	font-family: $header-font;
-}
+nav{
+  a{
+  	font-family: $header-font;
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+    width: 100%;
+  }
 
-a{
-  text-decoration: none;
-  color: #232323;
-  transition: color 0.3s ease;
-  width: 100%;
-}
+  a:hover{
+    color: $green;
+    text-decoration: none;
+  }
 
-a:hover{
-  color: $green;
-  text-decoration: none;
-}
+  a:before{
+  	content: "";
+  	position: absolute;
+  	width: 100%;
+  	height: 2px;
+  	bottom: 0;
+  	left: 0;
+  	background-color: $green;
+  	visibility: hidden;
+  	-webkit-transform: scaleX(0);
+  	transform: scaleX(0);
+  	-webkit-transition: all 0.3s ease-in-out 0s;
+  	transition: all 0.3s ease-in-out 0s;
+  }
 
-a:before{
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 2px;
-	bottom: 0;
-	left: 0;
-	background-color: $green;
-	visibility: hidden;
-	-webkit-transform: scaleX(0);
-	transform: scaleX(0);
-	-webkit-transition: all 0.3s ease-in-out 0s;
-	transition: all 0.3s ease-in-out 0s;
-}
-
-a:hover:before {
-	visibility: visible;
-	-webkit-transform: scaleX(1);
-	transform: scaleX(1);
+  a:hover:before{
+  	visibility: visible;
+  	-webkit-transform: scaleX(1);
+  	transform: scaleX(1);
+  }
 }
 
 #menuToggle{
@@ -135,6 +134,7 @@ a:hover:before {
 #menu li{
   padding: 10px 0;
   font-size: 22px;
+  height: 50px;
 }
 
 #menuToggle input:checked ~ ul{

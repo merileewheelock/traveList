@@ -1,24 +1,18 @@
-/* line 5, ../../compass/sass/_navbar.scss */
+/* line 6, ../../compass/sass/_navbar.scss */
 nav a {
   font-family: "Poiret One", cursive;
-}
-
-/* line 9, ../../compass/sass/_navbar.scss */
-a {
   text-decoration: none;
   color: #232323;
   transition: color 0.3s ease;
   width: 100%;
 }
-
-/* line 16, ../../compass/sass/_navbar.scss */
-a:hover {
+/* line 14, ../../compass/sass/_navbar.scss */
+nav a:hover {
   color: #00665E;
   text-decoration: none;
 }
-
-/* line 21, ../../compass/sass/_navbar.scss */
-a:before {
+/* line 19, ../../compass/sass/_navbar.scss */
+nav a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -32,15 +26,14 @@ a:before {
   -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
-
-/* line 36, ../../compass/sass/_navbar.scss */
-a:hover:before {
+/* line 34, ../../compass/sass/_navbar.scss */
+nav a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
 
-/* line 42, ../../compass/sass/_navbar.scss */
+/* line 41, ../../compass/sass/_navbar.scss */
 #menuToggle {
   display: block;
   position: relative;
@@ -51,7 +44,7 @@ a:hover:before {
   user-select: none;
 }
 
-/* line 54, ../../compass/sass/_navbar.scss */
+/* line 53, ../../compass/sass/_navbar.scss */
 #menuToggle input {
   display: block;
   width: 40px;
@@ -67,7 +60,7 @@ a:hover:before {
   -webkit-touch-callout: none;
 }
 
-/* line 70, ../../compass/sass/_navbar.scss */
+/* line 69, ../../compass/sass/_navbar.scss */
 #menuToggle span {
   display: block;
   width: 33px;
@@ -81,36 +74,36 @@ a:hover:before {
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
-/* line 89, ../../compass/sass/_navbar.scss */
+/* line 88, ../../compass/sass/_navbar.scss */
 #menuToggle span:first-child {
   transform-origin: 0% 0%;
 }
 
-/* line 93, ../../compass/sass/_navbar.scss */
+/* line 92, ../../compass/sass/_navbar.scss */
 #menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
 
-/* line 98, ../../compass/sass/_navbar.scss */
+/* line 97, ../../compass/sass/_navbar.scss */
 #menuToggle input:checked ~ span {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
   background: #005374;
 }
 
-/* line 105, ../../compass/sass/_navbar.scss */
+/* line 104, ../../compass/sass/_navbar.scss */
 #menuToggle input:checked ~ span:nth-child(2) {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
 }
 
-/* line 111, ../../compass/sass/_navbar.scss */
+/* line 110, ../../compass/sass/_navbar.scss */
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 1;
   transform: rotate(-45deg) translate(-2px, -1px);
 }
 
-/* line 116, ../../compass/sass/_navbar.scss */
+/* line 115, ../../compass/sass/_navbar.scss */
 #menu {
   position: absolute;
   width: 300px;
@@ -127,10 +120,11 @@ a:hover:before {
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-/* line 135, ../../compass/sass/_navbar.scss */
+/* line 134, ../../compass/sass/_navbar.scss */
 #menu li {
   padding: 10px 0;
   font-size: 22px;
+  height: 50px;
 }
 
 /* line 140, ../../compass/sass/_navbar.scss */
@@ -194,15 +188,16 @@ a:hover:before {
   top: 30vh;
   text-align: center;
   position: relative;
+  height: 130px;
 }
 
-/* line 13, ../../compass/sass/_home.scss */
+/* line 14, ../../compass/sass/_home.scss */
 .logo {
-  height: 180px;
+  height: 130px;
   display: inline-block;
 }
 
-/* line 18, ../../compass/sass/_home.scss */
+/* line 19, ../../compass/sass/_home.scss */
 .site-title {
   font-size: 100px;
   text-align: left;
@@ -211,15 +206,46 @@ a:hover:before {
 }
 
 @media screen only and (max-width: 960px) {
-  /* line 26, ../../compass/sass/_home.scss */
+  /* line 27, ../../compass/sass/_home.scss */
   .header-div {
     top: 10vh;
-    position: relative;
+    position: fixed;
   }
 }
 /* line 33, ../../compass/sass/_home.scss */
-.howitworks a {
-  color: pink;
+.next-page-div {
+  bottom: 0px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0px;
+  margin-bottom: 30px;
+}
+
+/* line 42, ../../compass/sass/_home.scss */
+.next-page-arrow-right, .next-page-arrow-left {
+  background-color: #E2D3C6;
+  height: 5px;
+  width: 70px;
+  display: inline-block;
+  margin: -5px;
+}
+
+/* line 50, ../../compass/sass/_home.scss */
+.next-page-arrow-left {
+  transform: rotate(25deg);
+}
+
+/* line 54, ../../compass/sass/_home.scss */
+.next-page-arrow-right {
+  transform: rotate(-25deg);
+}
+
+/* line 58, ../../compass/sass/_home.scss */
+.next-page-title {
+  font-family: "Poiret One", cursive;
+  font-size: 20px;
+  color: #E2D3C6;
 }
 
 /* line 1, ../../compass/sass/_listview.scss */
@@ -244,12 +270,22 @@ a:hover:before {
 }
 
 /* line 1, ../../compass/sass/_howitworks.scss */
+.hiw-container-div {
+  height: 100vh;
+}
+
+/* line 5, ../../compass/sass/_howitworks.scss */
+.page-title {
+  margin-top: 100px;
+}
+
+/* line 9, ../../compass/sass/_howitworks.scss */
 .how-box {
   border: solid 2px gray;
   height: 200px;
 }
 
-/* line 6, ../../compass/sass/_howitworks.scss */
+/* line 14, ../../compass/sass/_howitworks.scss */
 .how-boxes-row {
   margin-top: 100px;
 }

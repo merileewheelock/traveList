@@ -8,10 +8,11 @@
 	top: 30vh;
 	text-align: center;
 	position: relative;
+	height: 130px;
 }
 
 .logo{
-	height: 180px;
+	height: 130px;
 	display: inline-block;
 }
 
@@ -25,12 +26,37 @@
 @media screen only and (max-width: 960px){
 	.header-div{
 		top: 10vh;
-		position: relative;
+		position: fixed;
 	}
 }
 
-.howitworks{
-	a{
-		color: pink;
-	}
+.next-page-div{
+	bottom: 0px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	left: 0px;
+	margin-bottom: 30px;
+}
+
+.next-page-arrow-right, .next-page-arrow-left{
+	background-color: $tan;
+	height: 5px;
+	width: 70px;
+	display: inline-block;
+	margin: -5px;
+}
+
+.next-page-arrow-left{
+	transform: rotate(25deg);
+}
+
+.next-page-arrow-right{
+	transform: rotate(-25deg);
+}
+
+.next-page-title{
+	font-family: $header-font;
+	font-size: 20px;
+	color: $tan;
 }
