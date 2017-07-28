@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import $ from 'jquery';
 
 class NavBar extends Component{
 
@@ -8,18 +9,23 @@ class NavBar extends Component{
 		// console.log(this.props.registerInfo.name)
 		if(this.props.registerInfo.name === undefined){
 			var userLoginStatus = [
-				<Link to="/login" key="1"><li>Login</li></Link>,
-				<Link to="/register" key="2"><li>Register</li></Link>	
+				<Link to="/login" key="1"><li className="menu-item">Login</li></Link>,
+				<Link to="/register" key="2"><li className="menu-item">Register</li></Link>	
 			]
 		}else{
 			userLoginStatus = [
-				<Link to="/profile" key="1"><li>Welcome, {this.props.registerInfo.name}</li></Link>,
-				<Link to="/profile" key="2"><li>User Profile</li></Link>,	
-				<a href="http://localhost:3001/" key="3"><li>Logout</li></a>
+				<Link to="/profile" key="1"><li className="menu-item">Welcome, {this.props.registerInfo.name}</li></Link>,
+				<Link to="/profile" key="2"><li className="menu-item">User Profile</li></Link>,	
+				<a href="http://localhost:3001/" key="3"><li className="menu-item">Logout</li></a>
 				// THIS <a> TAG FORCES THE PAGE TO RERENDER AND LOGOUT. CHANGE ADDRESS WHEN LIVE.	
 			]		
 		}
 
+		$(function(){
+		 $('.menu-item').click(function(){
+		  $('input[type="checkbox"]').prop('checked', false);
+		 });
+		});
 
 		return(
 			<nav role="navigation">
@@ -31,9 +37,9 @@ class NavBar extends Component{
 					<span></span>
 				    
 					<ul id="menu">
-						<Link to="/"><li>Home</li></Link>
-						<Link to="/howitworks"><li>How It Works</li></Link>
-						<Link to="/about"><li>About</li></Link>
+						<Link to="/"><li className="menu-item">Home</li></Link>
+						<Link to="/howitworks"><li className="menu-item">How It Works</li></Link>
+						<Link to="/about"><li className="menu-item">About</li></Link>
 						<hr className="linebreak" />
 						{userLoginStatus}
 						{/*<Link to="/login"><li>Login</li></Link>
