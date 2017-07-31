@@ -16,7 +16,7 @@ class Survey extends Component{
             children: ''
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        // this.handleVisibility = this.handleVisibility.bind(this);
+        // this.handleVisbility = this.handleVisbility.bind(this);
     }
 
     handleSurvey(event){
@@ -50,9 +50,8 @@ class Survey extends Component{
         this.props.history.push('/listview');
     }
 
-    // handleVisibility(event){
+    // handleVisbility(event){
     //     return true;
-
     // }
 
 	render(){
