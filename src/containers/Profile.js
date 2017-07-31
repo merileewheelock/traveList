@@ -36,13 +36,13 @@ class Profile extends Component{
         var savedTripsArray = []
 
         this.state.savedTrips.map((trip, index)=>{
-            if((this.state.savedTrips[index].email == this.props.registerInfo.email) && (this.state.savedTrips[index].tripType == undefined)){
+            if((this.state.savedTrips[index].email === this.props.registerInfo.email) && (this.state.savedTrips[index].tripType === undefined)){
                 savedTripsArray.push(
                     <div className="col-sm-offset-4 col-sm-4 text-center" key={index}>
                         No saved trips
                     </div>
                 )
-            }else if (this.state.savedTrips[index].email == this.props.registerInfo.email){
+            }else if (this.state.savedTrips[index].email === this.props.registerInfo.email){
                 savedTripsArray.push(
                     <div key={index}>
                         <div className="col-sm-offset-4 col-sm-4 text-center">            

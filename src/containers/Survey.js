@@ -59,6 +59,7 @@ class Survey extends Component{
         if (this.state.currentQuestion === this.state.totalQuestions){
             // submit the form
             console.log("You done it!");
+            $('#next').addClass('not-visible');
             $('#submit').removeClass('not-visible');
         }else{
             $('.question-'+current).addClass('not-visible');
