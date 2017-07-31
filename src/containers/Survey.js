@@ -13,10 +13,12 @@ class Survey extends Component{
             tripSetting: '',
             destination: '',
             tripDate: '',
-            children: ''
+            children: '',
+            totalQuestions: 5,
+            currentQuestion: 1
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        // this.handleVisbility = this.handleVisbility.bind(this);
+        this.handleVisbility = this.handleVisbility.bind(this);
     }
 
     handleSurvey(event){
@@ -50,9 +52,20 @@ class Survey extends Component{
         this.props.history.push('/listview');
     }
 
-    // handleVisbility(event){
-    //     return true;
-    // }
+    handleVisbility(event){
+        console.log(this.state.currentQuestion);
+        console.log(this.state.totalQuestions);
+        var current = (this.state.currentQuestion).toString();
+        var next = (this.state.currentQuestion + 1).toString();
+        if (this.state.currentQuestion === this.state.totalQuestions){
+            // submit the form
+            console.log("You done it!");
+        }else{
+            $('.question-'+current).addClass('not-visible');
+            $('.question-'+next).removeClass('not-visible');
+            this.setState({currentQuestion: this.state.currentQuestion + 1});
+        }
+    }
 
 	render(){
 
@@ -74,6 +87,26 @@ class Survey extends Component{
         //     $(this).addClass('on');
         //     $('input[name="'+selectName+'"]').val($(this).text());
         // });
+
+        // var $questions = $('.survey');
+        // $('.survey').hide();
+        // $($questions.get(this.currentQuestion)).fadeIn();
+        // $('#next').click(()=>{
+        //     $($questions.get(this.currentQuestion)).fadeOut(()=>{
+        //         this.setState({
+        //             currentQuestion: this.currentQuestion + 1
+        //         })
+        //         if (this.currentQuestion == this.totalQuestions){
+        //             // submit the form
+        //             console.log(this.currentQuestion)
+        //         }else{
+        //             $($questions.get(this.currentQuestion)).fadeIn();
+        //         }
+        //     })
+        // })
+
+
+
 
 		return(
 			<div className="survey-box text-center">
@@ -115,6 +148,7 @@ class Survey extends Component{
                             <option value="childrenAndBabies">Children AND babies!</option>
                         </select>
                     </div>
+                    <div id="next" onClick={this.handleVisbility}>Next</div>
                     <button type="submit">
                         Submit
                     </button>
