@@ -30,7 +30,7 @@ class ListView extends Component{
 			this.setState({
 				listData: data
 			})
-			console.log(this.state.listData)
+			// console.log(this.state.listData)
 		})
 	}
 
@@ -43,7 +43,7 @@ class ListView extends Component{
 		this.state.listData.map((listItem, index)=>{
 			if(this.state.listData[index].itemCategory !== lastCategory){
 				listArray.push(
-					<div className="col-sm-offset-6" key={index}>
+					<div className="col-sm-offset-6" key={this.state.listData[index].id}>
 						<h3 className="category-title">{this.state.listData[index].itemCategory}</h3>
 					</div>
 				)
@@ -51,7 +51,7 @@ class ListView extends Component{
 				key++;
 			}
 			listArray.push(
-				<div key={index}>
+				<div key={this.state.listData[index].id}>
                 	<div className="col-sm-6 text-right">
 						<input type="checkbox" />
 						<span className="slider round"></span>

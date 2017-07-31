@@ -8,36 +8,28 @@ class Survey extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            surveyStatus: '1',
-            tripType: '',
-            tripSetting: '',
-            destination: '',
-            tripDate: '',
-            children: ''
+            surveyStatus: '1'
         }
         this.handleSurvey = this.handleSurvey.bind(this);
         // this.handleVisbility = this.handleVisbility.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.handleSurvey(nextProps)
+    }
+
     handleSurvey(event){
+
         // console.dir(event.target)
         event.preventDefault();
 
-        console.log('handle survey')
-        console.log('children')
-        console.log(children)
 
         var tripType = event.target.childNodes[0].childNodes[1].value;
         var tripSetting = event.target.childNodes[1].childNodes[1].value;
         var destination = event.target.childNodes[2].childNodes[1].value;
         var tripDate = event.target.childNodes[3].childNodes[1].value;
         var children = event.target.childNodes[4].childNodes[1].value;
-
         var token = this.props.loginInfo.token
-
-        console.log('children')
-        console.log(children)
-        console.log('')
 
         this.props.surveyAction({
             tripType: tripType,
@@ -77,7 +69,7 @@ class Survey extends Component{
 
 		return(
 			<div className="survey-box text-center">
-				<form method="get" onSubmit={this.handleSurvey}>
+				<form id="formSubmit" method="get" onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What type of trip is this?</h1>
                         <select className="tripType">
