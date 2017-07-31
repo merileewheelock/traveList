@@ -8,22 +8,36 @@ class Survey extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            surveyStatus: '1'
+
+            surveyStatus: '1',
+            tripType: '',
+            tripSetting: '',
+            destination: '',
+            tripDate: '',
+            children: '',
+            totalQuestions: 5,
+            currentQuestion: 1
+
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        // this.handleVisbility = this.handleVisbility.bind(this);
+        this.handleVisbility = this.handleVisbility.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.handleSurvey(nextProps)
     }
 
     handleSurvey(event){
+
         // console.dir(event.target)
         event.preventDefault();
+
 
         var tripType = event.target.childNodes[0].childNodes[1].value;
         var tripSetting = event.target.childNodes[1].childNodes[1].value;
         var destination = event.target.childNodes[2].childNodes[1].value;
         var tripDate = event.target.childNodes[3].childNodes[1].value;
         var children = event.target.childNodes[4].childNodes[1].value;
-
         var token = this.props.loginInfo.token
 
         this.props.surveyAction({
@@ -34,39 +48,30 @@ class Survey extends Component{
             children: children,
             token: token
         });
+        this.props.history.push('/listview');
     }
 
-    handleVisibility(event){
-        return true;
-
+    handleVisbility(event){
+        console.log(this.state.currentQuestion);
+        console.log(this.state.totalQuestions);
+        var current = (this.state.currentQuestion).toString();
+        var next = (this.state.currentQuestion + 1).toString();
+        if (this.state.currentQuestion === this.state.totalQuestions){
+            // submit the form
+            console.log("You done it!");
+            $('#submit').removeClass('not-visible');
+        }else{
+            $('.question-'+current).addClass('not-visible');
+            $('.question-'+next).removeClass('not-visible');
+            this.setState({currentQuestion: this.state.currentQuestion + 1});
+        }
     }
-
-
 
 	render(){
 
-        // var selectName = $('select').attr('name');
-
-        // // add a hidden element with the same name as the select
-        // var hidden = $('<input type="hidden" name="'+selectName+'">');
-        // hidden.val($('select').val());
-        // hidden.insertAfter($('select'));
-
-        // $("select option").unwrap().each(function() {
-        //     var btn = $('<div class="btn">'+$(this).text()+'</div>');
-        //     if($(this).is(':checked')) btn.addClass('on');
-        //     $(this).replaceWith(btn);
-        // });
-
-        // $(document).on('click', '.btn', function() {
-        //     $('.btn').removeClass('on');
-        //     $(this).addClass('on');
-        //     $('input[name="'+selectName+'"]').val($(this).text());
-        // });
-
 		return(
 			<div className="survey-box text-center">
-				<form method="get" onSubmit={this.handleSurvey}>
+				<form id="formSubmit" method="get" onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What type of trip is this?</h1>
                         <select className="tripType">
@@ -101,9 +106,12 @@ class Survey extends Component{
                             <option value="none">No children</option>
                             <option value="children">Yes, children will be joining</option>
                             <option value="babies">Yes, babies will be joining</option>
+                            <option value="childrenAndBabies">Children AND babies!</option>
                         </select>
                     </div>
-                    <button type="submit">
+                    <div id="next" onClick={this.handleVisbility}>Next</div>
+                    <br/>
+                    <button id="submit" type="submit" className="not-visible">
                         Submit
                     </button>
                 </form>

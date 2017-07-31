@@ -15,12 +15,12 @@ connection.connect();
 
 
 
-router.get('/listview', (req, res)=> {
-	connection.query('SELECT * FROM packList', (error, results)=>{
-		if (error) throw error;
-		res.json(results);
-	})
-})
+// router.get('/listview', (req, res)=> {
+// 	connection.query('SELECT * FROM packList', (error, results)=>{
+// 		if (error) throw error;
+// 		res.json(results);
+// 	})
+// })
 
 router.get('/profile', (req, res)=>{
 	profileQuery = `SELECT * FROM users
@@ -61,11 +61,22 @@ router.post('/survey', (req, res)=>{
     }
 
     var childrenWhereClause = ""
-    
+    if (children == 'children'){
+    	childrenWhereClause += `${tripSettingWhereClause} AND babyItem = 0`
+    }else if (children == 'babies'){
+    	childrenWhereClause += `${tripSettingWhereClause} AND childItem = 0`
+    }else if (children == 'none'){
+    	childrenWhereClause += `${tripSettingWhereClause} AND babyItem = 0 AND childItem = 0`
+    }else if (children == 'childrenAndBabies'){
+    	childrenWhereClause += `${tripSettingWhereClause}`
+    }
+
+    console.log(children)
+    console.log(childrenWhereClause)
 
     const getUidQuery = `SELECT id from users WHERE token=?`
 	connection.query(getUidQuery, [token], (error,results)=>{
-		console.log(token)
+		// console.log(token)
 		if(error) throw error;
 		if(results.length == 0 ){
 			res.json({msg:"badToken"})
@@ -74,20 +85,22 @@ router.post('/survey', (req, res)=>{
 			const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
 				VALUES (?,?,?,?,?,?)`
 			connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
-				// router.get('/survey', (req,res)=>{
-					const createListQuery = `SELECT * from packList WHERE 1 ${tripSettingWhereClause}`
+				// THIS TAKES US FROM THE SURVEY TO THE LISTVIEW
+				// console.log(results2)
+				// res.redirect('/listview')
+				router.get('/listview', (req,res)=>{
+					// console.log('Query has fired!!!!!!!!!')
+					const createListQuery = `SELECT * from packList WHERE 1 ${childrenWhereClause}`
+					console.log(createListQuery)
 					connection.query(createListQuery, (error3,results3)=>{
-						console.log(results3)
+						// console.log(results3)
+						if (error3) throw error3;
+						res.json(results3);
 					})
-				// })	
+
+				})	
 			})
 		}
-
-
-	// Update redux state with results
-	// Redirect list page
-
-
 	})
 })
 

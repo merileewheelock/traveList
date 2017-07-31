@@ -138,17 +138,33 @@ nav a:hover {
   overflow: hidden;
 }
 
-/* line 20, ../../compass/sass/_survey.scss */
-.visible {
+/* line 10, ../../compass/sass/_survey.scss */
+div#next {
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* line 14, ../../compass/sass/_survey.scss */
+div#next:hover {
+  color: cyan;
+}
+
+/* line 18, ../../compass/sass/_survey.scss */
+.not-visible {
+  display: none;
+}
+
+/* line 22, ../../compass/sass/_survey.scss */
+.survey {
   padding-top: 15vh;
 }
-/* line 25, ../../compass/sass/_survey.scss */
-.visible input {
+/* line 27, ../../compass/sass/_survey.scss */
+.survey input {
   height: 200px;
   width: 200px;
 }
 
-/* line 31, ../../compass/sass/_survey.scss */
+/* line 33, ../../compass/sass/_survey.scss */
 .btn {
   display: inline-block;
   border: 2px solid #ccc;
@@ -157,7 +173,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* line 38, ../../compass/sass/_survey.scss */
+/* line 40, ../../compass/sass/_survey.scss */
 .btn.on {
   background-color: #777;
   color: white;
