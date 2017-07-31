@@ -8,15 +8,24 @@ class Survey extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            surveyStatus: '1'
+            surveyStatus: '1',
+            tripType: '',
+            tripSetting: '',
+            destination: '',
+            tripDate: '',
+            children: ''
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        this.handleVisbility = this.handleVisbility.bind(this);
+        // this.handleVisibility = this.handleVisibility.bind(this);
     }
 
     handleSurvey(event){
         // console.dir(event.target)
         event.preventDefault();
+
+        console.log('handle survey')
+        console.log('children')
+        console.log(children)
 
         var tripType = event.target.childNodes[0].childNodes[1].value;
         var tripSetting = event.target.childNodes[1].childNodes[1].value;
@@ -26,6 +35,10 @@ class Survey extends Component{
 
         var token = this.props.loginInfo.token
 
+        console.log('children')
+        console.log(children)
+        console.log('')
+
         this.props.surveyAction({
             tripType: tripType,
             tripSetting: tripSetting,
@@ -34,35 +47,34 @@ class Survey extends Component{
             children: children,
             token: token
         });
+        this.props.history.push('/listview');
     }
 
-    handleVisibility(event){
-        return true;
+    // handleVisibility(event){
+    //     return true;
 
-    }
-
-
+    // }
 
 	render(){
 
-        var selectName = $('select').attr('name');
+        // var selectName = $('select').attr('name');
 
-        // add a hidden element with the same name as the select
-        var hidden = $('<input type="hidden" name="'+selectName+'">');
-        hidden.val($('select').val());
-        hidden.insertAfter($('select'));
+        // // add a hidden element with the same name as the select
+        // var hidden = $('<input type="hidden" name="'+selectName+'">');
+        // hidden.val($('select').val());
+        // hidden.insertAfter($('select'));
 
-        $("select option").unwrap().each(function() {
-            var btn = $('<div class="btn">'+$(this).text()+'</div>');
-            if($(this).is(':checked')) btn.addClass('on');
-            $(this).replaceWith(btn);
-        });
+        // $("select option").unwrap().each(function() {
+        //     var btn = $('<div class="btn">'+$(this).text()+'</div>');
+        //     if($(this).is(':checked')) btn.addClass('on');
+        //     $(this).replaceWith(btn);
+        // });
 
-        $(document).on('click', '.btn', function() {
-            $('.btn').removeClass('on');
-            $(this).addClass('on');
-            $('input[name="'+selectName+'"]').val($(this).text());
-        });
+        // $(document).on('click', '.btn', function() {
+        //     $('.btn').removeClass('on');
+        //     $(this).addClass('on');
+        //     $('input[name="'+selectName+'"]').val($(this).text());
+        // });
 
 		return(
 			<div className="survey-box text-center">
@@ -101,6 +113,7 @@ class Survey extends Component{
                             <option value="none">No children</option>
                             <option value="children">Yes, children will be joining</option>
                             <option value="babies">Yes, babies will be joining</option>
+                            <option value="childrenAndBabies">Children AND babies!</option>
                         </select>
                     </div>
                     <button type="submit">

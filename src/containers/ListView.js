@@ -14,6 +14,12 @@ class ListView extends Component{
 		this.getListItems = this.getListItems.bind(this);
 	}
 
+	componentWillMount() {
+		if(this.props.loginInfo.token !== undefined){
+			this.props.listAction(this.props.loginInfo.token)
+		}
+	}
+
 	componentDidMount() {
 		this.getListItems(this.props);
 	}
@@ -66,7 +72,8 @@ class ListView extends Component{
 
 function mapStateToProps(state){
 	return{
-		listView: state.ListReducer
+		listView: state.ListReducer,
+		loginInfo: state.registerReducer
 	}
 }
 
