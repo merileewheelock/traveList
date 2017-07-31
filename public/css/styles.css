@@ -136,10 +136,33 @@ nav a:hover {
 .visible {
   padding-top: 15vh;
 }
+
+div#next{
+  cursor: pointer;
+  display: inline-block;
+}
+div#next:hover{
+  color: cyan;
+}
+
+.not-visible{
+  display: none;
+}
 /* line 25, ../../compass/sass/_survey.scss */
 .visible input {
   height: 200px;
   width: 200px;
+}
+
+.survey{
+  padding-top: 15vh;
+/*   // transform: translate(0,-100vw);
+  // transition-timing-function: ease-out;
+  // transition-duration: 1s; */
+  input{
+    height: 200px;
+    width: 200px;
+  }
 }
 
 /* line 31, ../../compass/sass/_survey.scss */

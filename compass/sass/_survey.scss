@@ -7,17 +7,19 @@
 	overflow: hidden;
 }
 
-.not-visible, .visible{
-	// width: 100vw;
-	// height: 100vh;
-	
+div#next{
+  cursor: pointer;
+  display: inline-block;
+}
+div#next:hover{
+  color: cyan;
 }
 
 .not-visible{
-	// visibility: hidden;
+	display: none;
 }
 
-.visible{
+.survey{
 	padding-top: 15vh;
 	// transform: translate(0,-100vw);
 	// transition-timing-function: ease-out;
