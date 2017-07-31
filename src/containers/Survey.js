@@ -11,7 +11,7 @@ class Survey extends Component{
             surveyStatus: '1'
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        this.handleVisbility = this.handleVisbility.bind(this);
+        // this.handleVisbility = this.handleVisbility.bind(this);
     }
 
     handleSurvey(event){
@@ -36,10 +36,10 @@ class Survey extends Component{
         });
     }
 
-    handleVisibility(event){
-        return true;
+    // handleVisibility(event){
+    //     return true;
 
-    }
+    // }
 
 
 
