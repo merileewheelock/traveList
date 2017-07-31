@@ -8,9 +8,7 @@ class Survey extends Component{
     constructor(props) {
         super(props);
         this.state = {
-<<<<<<< HEAD
-            surveyStatus: '1'
-=======
+
             surveyStatus: '1',
             tripType: '',
             tripSetting: '',
@@ -19,7 +17,7 @@ class Survey extends Component{
             children: '',
             totalQuestions: 5,
             currentQuestion: 1
->>>>>>> 52618a53b1123c86abb9d39f5db94eafa24adad0
+
         }
         this.handleSurvey = this.handleSurvey.bind(this);
         this.handleVisbility = this.handleVisbility.bind(this);
