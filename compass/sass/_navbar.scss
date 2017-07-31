@@ -3,6 +3,9 @@
 // HAMBURGER NAV MENU //
 
 nav{
+  position: fixed;
+  left: 0px;
+  top: 0px;
   a{
   	font-family: $header-font;
     text-decoration: none;

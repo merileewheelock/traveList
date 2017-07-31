@@ -11,7 +11,7 @@ class Survey extends Component{
             surveyStatus: '1'
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        this.handleVisbility = this.handleVisbility.bind(this);
+        // this.handleVisbility = this.handleVisbility.bind(this);
     }
 
     handleSurvey(event){
@@ -45,24 +45,24 @@ class Survey extends Component{
 
 	render(){
 
-        var selectName = $('select').attr('name');
+        // var selectName = $('select').attr('name');
 
-        // add a hidden element with the same name as the select
-        var hidden = $('<input type="hidden" name="'+selectName+'">');
-        hidden.val($('select').val());
-        hidden.insertAfter($('select'));
+        // // add a hidden element with the same name as the select
+        // var hidden = $('<input type="hidden" name="'+selectName+'">');
+        // hidden.val($('select').val());
+        // hidden.insertAfter($('select'));
 
-        $("select option").unwrap().each(function() {
-            var btn = $('<div class="btn">'+$(this).text()+'</div>');
-            if($(this).is(':checked')) btn.addClass('on');
-            $(this).replaceWith(btn);
-        });
+        // $("select option").unwrap().each(function() {
+        //     var btn = $('<div class="btn">'+$(this).text()+'</div>');
+        //     if($(this).is(':checked')) btn.addClass('on');
+        //     $(this).replaceWith(btn);
+        // });
 
-        $(document).on('click', '.btn', function() {
-            $('.btn').removeClass('on');
-            $(this).addClass('on');
-            $('input[name="'+selectName+'"]').val($(this).text());
-        });
+        // $(document).on('click', '.btn', function() {
+        //     $('.btn').removeClass('on');
+        //     $(this).addClass('on');
+        //     $('input[name="'+selectName+'"]').val($(this).text());
+        // });
 
 		return(
 			<div className="survey-box text-center">

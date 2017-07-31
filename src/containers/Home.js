@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class Home extends Component{
 	render(){
@@ -7,7 +7,7 @@ class Home extends Component{
 		
 
 		return(
-			<div className="container homepage">
+			<div className="container homepage" id="home">
 				<div className="header-div">
 					<img className="logo" src="/images/travelist_logo_white.png" alt="travelistLogo" />
 					<h1 className="site-title">traveList</h1>

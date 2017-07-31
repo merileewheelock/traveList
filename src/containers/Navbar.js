@@ -9,13 +9,13 @@ class NavBar extends Component{
 		// console.log(this.props.registerInfo.name)
 		if(this.props.registerInfo.name === undefined){
 			var userLoginStatus = [
-				<Link to="/login" key="1"><li className="menu-item">Login</li></Link>,
-				<Link to="/register" key="2"><li className="menu-item">Register</li></Link>	
+				<li className="menu-item"><Link to="/login" key="1">Login</Link></li>,
+				<li className="menu-item"><Link to="/register" key="2">Register</Link></li>	
 			]
 		}else{
 			userLoginStatus = [
-				<Link to="/profile" key="1"><li className="menu-item">Welcome, {this.props.registerInfo.name}</li></Link>,
-				<Link to="/profile" key="2"><li className="menu-item">User Profile</li></Link>,	
+				<li className="menu-item"><Link to="/profile" key="1">Welcome, {this.props.registerInfo.name}</Link></li>,
+				<li className="menu-item"><Link to="/profile" key="2">User Profile</Link></li>,	
 				<a href="http://localhost:3001/" key="3"><li className="menu-item">Logout</li></a>
 				// THIS <a> TAG FORCES THE PAGE TO RERENDER AND LOGOUT. CHANGE ADDRESS WHEN LIVE.	
 			]		
@@ -37,9 +37,9 @@ class NavBar extends Component{
 					<span></span>
 				    
 					<ul id="menu">
-						<Link to="/"><li className="menu-item">Home</li></Link>
-						<Link to="/howitworks"><li className="menu-item">How It Works</li></Link>
-						<Link to="/about"><li className="menu-item">About</li></Link>
+						<li className="menu-item"><a href="/#home">Home</a></li>
+						<li className="menu-item"><a href="#howitworks">How It Works</a></li>
+						<li className="menu-item"><a href="#about">About</a></li>
 						<hr className="linebreak" />
 						{userLoginStatus}
 						{/*<Link to="/login"><li>Login</li></Link>
