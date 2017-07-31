@@ -7,10 +7,12 @@
 	overflow: hidden;
 }
 
-.not-visible, .visible{
-	// width: 100vw;
-	// height: 100vh;
-	
+div#next{
+  cursor: pointer;
+  display: inline-block;
+}
+div#next:hover{
+  color: cyan;
 }
 
 .not-visible{

@@ -60,6 +60,7 @@ class Survey extends Component{
         if (this.state.currentQuestion === this.state.totalQuestions){
             // submit the form
             console.log("You done it!");
+            $('#submit').removeClass('not-visible');
         }else{
             $('.question-'+current).addClass('not-visible');
             $('.question-'+next).removeClass('not-visible');
@@ -68,45 +69,6 @@ class Survey extends Component{
     }
 
 	render(){
-
-        // var selectName = $('select').attr('name');
-
-        // // add a hidden element with the same name as the select
-        // var hidden = $('<input type="hidden" name="'+selectName+'">');
-        // hidden.val($('select').val());
-        // hidden.insertAfter($('select'));
-
-        // $("select option").unwrap().each(function() {
-        //     var btn = $('<div class="btn">'+$(this).text()+'</div>');
-        //     if($(this).is(':checked')) btn.addClass('on');
-        //     $(this).replaceWith(btn);
-        // });
-
-        // $(document).on('click', '.btn', function() {
-        //     $('.btn').removeClass('on');
-        //     $(this).addClass('on');
-        //     $('input[name="'+selectName+'"]').val($(this).text());
-        // });
-
-        // var $questions = $('.survey');
-        // $('.survey').hide();
-        // $($questions.get(this.currentQuestion)).fadeIn();
-        // $('#next').click(()=>{
-        //     $($questions.get(this.currentQuestion)).fadeOut(()=>{
-        //         this.setState({
-        //             currentQuestion: this.currentQuestion + 1
-        //         })
-        //         if (this.currentQuestion == this.totalQuestions){
-        //             // submit the form
-        //             console.log(this.currentQuestion)
-        //         }else{
-        //             $($questions.get(this.currentQuestion)).fadeIn();
-        //         }
-        //     })
-        // })
-
-
-
 
 		return(
 			<div className="survey-box text-center">
@@ -149,7 +111,8 @@ class Survey extends Component{
                         </select>
                     </div>
                     <div id="next" onClick={this.handleVisbility}>Next</div>
-                    <button type="submit">
+                    <br/>
+                    <button id="submit" type="submit" className="not-visible">
                         Submit
                     </button>
                 </form>
