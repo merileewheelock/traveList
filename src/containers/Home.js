@@ -15,7 +15,7 @@ class Home extends Component{
 		});	
 
 		return(
-			<div className="container homepage" id="home">
+			<div className="homepage" id="home">
 				<div className="header-div">
 					<img className="logo" src="/images/travelist_logo_white.png" alt="travelistLogo" />
 					<h1 className="site-title">traveList</h1>
