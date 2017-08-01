@@ -3,6 +3,7 @@
 // HAMBURGER NAV MENU //
 
 nav{
+  z-index: 3;
   position: fixed;
   left: 0px;
   top: 0px;
@@ -128,7 +129,7 @@ nav{
   opacity: 1;
 }
 
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 380px){
   #menu{
     width: 100%;
   }

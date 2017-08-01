@@ -12,8 +12,9 @@
 }
 
 .logo{
-	height: 130px;
+	height: 100px;
 	display: inline-block;
+	margin-top: -80px;
 }
 
 .site-title{
@@ -21,6 +22,35 @@
 	text-align: left;
 	display: inline-block;
 	margin-left: 20px;
+	line-height: 100px;
+}
+
+.get-started-button{
+	height: 50px;
+	width: 250px;
+	color: $light-blue;
+	background-color: #232323;
+	border: solid 2px $med-blue;
+	border-radius: 10px;
+	font-family: $header-font;
+	font-size: 20px;
+	letter-spacing: 3px;
+	margin-top: 5vh;
+	outline: none;
+}
+
+.get-started-button:hover{
+	color: $green;
+	background-color: $tan;
+	border: solid 2px $green;
+	outline: none;
+}
+
+.get-started-button:active{
+	color: $tan;
+	background-color: $med-blue;
+	border: solid 2px $tan;
+	outline: none;
 }
 
 @media screen only and (max-width: 960px){
