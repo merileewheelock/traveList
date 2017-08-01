@@ -20,7 +20,7 @@ class Survey extends Component{
 
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        this.handleVisbility = this.handleVisbility.bind(this);
+        this.handleVisibility = this.handleVisbility.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -48,10 +48,10 @@ class Survey extends Component{
             children: children,
             token: token
         });
-        this.props.history.push('/listview');
+        
     }
 
-    handleVisbility(event){
+    handleVisibility(event){
         console.log(this.state.currentQuestion);
         console.log(this.state.totalQuestions);
         var current = (this.state.currentQuestion).toString();
@@ -70,9 +70,14 @@ class Survey extends Component{
 
 	render(){
 
+        console.log(this.props.surveyResponse)
+        if(this.props.surveyResponse != []){
+            this.props.history.push('/listview');
+        }
+
 		return(
 			<div className="survey-box text-center">
-				<form id="formSubmit" method="get" onSubmit={this.handleSurvey}>
+				<form id="formSubmit" method="post" onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What type of trip is this?</h1>
                         <select className="tripType">

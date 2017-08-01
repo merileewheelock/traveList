@@ -3,7 +3,7 @@ import hostAddress from '../config'
 
 export default function(listData){
 	var request = $.ajax({
-		method: "GET",
+		method: "POST",
 		url: hostAddress + '/listview',
 		data: listData
 	})

@@ -26,11 +26,13 @@ class ListView extends Component{
 
 	getListItems(props){
 		const url = hostAddress + '/listview'
-		$.getJSON(url,(data)=>{
-			this.setState({
-				listData: data
-			})
-			// console.log(this.state.listData)
+		$.ajax({
+			method: "POST",
+			url: hostAddress + '/listview',
+			data: {
+				surveyId: this.props.surveyId,
+				token: this.props.loginInfo.token
+			}
 		})
 	}
 
@@ -38,25 +40,25 @@ class ListView extends Component{
 
 		var listArray = [];
 		var lastCategory = "";
-		var key = 0;
+		// var key = 0;
 
 		this.state.listData.map((listItem, index)=>{
-			if(this.state.listData[index].itemCategory !== lastCategory){
+			if(listItem.itemCategory !== lastCategory){
 				listArray.push(
-					<div className="col-sm-offset-6" key={this.state.listData[index].id}>
-						<h3 className="category-title">{this.state.listData[index].itemCategory}</h3>
+					<div className="col-sm-offset-6" key={listItem.id}>
+						<h3 className="category-title">{listItem.itemCategory}</h3>
 					</div>
 				)
-				lastCategory = this.state.listData[index].itemCategory;
-				key++;
+				lastCategory = listItem.itemCategory;
+				// key++;
 			}
 			listArray.push(
-				<div key={this.state.listData[index].id}>
+				<div key={listItem.id}>
                 	<div className="col-sm-6 text-right">
 						<input type="checkbox" />
 						<span className="slider round"></span>
 					</div>
-                	<div className="col-sm-6 item">{this.state.listData[index].item}</div>
+                	<div className="col-sm-6 item">{listItem.item}</div>
                 </div> 
 			)
 		})
@@ -73,7 +75,8 @@ class ListView extends Component{
 function mapStateToProps(state){
 	return{
 		listView: state.ListReducer,
-		loginInfo: state.registerReducer
+		loginInfo: state.registerReducer,
+		surveyId: state.surveyReducer
 	}
 }
 

@@ -14,14 +14,6 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
-
-// router.get('/listview', (req, res)=> {
-// 	connection.query('SELECT * FROM packList', (error, results)=>{
-// 		if (error) throw error;
-// 		res.json(results);
-// 	})
-// })
-
 router.get('/profile', (req, res)=>{
 	profileQuery = `SELECT * FROM users
 	LEFT JOIN tripInfo ON users.id = tripInfo.uid`
@@ -41,38 +33,38 @@ router.post('/survey', (req, res)=>{
     var token = req.body.token;
     // console.log(token)
 
-    var tripSettingWhereClause = ""
+    var tripSettingCheck = ""
     if (tripSetting == 'beach'){
-    	tripSettingWhereClause += ' AND beach = 1'
+    	tripSettingCheck += ' AND beach = 1'
     }else if (tripSetting == 'winter'){
-    	tripSettingWhereClause += ' AND winter = 1'
+    	tripSettingCheck += ' AND winter = 1'
     }else if (tripSetting == 'camping'){
-    	tripSettingWhereClause += ' AND camping = 1'
+    	tripSettingCheck += ' AND camping = 1'
     }else if (tripSetting == 'formal'){
-    	tripSettingWhereClause += ' AND formal = 1'
+    	tripSettingCheck += ' AND formal = 1'
     }else if (tripSetting == 'international'){
-    	tripSettingWhereClause += ' AND international = 1'
+    	tripSettingCheck += ' AND international = 1'
     }else if (tripSetting == 'business international'){
-    	tripSettingWhereClause += ' AND businessInternational = 1'
+    	tripSettingCheck += ' AND businessInternational = 1'
     }else if (tripSetting == 'business casual'){
-    	tripSettingWhereClause += ' AND businessCasual = 1'
+    	tripSettingCheck += ' AND businessCasual = 1'
     }else if (tripSetting == 'business formal'){
-    	tripSettingWhereClause += ' AND businessFormal = 1'
+    	tripSettingCheck += ' AND businessFormal = 1'
     }
 
-    var childrenWhereClause = ""
+    var childrenCheck = ""
     if (children == 'children'){
-    	childrenWhereClause += `${tripSettingWhereClause} AND babyItem = 0`
+    	childrenCheck += `${tripSettingCheck} AND childJoining = 1`
     }else if (children == 'babies'){
-    	childrenWhereClause += `${tripSettingWhereClause} AND childItem = 0`
+    	childrenCheck += `${tripSettingCheck} AND babyJoining = 1`
     }else if (children == 'none'){
-    	childrenWhereClause += `${tripSettingWhereClause} AND babyItem = 0 AND childItem = 0`
+    	childrenCheck += `${tripSettingCheck} AND noChildren = 1`
     }else if (children == 'childrenAndBabies'){
-    	childrenWhereClause += `${tripSettingWhereClause}`
+    	childrenCheck += `${tripSettingCheck} AND childAndBaby = 1`
     }
 
     console.log(children)
-    console.log(childrenWhereClause)
+    console.log(childrenCheck)
 
     const getUidQuery = `SELECT id from users WHERE token=?`
 	connection.query(getUidQuery, [token], (error,results)=>{
@@ -85,29 +77,51 @@ router.post('/survey', (req, res)=>{
 			const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
 				VALUES (?,?,?,?,?,?)`
 			connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
-				// THIS TAKES US FROM THE SURVEY TO THE LISTVIEW
-				// console.log(results2)
-				// res.redirect('/listview')
-				router.get('/listview', (req,res)=>{
-					// console.log('Query has fired!!!!!!!!!')
-					const createListQuery = `SELECT * from packList WHERE 1 ${childrenWhereClause}`
-					console.log(createListQuery)
-					connection.query(createListQuery, (error3,results3)=>{
-						// console.log(results3)
-						if (error3) throw error3;
-						res.json(results3);
-					})
+				if (error2) throw error;
+				res.json({tripInfoId: results2.insertId})
+				console.log(results2)
 
-				})	
+				// const checkGender = `SELECT * FROM users WHERE gender =?`
+				
+				// res.redirect(`/listview?childrenCheck=${childrenCheck}`)
+				// const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
+				// console.log(createListQuery)
+				// connection.query(createListQuery, (error3,results3)=>{
+				// 	// console.log(results3)
+				// 	if (error3) throw error3;
+				// 	res.json(results3);
+				// })
+
+				// router.get('/listview', (req,res)=>{
+				// 	// console.log('Query has fired!!!!!!!!!')
+				// 	const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
+				// 	console.log(createListQuery)
+				// 	connection.query(createListQuery, (error3,results3)=>{
+				// 		// console.log(results3)
+				// 		if (error3) throw error3;
+				// 		res.json(results3);
+				// 	})
+
+				// })	
 			})
 		}
 	})
 })
 
-// store trip you're looking for as a variable.
-
-// select * from packlist where thetripyourestoringasavariable = 1 and children = 
-
+router.post('/listview', (req,res)=>{
+	res.json(req.body)
+	// surveyId = req.body.surveyId
+	// token = req.body.token
+	// console.log(surveyId)
+	// console.log(token)
+	// const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
+	// console.log(createListQuery)
+	// connection.query(createListQuery, (error3,results3)=>{
+	// 	// console.log(results3)
+	// 	if (error3) throw error3;
+	// 	res.json(results3);
+	// })
+})	
 
 router.post('/register', (req, res)=>{
 	var email = req.body.email;
@@ -166,7 +180,7 @@ router.post('/login', (req, res)=>{
 					WHERE email=?`;
 				var token = randToken.uid(40);
 				connection.query(updateToken, [token,email], (error2, results2)=>{
-					console.log(token)
+					// console.log(token)
 					res.json({
 						msg: 'loginSuccess',
 						token: token,
