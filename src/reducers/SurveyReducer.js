@@ -1,9 +1,13 @@
-export default function(state = [], action){
+export default function(state = null, action) {
+
+	console.log('Survey Reducer Action.Type')
 	console.log(action.type)
-	if (action.type === "SURVEY"){
-		console.log(action.payload)
-		return action.payload;
-	}else{
-		return state;
-	}
+
+  switch (action.type) {
+  case "SURVEY":
+  	console.log('Action.Payload.TripInfoId')
+  	console.log(action.payload.tripInfoId)
+    return action.payload.tripInfoId
+  }
+  return state;
 }

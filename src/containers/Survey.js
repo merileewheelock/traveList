@@ -20,18 +20,20 @@ class Survey extends Component{
 
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        this.handleVisibility = this.handleVisbility.bind(this);
+        this.handleVisibility = this.handleVisibility.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
-        this.handleSurvey(nextProps)
+        if(nextProps.surveyResponse != null){
+            console.log("Going to /listview")
+            console.log(nextProps.surveyResponse)
+            this.props.history.push('/listview');
+        }
     }
 
     handleSurvey(event){
-
         // console.dir(event.target)
         event.preventDefault();
-
 
         var tripType = event.target.childNodes[0].childNodes[1].value;
         var tripSetting = event.target.childNodes[1].childNodes[1].value;
@@ -47,36 +49,40 @@ class Survey extends Component{
             tripDate: tripDate,
             children: children,
             token: token
-        });
-        
+        });   
     }
 
     handleVisibility(event){
-        console.log(this.state.currentQuestion);
-        console.log(this.state.totalQuestions);
+        // console.log(this.state.currentQuestion);
+        // console.log(this.state.totalQuestions);
         var current = (this.state.currentQuestion).toString();
         var next = (this.state.currentQuestion + 1).toString();
         if (this.state.currentQuestion === this.state.totalQuestions){
             // submit the form
-            console.log("You done it!");
+            // console.log("You done it!");
             $('#next').addClass('not-visible');
             $('#submit').removeClass('not-visible');
         }else{
             $('.question-'+current).addClass('not-visible');
             $('.question-'+next).removeClass('not-visible');
-            this.setState({currentQuestion: this.state.currentQuestion + 1});
+        var currentQuestionUpdate = this.state.currentQuestion + 1
+            this.setState({
+                currentQuestion: currentQuestionUpdate
+            });
         }
     }
 
 	render(){
+        console.log("*********************")
+        console.log(this.props.reduxState)
+        console.log("*********************")
 
         console.log(this.props.surveyResponse)
-        if(this.props.surveyResponse != []){
-            this.props.history.push('/listview');
-        }
+        
 
 		return(
 			<div className="survey-box text-center">
+                <h1>{this.props.surveyResponse}</h1>
 				<form id="formSubmit" method="post" onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What type of trip is this?</h1>
@@ -115,7 +121,7 @@ class Survey extends Component{
                             <option value="childrenAndBabies">Children AND babies!</option>
                         </select>
                     </div>
-                    <div id="next" onClick={this.handleVisbility}>Next</div>
+                    <div id="next" onClick={this.handleVisibility}>Next</div>
                     <br/>
                     <button id="submit" type="submit" className="not-visible">
                         Submit
@@ -129,7 +135,8 @@ class Survey extends Component{
 function mapStateToProps(state){
     return{
         surveyResponse: state.surveyReducer,
-        loginInfo: state.registerReducer
+        loginInfo: state.registerReducer,
+        reduxState: state
     }
 }
 

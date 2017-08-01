@@ -77,39 +77,24 @@ router.post('/survey', (req, res)=>{
 			const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
 				VALUES (?,?,?,?,?,?)`
 			connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
+				// const tripInfoId = results2.insertId
+				// connection.query()
 				if (error2) throw error;
-				res.json({tripInfoId: results2.insertId})
+				res.json({
+					tripInfoId: results2.insertId
+				})
 				console.log(results2)
-
-				// const checkGender = `SELECT * FROM users WHERE gender =?`
-				
-				// res.redirect(`/listview?childrenCheck=${childrenCheck}`)
-				// const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
-				// console.log(createListQuery)
-				// connection.query(createListQuery, (error3,results3)=>{
-				// 	// console.log(results3)
-				// 	if (error3) throw error3;
-				// 	res.json(results3);
-				// })
-
-				// router.get('/listview', (req,res)=>{
-				// 	// console.log('Query has fired!!!!!!!!!')
-				// 	const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
-				// 	console.log(createListQuery)
-				// 	connection.query(createListQuery, (error3,results3)=>{
-				// 		// console.log(results3)
-				// 		if (error3) throw error3;
-				// 		res.json(results3);
-				// 	})
-
-				// })	
 			})
 		}
 	})
 })
 
 router.post('/listview', (req,res)=>{
-	res.json(req.body)
+	console.log(req.body)
+
+
+
+
 	// surveyId = req.body.surveyId
 	// token = req.body.token
 	// console.log(surveyId)
