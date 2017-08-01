@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ScrollableAnchor from 'react-scrollable-anchor';
 
 class About extends Component {
 	render() {
