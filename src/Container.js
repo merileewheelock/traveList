@@ -10,13 +10,14 @@ class Container extends Component {
 	render() {
 
 		$(window).scroll(function() {
-		  if ($(this).scrollTop() <= 800) {
+		  var wHeight = $(window).height();
+		  if ($(this).scrollTop() <= wHeight) {
 		    $('#single-page-content').addClass('colorOne')
 		      .removeClass('colorTwo');
-		  } else if ($(this).scrollTop() <= 1600) {
+		  } else if ($(this).scrollTop() <= wHeight*2) {
 		    $('#single-page-content').addClass('colorTwo')
 		      .removeClass('colorThree');
-		  } else if ($(this).scrollTop() <= 2400) {
+		  } else if ($(this).scrollTop() <= wHeight*3) {
 		    $('#single-page-content').addClass('colorThree')
 		      .removeClass('colorFour');
 		  } else {

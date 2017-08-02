@@ -1,16 +1,55 @@
 .hiw-container-div{
 	height: 100vh;
+	text-align: center;
 }
 
 .page-title{
-	margin-top: 100px;
+	margin-top: 20vh;
 }
 
 .how-box{
-	border: solid 2px gray;
-	height: 200px;
+	// border: solid 2px gray;
+	height: 100%;
+	font-weight: bold;
+	font-size: 30px;
 }
 
 .how-boxes-row{
 	margin-top: 100px;
+}
+
+.step-number{
+	h1{
+		font-size: 150px;
+		opacity: 1;
+		font-weight: bold;
+		font-family: $header-font;
+		color: #cdcdcd;
+		opacity: 0.2;
+		text-align: left;
+	}
+	z-index: 6;
+	// border: solid 2px gray;
+}
+
+.step-icon{
+	background-color: $tan;
+	height: 200px;
+	width: 200px;
+	border-radius: 100px;
+	margin-top: -15vh;
+	// border: solid 2px gray;
+	z-index: 1;
+}
+
+.steps{
+	display: block;
+	margin-top: 15vh;
+}
+
+@media only screen and (max-width: 960px){
+	.hiw-container-div{
+		height: 100%;
+		text-align: center;
+	}
 }
