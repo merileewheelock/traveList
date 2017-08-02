@@ -1,6 +1,9 @@
 .hiw-container-div{
 	height: 100vh;
 	text-align: center;
+	h1{
+		font-size: 80px;
+	}
 }
 
 .page-title{
@@ -40,6 +43,10 @@
 	margin-top: -15vh;
 	// border: solid 2px gray;
 	z-index: 1;
+	.fa{
+		font-size:60px;
+		color:red;
+	}
 }
 
 .steps{

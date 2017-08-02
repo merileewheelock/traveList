@@ -297,15 +297,16 @@ div#next:hover {
 /* line 4, ../../compass/sass/_about.scss */
 #about h1 {
   text-align: center;
+  font-size: 80px;
 }
 
-/* line 9, ../../compass/sass/_about.scss */
+/* line 10, ../../compass/sass/_about.scss */
 .about-section {
   height: 200px;
   margin-top: 10vh;
 }
 
-/* line 14, ../../compass/sass/_about.scss */
+/* line 15, ../../compass/sass/_about.scss */
 .team-member {
   margin-top: 5vh;
   display: inline-block;
@@ -354,29 +355,33 @@ div#next:hover {
   height: 100vh;
   text-align: center;
 }
+/* line 4, ../../compass/sass/_howitworks.scss */
+.hiw-container-div h1 {
+  font-size: 80px;
+}
 
-/* line 6, ../../compass/sass/_howitworks.scss */
+/* line 9, ../../compass/sass/_howitworks.scss */
 .page-title {
   margin-top: 20vh;
 }
 
-/* line 10, ../../compass/sass/_howitworks.scss */
+/* line 13, ../../compass/sass/_howitworks.scss */
 .how-box {
   height: 100%;
   font-weight: bold;
   font-size: 30px;
 }
 
-/* line 17, ../../compass/sass/_howitworks.scss */
+/* line 20, ../../compass/sass/_howitworks.scss */
 .how-boxes-row {
   margin-top: 100px;
 }
 
-/* line 21, ../../compass/sass/_howitworks.scss */
+/* line 24, ../../compass/sass/_howitworks.scss */
 .step-number {
   z-index: 6;
 }
-/* line 22, ../../compass/sass/_howitworks.scss */
+/* line 25, ../../compass/sass/_howitworks.scss */
 .step-number h1 {
   font-size: 150px;
   opacity: 1;
@@ -387,7 +392,7 @@ div#next:hover {
   text-align: left;
 }
 
-/* line 35, ../../compass/sass/_howitworks.scss */
+/* line 38, ../../compass/sass/_howitworks.scss */
 .step-icon {
   background-color: #E2D3C6;
   height: 200px;
@@ -396,15 +401,20 @@ div#next:hover {
   margin-top: -15vh;
   z-index: 1;
 }
+/* line 46, ../../compass/sass/_howitworks.scss */
+.step-icon .fa {
+  font-size: 60px;
+  color: red;
+}
 
-/* line 45, ../../compass/sass/_howitworks.scss */
+/* line 52, ../../compass/sass/_howitworks.scss */
 .steps {
   display: block;
   margin-top: 15vh;
 }
 
 @media only screen and (max-width: 960px) {
-  /* line 51, ../../compass/sass/_howitworks.scss */
+  /* line 58, ../../compass/sass/_howitworks.scss */
   .hiw-container-div {
     height: 100%;
     text-align: center;
