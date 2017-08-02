@@ -138,8 +138,8 @@ router.post('/survey', (req, res)=>{
     	childrenCheck += `${tripSettingCheck} AND childAndBaby = 1`
     }
 
-    console.log(children)
-    console.log(childrenCheck)
+    // console.log(children)
+    // console.log(childrenCheck)
 
     const getUidQuery = `SELECT id from users WHERE token=?`
 	connection.query(getUidQuery, [token], (error,results)=>{
@@ -160,7 +160,7 @@ router.post('/survey', (req, res)=>{
 				res.json({
 					tripInfoId: results2.insertId
 				})
-				console.log(results2)
+				// console.log(results2)
 			})
 		}
 	})
@@ -169,24 +169,67 @@ router.post('/survey', (req, res)=>{
 router.post('/listview', (req,res)=>{
 	surveyId = req.body.surveyId;
 	token = req.body.token;
-	const currentTripQuery = `SELECT * FROM tripInfo WHERE id = ?`
-	connection.query(currentTripQuery, [surveyId], (error,results)=>{
-		if (error) throw error;
-		res.json(results)
-	})
+	if (surveyId != undefined){
+		// console.log(surveyId)
+
+		const currentTripQuery = `SELECT * FROM tripInfo WHERE id = ?`
+		// console.log(currentTripQuery)
+		connection.query(currentTripQuery, [surveyId], (error,results)=>{
+			// console.log(results[0])
+
+			var tripSettingCheck = ""
+		    if (results[0].tripSetting == 'beach'){
+		    	tripSettingCheck += ' AND beach = 1'
+		    }else if (results[0].tripSetting == 'winter'){
+		    	tripSettingCheck += ' AND winter = 1'
+		    }else if (results[0].tripSetting == 'camping'){
+		    	tripSettingCheck += ' AND camping = 1'
+		    }else if (results[0].tripSetting == 'formal'){
+		    	tripSettingCheck += ' AND formal = 1'
+		    }else if (results[0].tripSetting == 'international'){
+		    	tripSettingCheck += ' AND international = 1'
+		    }else if (results[0].tripSetting == 'business international'){
+		    	tripSettingCheck += ' AND businessInternational = 1'
+		    }else if (results[0].tripSetting == 'business casual'){
+		    	tripSettingCheck += ' AND businessCasual = 1'
+		    }else if (results[0].tripSetting == 'business formal'){
+		    	tripSettingCheck += ' AND businessFormal = 1'
+		    }
+		    // console.log(tripSettingCheck)
+		    var childrenCheck = ""
+		    if (results[0].children == 'children'){
+		    	childrenCheck += `${tripSettingCheck} AND childJoining = 1`
+		    }else if (results[0].children == 'babies'){
+		    	childrenCheck += `${tripSettingCheck} AND babyJoining = 1`
+		    }else if (results[0].children == 'none'){
+		    	childrenCheck += `${tripSettingCheck} AND noChildren = 1`
+		    }else if (results[0].children == 'childrenAndBabies'){
+		    	childrenCheck += `${tripSettingCheck} AND childAndBaby = 1`
+		    }
+		    // console.log(childrenCheck)
+
+		    const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
+			console.log(createListQuery)
+			connection.query(createListQuery, (error2,results2)=>{
+				// console.log(results2)
+				if (error2) throw error2;
+				res.json(results2);
+			})
+		})
 
 
-	// surveyId = req.body.surveyId
-	// token = req.body.token
-	// console.log(surveyId)
-	// console.log(token)
-	// const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
-	// console.log(createListQuery)
-	// connection.query(createListQuery, (error3,results3)=>{
-	// 	// console.log(results3)
-	// 	if (error3) throw error3;
-	// 	res.json(results3);
-	// })
+		// surveyId = req.body.surveyId
+		// token = req.body.token
+		// console.log(surveyId)
+		// console.log(token)
+		// const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
+		// console.log(createListQuery)
+		// connection.query(createListQuery, (error3,results3)=>{
+		// 	// console.log(results3)
+		// 	if (error3) throw error3;
+		// 	res.json(results3);
+		// })
+	}
 })	
 
 

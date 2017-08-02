@@ -82,7 +82,6 @@ class Survey extends Component{
 
 		return(
 			<div className="survey-box text-center">
-                <h1>{this.props.surveyResponse}</h1>
 				<form id="formSubmit" method="post" onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What type of trip is this?</h1>
