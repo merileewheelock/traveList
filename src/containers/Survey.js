@@ -85,46 +85,43 @@ class Survey extends Component{
 				<form id="formSubmit" method="post" onSubmit={this.handleSurvey}>
                     <div className="survey question-1 text-center visible">
                         <h1>What type of trip is this?</h1>
-                        <select className="tripType">
-                            <option name="business" value="business">Business</option>
-                            <option name="leisure" value="leisure">Leisure</option>
-                        </select>
+                        <button name="business" value="business" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business</button>
+                        <button name="leisure" value="leisure" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure</button>
                     </div>
                     <div className="survey question-2 text-center not-visible">
                         <h1>And what is the setting?</h1>
-                        <select className="leisure">
-                            <option value="beach">Leisure: Beach</option>
-                            <option value="winter">Leisure: Winter</option>
-                            <option value="camping">Leisure: Camping</option>
-                            <option value="formal">Leisure: Formal</option>
-                            <option value="international">Leisure: International</option>
-                            <option value="business international">Business: International</option>
-                            <option value="business casual">Business: Casual</option>
-                            <option value="business formal">Business: Formal</option>
-                        </select>
+                        <button value="beach" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Beach</button>
+                        <button value="winter" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Winter</button>
+                        <button value="camping" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Camping</button>
+                        <button value="formal" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Formal</button>
+                        <button value="international" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: International</button>
+                        <button value="business international" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business: International</button>
+                        <button value="business casual" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business: Casual</button>
+                        <button value="business formal" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business: Formal</button>
                     </div>
                     <div className="survey question-3 text-center not-visible">
                         <h1>Where to?</h1>
                         <input type="text"/>
+                        <br/>
+                        <div id="next" onClick={this.handleVisibility}>Next</div>
                     </div>
                     <div className="survey question-4 text-center not-visible">
                         <h1>When do you leave?</h1>
                         <input type="date"/>
+                        <br/>
+                        <div id="next" onClick={this.handleVisibility}>Next</div>
                     </div>
                     <div className="survey question-5 text-center not-visible">
                         <h1>Any children or babies on this trip?</h1>
-                        <select className="children">
-                            <option value="none">No children</option>
-                            <option value="children">Yes, children will be joining</option>
-                            <option value="babies">Yes, babies will be joining</option>
-                            <option value="childrenAndBabies">Children AND babies!</option>
-                        </select>
+                        <button value="none" className="btn btn-default" id="next" onClick={this.handleVisibility}>No children</button>
+                        <button value="children" className="btn btn-default" id="next" onClick={this.handleVisibility}>Yes, children will be joining</button>
+                        <button value="babies" className="btn btn-default" id="next" onClick={this.handleVisibility}>Yes, babies will be joining</button>
+                        <button value="childrenAndBabies" className="btn btn-default" id="next" onClick={this.handleVisibility}>Children AND babies!</button>
+                        <br/>
+                        <button id="submit" type="submit" className="not-visible btn btn-default">
+                            Submit
+                        </button>
                     </div>
-                    <div id="next" onClick={this.handleVisibility}>Next</div>
-                    <br/>
-                    <button id="submit" type="submit" className="not-visible">
-                        Submit
-                    </button>
                 </form>
 			</div>
 		)

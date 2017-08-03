@@ -55,7 +55,7 @@ class Login extends Component{
 	render(){
 		return(
 			<div className="login-register">
-				<Col smOffset={4} sm={4} className="login-input-box">
+				<Col mdOffset={4} md={4} smOffset={3} sm={6} xsOffset={2} xs={8} className="login-input-box">
 					<h1 className="text-center">Login</h1>
 					<h3 className="text-center">{this.state.loginMessage}</h3>
 					<Form horizontal onSubmit={this.handleLogin}>

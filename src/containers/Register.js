@@ -55,7 +55,7 @@ class Register extends Component{
 	render(){
 		return(
 			<div className="login-register">
-				<Col smOffset={4} sm={4} className="login-input-box">
+				<Col mdOffset={4} md={4} smOffset={3} sm={6} xsOffset={2} xs={8} className="login-input-box">
 					<h1 className="text-center">Register</h1>
 					<h3 className="text-center">{this.state.registerMessage}</h3>
 					<Form horizontal onSubmit={this.handleRegistration}>
@@ -100,7 +100,7 @@ class Register extends Component{
 						</FormGroup>
 					</Form>
 					<p className="text-center">
-						Or click <Link to="/login">here</Link> to register
+						Or click <Link to="/login">here</Link> to login
 					</p>
 				</Col>
 			</div>
