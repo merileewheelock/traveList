@@ -11,7 +11,7 @@
 }
 
 .how-box{
-	border: solid 2px gray;
+	// border: solid 2px gray;
 	height: 100%;
 	font-weight: bold;
 	font-size: 30px;
@@ -33,7 +33,7 @@
 		text-align: left;
 	}
 	z-index: 6;
-	border: solid 2px gray;
+	// border: solid 2px gray;
 }
 
 .step-icon{
@@ -41,12 +41,14 @@
 	height: 200px;
 	width: 200px;
 	border-radius: 100px;
+	margin: 0 auto;
 	margin-top: -15vh;
-	border: solid 2px gray;
+	// border: solid 2px gray;
 	z-index: 1;
 	.fa{
 		font-size:240px;
 		color:$tan;
+		margin: 0 auto;
 	}
 	.fa-user-circle-o{
 		font-size:210px;
@@ -56,7 +58,7 @@
 
 .steps{
 	display: block;
-	margin-top: 5vh;
+	margin-top: 10vh;
 }
 
 @media only screen and (max-width: 960px){

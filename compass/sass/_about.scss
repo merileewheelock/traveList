@@ -8,11 +8,63 @@
 }
 
 .about-section{
-	height: 200px;
-	margin-top: 10vh;
+	height: 40%;
+	margin-top: 5vh;
+	padding: 20px;
+	// margin-bottom: 80px;
+	// border: solid 2px gray;
+	h2{
+		margin-bottom: 50px;
+	}
+}
+
+.inspiration{
+	p{
+		padding: 0px 50px;
+	}
 }
 
 .team-member{
 	margin-top: 5vh;
 	display: inline-block;
+	height: 100%;
+	img{
+		height: 200px;
+		width: 200px;
+		border-radius: 100px;
+	}
+	h4{
+		letter-spacing: 2px;
+	}
+	// border: solid 2px gray;
+}
+
+.fa{
+	color: $tan;
+	margin: 20px;
+}
+
+.technologies{
+	overflow-wrap: break-word;
+	line-height: 6em;
+	i{
+		font-size: 50px;
+		margin: 20px;
+		padding: 20px;
+	}
+	// border: solid 2px gray;
+}
+
+@media only screen and (max-width: 960px){
+	.team-member{
+		// margin-bottom: 11em;
+		img{
+			height: 150px;
+			width: 150px;
+			border-radius: 75px;
+		}
+	}
+	.technologies{
+		height: 100%;
+	}
 }
