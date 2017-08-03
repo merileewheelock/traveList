@@ -5,6 +5,7 @@
 	// margin-top: 100px;
 	display: inline-block;
 	overflow: hidden;
+	background-color: $dark-blue;
 }
 
 div#next{
@@ -19,13 +20,17 @@ div#next:hover{
 	display: none;
 }
 
+#submit.not-visible{
+	display: none;
+}
+
 .survey{
 	padding-top: 15vh;
 	// transform: translate(0,-100vw);
 	// transition-timing-function: ease-out;
 	// transition-duration: 1s;
 	input{
-		height: 200px;
+		height: 50px;
 		width: 200px;
 	}
 }
@@ -40,4 +45,10 @@ div#next:hover{
 .btn.on {
     background-color: #777;
     color: white;
+}
+
+.survey-button{
+	height: 100px;
+	width: 100px;
+	margin: 10px;
 }

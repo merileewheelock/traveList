@@ -137,35 +137,41 @@ nav a:hover {
   width: 100%;
   display: inline-block;
   overflow: hidden;
+  background-color: #005374;
 }
 
-/* line 10, ../../compass/sass/_survey.scss */
+/* line 11, ../../compass/sass/_survey.scss */
 div#next {
   cursor: pointer;
   display: inline-block;
 }
 
-/* line 14, ../../compass/sass/_survey.scss */
+/* line 15, ../../compass/sass/_survey.scss */
 div#next:hover {
   color: cyan;
 }
 
-/* line 18, ../../compass/sass/_survey.scss */
+/* line 19, ../../compass/sass/_survey.scss */
 .not-visible {
   display: none;
 }
 
-/* line 22, ../../compass/sass/_survey.scss */
+/* line 23, ../../compass/sass/_survey.scss */
+#submit.not-visible {
+  display: none;
+}
+
+/* line 27, ../../compass/sass/_survey.scss */
 .survey {
   padding-top: 15vh;
 }
-/* line 27, ../../compass/sass/_survey.scss */
+/* line 32, ../../compass/sass/_survey.scss */
 .survey input {
-  height: 200px;
+  height: 50px;
   width: 200px;
 }
 
-/* line 33, ../../compass/sass/_survey.scss */
+/* line 38, ../../compass/sass/_survey.scss */
 .btn {
   display: inline-block;
   border: 2px solid #ccc;
@@ -174,10 +180,17 @@ div#next:hover {
   cursor: pointer;
 }
 
-/* line 40, ../../compass/sass/_survey.scss */
+/* line 45, ../../compass/sass/_survey.scss */
 .btn.on {
   background-color: #777;
   color: white;
+}
+
+/* line 50, ../../compass/sass/_survey.scss */
+.survey-button {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
 }
 
 /* line 3, ../../compass/sass/_home.scss */

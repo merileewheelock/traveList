@@ -10,11 +10,11 @@ class Survey extends Component{
         this.state = {
 
             surveyStatus: '1',
-            tripType: '',
-            tripSetting: '',
-            destination: '',
-            tripDate: '',
-            children: '',
+            // tripType: '',
+            // tripSetting: '',
+            // destination: '',
+            // tripDate: '',
+            // children: '',
             totalQuestions: 5,
             currentQuestion: 1
 
@@ -24,6 +24,8 @@ class Survey extends Component{
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("Next props")
+        console.log(nextProps)
         if(nextProps.surveyResponse != null){
             console.log("Going to /listview")
             console.log(nextProps.surveyResponse)
@@ -39,6 +41,7 @@ class Survey extends Component{
         var tripSetting = event.target.childNodes[1].childNodes[1].value;
         var destination = event.target.childNodes[2].childNodes[1].value;
         var tripDate = event.target.childNodes[3].childNodes[1].value;
+        console.log(tripDate)
         var children = event.target.childNodes[4].childNodes[1].value;
         var token = this.props.loginInfo.token
 
@@ -53,8 +56,8 @@ class Survey extends Component{
     }
 
     handleVisibility(event){
-        // console.log(this.state.currentQuestion);
-        // console.log(this.state.totalQuestions);
+        console.log(this.state.currentQuestion);
+        console.log(this.state.totalQuestions);
         var current = (this.state.currentQuestion).toString();
         var next = (this.state.currentQuestion + 1).toString();
         if (this.state.currentQuestion === this.state.totalQuestions){
@@ -73,58 +76,59 @@ class Survey extends Component{
     }
 
 	render(){
-        console.log("*********************")
-        console.log(this.props.reduxState)
-        console.log("*********************")
-
-        console.log(this.props.surveyResponse)
+        // console.log("*********************")
+        // console.log(this.props.reduxState)
+        // console.log("*********************")
+        // console.log(this.props.surveyResponse)
         
-
 		return(
-			<div className="survey-box text-center">
-				<form id="formSubmit" method="post" onSubmit={this.handleSurvey}>
-                    <div className="survey question-1 text-center visible">
+            <div className='survey-box text-center'>
+                <form id='formSubmit' method='post' onSubmit={this.handleSurvey}>
+                    <div className='survey question-1 text-center visible'>
                         <h1>What type of trip is this?</h1>
-                        <button name="business" value="business" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business</button>
-                        <button name="leisure" value="leisure" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure</button>
+                        <select className='tripType'>
+                            <option name='business' value='business'>Business</option>
+                            <option name='leisure' value='leisure'>Leisure</option>
+                        </select>
                     </div>
-                    <div className="survey question-2 text-center not-visible">
+                    <div className='survey question-2 text-center not-visible'>
                         <h1>And what is the setting?</h1>
-                        <button value="beach" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Beach</button>
-                        <button value="winter" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Winter</button>
-                        <button value="camping" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Camping</button>
-                        <button value="formal" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: Formal</button>
-                        <button value="international" className="btn btn-default" id="next" onClick={this.handleVisibility}>Leisure: International</button>
-                        <button value="business international" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business: International</button>
-                        <button value="business casual" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business: Casual</button>
-                        <button value="business formal" className="btn btn-default" id="next" onClick={this.handleVisibility}>Business: Formal</button>
+                        <select className='leisure'>
+                            <option value='beach'>Leisure: Beach</option>
+                            <option value='winter'>Leisure: Winter</option>
+                            <option value='camping'>Leisure: Camping</option>
+                            <option value='formal'>Leisure: Formal</option>
+                            <option value='international'>Leisure: International</option>
+                            <option value='business international'>Business: International</option>
+                            <option value='business casual'>Business: Casual</option>
+                            <option value='business formal'>Business: Formal</option>
+                        </select>
                     </div>
-                    <div className="survey question-3 text-center not-visible">
+                    <div className='survey question-3 text-center not-visible'>
                         <h1>Where to?</h1>
-                        <input type="text"/>
-                        <br/>
-                        <div id="next" onClick={this.handleVisibility}>Next</div>
+                        <input type='text'/>
                     </div>
-                    <div className="survey question-4 text-center not-visible">
+                    <div className='survey question-4 text-center not-visible'>
                         <h1>When do you leave?</h1>
-                        <input type="date"/>
-                        <br/>
-                        <div id="next" onClick={this.handleVisibility}>Next</div>
+                        <input type='date'/>
                     </div>
-                    <div className="survey question-5 text-center not-visible">
+                    <div className='survey question-5 text-center not-visible'>
                         <h1>Any children or babies on this trip?</h1>
-                        <button value="none" className="btn btn-default" id="next" onClick={this.handleVisibility}>No children</button>
-                        <button value="children" className="btn btn-default" id="next" onClick={this.handleVisibility}>Yes, children will be joining</button>
-                        <button value="babies" className="btn btn-default" id="next" onClick={this.handleVisibility}>Yes, babies will be joining</button>
-                        <button value="childrenAndBabies" className="btn btn-default" id="next" onClick={this.handleVisibility}>Children AND babies!</button>
-                        <br/>
-                        <button id="submit" type="submit" className="not-visible btn btn-default">
-                            Submit
-                        </button>
+                        <select className='children'>
+                            <option value='none'>No children</option>
+                            <option value='children'>Yes, children will be joining</option>
+                            <option value='babies'>Yes, babies will be joining</option>
+                            <option value='childrenAndBabies'>Children AND babies!</option>
+                        </select>
                     </div>
+                    <div id='next' onClick={this.handleVisibility}>Next</div>
+                    <br/>
+                    <button id='submit' type='submit' className='not-visible'>
+                        Submit
+                    </button>
                 </form>
-			</div>
-		)
+            </div>
+        )
 	}
 }
 

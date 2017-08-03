@@ -9,55 +9,30 @@ class ListView extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			listData: []
+			listArray: []
 		}
-		this.getListItems = this.getListItems.bind(this);
 	}
 
 	componentWillMount() {
 		if(this.props.loginInfo.token !== undefined){
-			this.props.listAction(this.props.loginInfo.token)
+			this.props.listAction({
+				token: this.props.loginInfo.token,
+				surveyId: this.props.surveyId
+			})
 		}
 	}
 
-	componentDidMount() {
-		this.getListItems(this.props);
-	}
-
-	getListItems(props){
-		// const url = hostAddress + '/listview'
-		$.ajax({
-			method: "POST",
-			url: hostAddress + '/listview',
-			data: {
-				surveyId: this.props.surveyId,
-				token: this.props.loginInfo.token
-			}
-			// this.setState({
-			// 	listData: listData
-			// })
-		})
-	}
-
-	componentWillUpdate(nextProps, nextState) {
-		console.log("******NEXT PROPS******")
+	componentWillReceiveProps(nextProps) {
+		console.log("NEXT PROPS")
 		console.log(nextProps)
-		console.log("******NEXT PROPS******")
-	}
 
-	render(){
-
-		console.log("******THIS.PROPS******")
-		console.log(this.props)
-		console.log("******THIS.PROPS******")
-
-		var listArray = [];
+		var listData = []
 		var lastCategory = "";
 		// var key = 0;
 
-		this.state.listData.map((listItem, index)=>{
+		this.nextProps.listView.map((listItem, index)=>{
 			if(listItem.itemCategory !== lastCategory){
-				listArray.push(
+				listData.push(
 					<div className="col-sm-offset-6" key={listItem.id}>
 						<h3 className="category-title">{listItem.itemCategory}</h3>
 					</div>
@@ -65,7 +40,7 @@ class ListView extends Component{
 				lastCategory = listItem.itemCategory;
 				// key++;
 			}
-			listArray.push(
+			listData.push(
 				<div key={listItem.id}>
                 	<div className="col-sm-6 text-right">
 						<input type="checkbox" />
@@ -76,10 +51,20 @@ class ListView extends Component{
 			)
 		})
 
+		this.setState({listArray: listData})
+	}
+
+	render(){
+
+		// console.log("******THIS.PROPS******")
+		// console.log(this.props)
+		// console.log("******THIS.PROPS******")
+
+		this.state.listArray.map((listItem)=>{})
 		return(
 			<div>
 				<h1>Your Packing List</h1>
-				{listArray}
+				{this.state.listArray}
 			</div>
 		)
 	}
@@ -87,7 +72,7 @@ class ListView extends Component{
 
 function mapStateToProps(state){
 	return{
-		listView: state.ListReducer,
+		listView: state.listReducer,
 		loginInfo: state.registerReducer,
 		surveyId: state.surveyReducer
 	}
