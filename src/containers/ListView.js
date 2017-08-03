@@ -25,7 +25,7 @@ class ListView extends Component{
 	}
 
 	getListItems(props){
-		const url = hostAddress + '/listview'
+		// const url = hostAddress + '/listview'
 		$.ajax({
 			method: "POST",
 			url: hostAddress + '/listview',
@@ -33,10 +33,23 @@ class ListView extends Component{
 				surveyId: this.props.surveyId,
 				token: this.props.loginInfo.token
 			}
+			// this.setState({
+			// 	listData: listData
+			// })
 		})
 	}
 
+	componentWillUpdate(nextProps, nextState) {
+		console.log("******NEXT PROPS******")
+		console.log(nextProps)
+		console.log("******NEXT PROPS******")
+	}
+
 	render(){
+
+		console.log("******THIS.PROPS******")
+		console.log(this.props)
+		console.log("******THIS.PROPS******")
 
 		var listArray = [];
 		var lastCategory = "";

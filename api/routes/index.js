@@ -168,7 +168,7 @@ router.post('/survey', (req, res)=>{
 
 router.post('/listview', (req,res)=>{
 	surveyId = req.body.surveyId;
-	token = req.body.token;
+	// token = req.body.token;
 	if (surveyId != undefined){
 		// console.log(surveyId)
 
@@ -211,9 +211,10 @@ router.post('/listview', (req,res)=>{
 		    const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck}`
 			console.log(createListQuery)
 			connection.query(createListQuery, (error2,results2)=>{
-				// console.log(results2)
 				if (error2) throw error2;
-				res.json(results2);
+				console.log(results2)
+				var merileeList = results2
+				res.json(merileeList);
 			})
 		})
 
