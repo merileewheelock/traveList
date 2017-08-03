@@ -2,30 +2,24 @@
 /src/config.js
 import weatherAPIKey from './config'
 import axios from 'axios';
-
 const API_key = '0ac8ad11115ab6d948598a01b0cc8aa5';
 const baseURL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_key}`;
-
 # dependencies
 /node_modules
 api/node_modules
 api/config
 .sass-cache
 /public/config.js
-
 # testing
 /coverage
-
 # production
 /build
-
 # misc
 .DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
