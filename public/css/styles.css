@@ -216,44 +216,55 @@ div#next:hover {
 }
 
 /* line 34, ../../compass/sass/_home.scss */
+.site-tagline {
+  padding: 0px 20px;
+}
+
+/* line 38, ../../compass/sass/_home.scss */
+.home-button {
+  margin-top: 55px;
+}
+
+/* line 42, ../../compass/sass/_home.scss */
 .get-started-button {
   height: 50px;
   width: 250px;
   color: #84D4F0;
-  background-color: #232323;
+  background-color: transparent;
   border: solid 2px #4B9ECD;
   border-radius: 10px;
   font-family: "Poiret One", cursive;
   font-size: 20px;
   letter-spacing: 3px;
-  margin-top: 5vh;
   outline: none;
+  padding: 10px 20px;
 }
 
-/* line 48, ../../compass/sass/_home.scss */
+/* line 56, ../../compass/sass/_home.scss */
 .get-started-button:hover {
   color: #00665E;
   background-color: #E2D3C6;
   border: solid 2px #00665E;
   outline: none;
+  text-decoration: none;
 }
 
-/* line 55, ../../compass/sass/_home.scss */
+/* line 64, ../../compass/sass/_home.scss */
 .get-started-button:active {
   color: #E2D3C6;
-  background-color: #4B9ECD;
+  background-color: #005374;
   border: solid 2px #E2D3C6;
   outline: none;
 }
 
 @media screen only and (max-width: 960px) {
-  /* line 63, ../../compass/sass/_home.scss */
+  /* line 72, ../../compass/sass/_home.scss */
   .header-div {
     top: 10vh;
     position: fixed;
   }
 }
-/* line 69, ../../compass/sass/_home.scss */
+/* line 78, ../../compass/sass/_home.scss */
 .next-page-div {
   bottom: 0px;
   position: absolute;
@@ -263,7 +274,7 @@ div#next:hover {
   margin-bottom: 30px;
 }
 
-/* line 78, ../../compass/sass/_home.scss */
+/* line 87, ../../compass/sass/_home.scss */
 .next-page-arrow-right, .next-page-arrow-left {
   background-color: #E2D3C6;
   height: 5px;
@@ -272,17 +283,17 @@ div#next:hover {
   margin: -5px;
 }
 
-/* line 86, ../../compass/sass/_home.scss */
+/* line 95, ../../compass/sass/_home.scss */
 .next-page-arrow-left {
   transform: rotate(25deg);
 }
 
-/* line 90, ../../compass/sass/_home.scss */
+/* line 99, ../../compass/sass/_home.scss */
 .next-page-arrow-right {
   transform: rotate(-25deg);
 }
 
-/* line 94, ../../compass/sass/_home.scss */
+/* line 103, ../../compass/sass/_home.scss */
 .next-page-title {
   font-family: "Poiret One", cursive;
   font-size: 20px;
@@ -367,21 +378,24 @@ div#next:hover {
 
 /* line 13, ../../compass/sass/_howitworks.scss */
 .how-box {
+  border: solid 2px gray;
   height: 100%;
   font-weight: bold;
   font-size: 30px;
+  text-align: center;
 }
 
-/* line 20, ../../compass/sass/_howitworks.scss */
+/* line 21, ../../compass/sass/_howitworks.scss */
 .how-boxes-row {
   margin-top: 100px;
 }
 
-/* line 24, ../../compass/sass/_howitworks.scss */
+/* line 25, ../../compass/sass/_howitworks.scss */
 .step-number {
   z-index: 6;
+  border: solid 2px gray;
 }
-/* line 25, ../../compass/sass/_howitworks.scss */
+/* line 26, ../../compass/sass/_howitworks.scss */
 .step-number h1 {
   font-size: 150px;
   opacity: 1;
@@ -392,29 +406,34 @@ div#next:hover {
   text-align: left;
 }
 
-/* line 38, ../../compass/sass/_howitworks.scss */
+/* line 39, ../../compass/sass/_howitworks.scss */
 .step-icon {
-  background-color: #E2D3C6;
   height: 200px;
   width: 200px;
   border-radius: 100px;
   margin-top: -15vh;
+  border: solid 2px gray;
   z-index: 1;
 }
-/* line 46, ../../compass/sass/_howitworks.scss */
+/* line 47, ../../compass/sass/_howitworks.scss */
 .step-icon .fa {
-  font-size: 60px;
-  color: red;
+  font-size: 240px;
+  color: #E2D3C6;
+}
+/* line 51, ../../compass/sass/_howitworks.scss */
+.step-icon .fa-user-circle-o {
+  font-size: 210px;
+  padding-top: 23px;
 }
 
-/* line 52, ../../compass/sass/_howitworks.scss */
+/* line 57, ../../compass/sass/_howitworks.scss */
 .steps {
   display: block;
-  margin-top: 15vh;
+  margin-top: 5vh;
 }
 
 @media only screen and (max-width: 960px) {
-  /* line 58, ../../compass/sass/_howitworks.scss */
+  /* line 63, ../../compass/sass/_howitworks.scss */
   .hiw-container-div {
     height: 100%;
     text-align: center;

@@ -11,10 +11,11 @@
 }
 
 .how-box{
-	// border: solid 2px gray;
+	border: solid 2px gray;
 	height: 100%;
 	font-weight: bold;
 	font-size: 30px;
+	text-align: center;
 }
 
 .how-boxes-row{
@@ -32,26 +33,30 @@
 		text-align: left;
 	}
 	z-index: 6;
-	// border: solid 2px gray;
+	border: solid 2px gray;
 }
 
 .step-icon{
-	background-color: $tan;
+	// background-color: $tan;
 	height: 200px;
 	width: 200px;
 	border-radius: 100px;
 	margin-top: -15vh;
-	// border: solid 2px gray;
+	border: solid 2px gray;
 	z-index: 1;
 	.fa{
-		font-size:60px;
-		color:red;
+		font-size:240px;
+		color:$tan;
+	}
+	.fa-user-circle-o{
+		font-size:210px;
+		padding-top: 23px;
 	}
 }
 
 .steps{
 	display: block;
-	margin-top: 15vh;
+	margin-top: 5vh;
 }
 
 @media only screen and (max-width: 960px){

@@ -37,7 +37,7 @@ class NavBar extends Component{
 					<span></span>
 				    
 					<ul id="menu">
-						<li className="menu-item"><a href="/#home">Home</a></li>
+						<li className="menu-item"><a href="/">Home</a></li>
 						<li className="menu-item"><a href="#howitworks">How It Works</a></li>
 						<li className="menu-item"><a href="#about">About</a></li>
 						<hr className="linebreak" />

@@ -31,18 +31,26 @@
 	line-height: 100px;
 }
 
+.site-tagline{
+	padding: 0px 20px;
+}
+
+.home-button{
+	margin-top: 55px;
+}
+
 .get-started-button{
 	height: 50px;
 	width: 250px;
 	color: $light-blue;
-	background-color: #232323;
+	background-color: transparent;
 	border: solid 2px $med-blue;
 	border-radius: 10px;
 	font-family: $header-font;
 	font-size: 20px;
 	letter-spacing: 3px;
-	margin-top: 5vh;
 	outline: none;
+	padding: 10px 20px;
 }
 
 .get-started-button:hover{
@@ -50,11 +58,12 @@
 	background-color: $tan;
 	border: solid 2px $green;
 	outline: none;
+	text-decoration: none;
 }
 
 .get-started-button:active{
 	color: $tan;
-	background-color: $med-blue;
+	background-color: $dark-blue;
 	border: solid 2px $tan;
 	outline: none;
 }
