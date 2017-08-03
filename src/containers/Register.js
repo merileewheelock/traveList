@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
 import  {bindActionCreators} from 'redux';
+import {Link} from 'react-router-dom';
 import RegisterAction from '../actions/RegisterAction';
 import {connect} from 'react-redux';
 
@@ -53,50 +54,55 @@ class Register extends Component{
 
 	render(){
 		return(
-			<div className="container register-wrapper">
-				<h1 className="text-center">Register</h1>
-				<h3 className="text-center">{this.state.registerMessage}</h3>
-				<Form horizontal onSubmit={this.handleRegistration}>
-					<FormGroup controlId="formHorizontalName">
-						<Col componentClass={ControlLabel} sm={2}>
-							Name
-						</Col>
-						<Col sm={8}>
-							<FormControl type="text" name="fullName" placeholder="Full Name" />
-						</Col>
-					</FormGroup>
-					<FormGroup controlId="formHorizontalName">
-						<Col componentClass={ControlLabel} sm={2}>
-							Email
-						</Col>
-						<Col sm={8}>
-							<FormControl type="email" name="email" placeholder="Email" />
-						</Col>
-					</FormGroup>
-					<FormGroup controlId="formHorizontalName">
-						<Col componentClass={ControlLabel} sm={2}>
-							Password
-						</Col>
-						<Col sm={8}>
-							<FormControl type="password" name="password" placeholder="Password" />
-						</Col>
-					</FormGroup>
-					<FormGroup controlId="formHorizontalName">
-						<Col componentClass={ControlLabel} sm={2}>
-							Gender
-						</Col>
-						<Col sm={8}>
-							<FormControl type="text" name="gender" placeholder="Gender" />
-						</Col>
-					</FormGroup>
-					<FormGroup>
-						<Col smOffset={2} sm={8}>
-							<Button bsStyle="primary" type="submit">
-								Register
-							</Button>
-						</Col>
-					</FormGroup>
-				</Form>
+			<div className="login-register">
+				<Col smOffset={4} sm={4} className="login-input-box">
+					<h1 className="text-center">Register</h1>
+					<h3 className="text-center">{this.state.registerMessage}</h3>
+					<Form horizontal onSubmit={this.handleRegistration}>
+						<FormGroup controlId="formHorizontalName">
+							<Col smOffset={1} sm={10} className="login-field-title">
+								Name
+							</Col>
+							<Col smOffset={1} sm={10}>
+								<FormControl className="login-input-bar" type="text" name="fullName" placeholder="Full Name" />
+							</Col>
+						</FormGroup>
+						<FormGroup controlId="formHorizontalName">
+							<Col smOffset={1} sm={10} className="login-field-title">
+								Email
+							</Col>
+							<Col smOffset={1} sm={10}>
+								<FormControl className="login-input-bar" type="email" name="email" placeholder="Email" />
+							</Col>
+						</FormGroup>
+						<FormGroup controlId="formHorizontalName">
+							<Col smOffset={1} sm={10} className="login-field-title">
+								Password
+							</Col>
+							<Col smOffset={1} sm={10}>
+								<FormControl className="login-input-bar" type="password" name="password" placeholder="Password" />
+							</Col>
+						</FormGroup>
+						<FormGroup controlId="formHorizontalName">
+							<Col smOffset={1} sm={10} className="login-field-title">
+								Gender
+							</Col>
+							<Col smOffset={1} sm={10}>
+								<FormControl className="login-input-bar" type="text" name="gender" placeholder="Gender" />
+							</Col>
+						</FormGroup>
+						<FormGroup>
+							<Col className="text-center login-button">
+								<Button bsStyle="primary" type="submit">
+									Register
+								</Button>
+							</Col>
+						</FormGroup>
+					</Form>
+					<p className="text-center">
+						Or click <Link to="/login">here</Link> to register
+					</p>
+				</Col>
 			</div>
 		)
 	}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import  {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import LoginAction from '../actions/LoginAction';
 import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap'
 
@@ -53,34 +54,39 @@ class Login extends Component{
 
 	render(){
 		return(
-			<div>
-				<h1 className="text-center">Login</h1>
-				<h3 className="text-center">{this.state.loginMessage}</h3>
-				<Form horizontal onSubmit={this.handleLogin}>
-					<FormGroup controlId="formHorizontalName">
-						<Col componentClass={ControlLabel} sm={2}>
-							Email
-						</Col>
-						<Col sm={8}>
-							<FormControl type="email" name="email" placeholder="Email" />
-						</Col>
-					</FormGroup>
-					<FormGroup controlId="formHorizontalName">
-						<Col componentClass={ControlLabel} sm={2}>
-							Password
-						</Col>
-						<Col sm={8}>
-							<FormControl type="password" name="password" placeholder="Password" />
-						</Col>
-					</FormGroup>
-					<FormGroup>
-						<Col smOffset={2} sm={8}>
-							<Button bsStyle="primary" type="submit">
-								Login
-							</Button>
-						</Col>
-					</FormGroup>
-				</Form>	
+			<div className="login-register">
+				<Col smOffset={4} sm={4} className="login-input-box">
+					<h1 className="text-center">Login</h1>
+					<h3 className="text-center">{this.state.loginMessage}</h3>
+					<Form horizontal onSubmit={this.handleLogin}>
+						<FormGroup controlId="formHorizontalName">
+							<Col smOffset={1} sm={10} className="login-field-title">
+								Email
+							</Col>
+							<Col smOffset={1} sm={10}>
+								<FormControl className="login-input-bar" type="email" name="email" placeholder="Email" />
+							</Col>
+						</FormGroup>
+						<FormGroup controlId="formHorizontalName">
+							<Col smOffset={1} sm={10} className="login-field-title">
+								Password
+							</Col>
+							<Col smOffset={1} sm={10}>
+								<FormControl className="login-input-bar" type="password" name="password" placeholder="Password" />
+							</Col>
+						</FormGroup>
+						<FormGroup>
+							<Col className="text-center login-button">
+								<Button bsStyle="primary" type="submit">
+									Login
+								</Button>
+							</Col>
+						</FormGroup>
+					</Form>	
+					<p className="text-center">
+						Or click <Link to="/register">here</Link> to register
+					</p>
+				</Col>
 			</div>
 		)
 	}
