@@ -463,17 +463,19 @@ i.fa.fa-times.fa-5x::before {
 /* line 5, ../../compass/sass/_listview.scss */
 .listview-section {
   margin-top: 50px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
   background-color: #E2D3C6;
   border-radius: 10px;
   color: #005374;
 }
 
-/* line 12, ../../compass/sass/_listview.scss */
+/* line 14, ../../compass/sass/_listview.scss */
 .category-title {
   font-size: 20px;
 }
 
-/* line 16, ../../compass/sass/_listview.scss */
+/* line 18, ../../compass/sass/_listview.scss */
 .item {
   padding-bottom: 5px;
 }

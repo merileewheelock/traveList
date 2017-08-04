@@ -24,18 +24,184 @@ class Survey extends Component{
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log('componentWillReceiveProps triggered!')
+        console.log('/////////')
         console.log("Next props")
         console.log(nextProps)
+        console.log('/////////')
         if(nextProps.surveyResponse != null){
-            console.log("Going to /listview")
-            console.log(nextProps.surveyResponse)
+            console.log('If statement inside of componentWillReceiveProps triggered (nextProps.surveyResponse!=null)')
+            console.log('Pushing to /listview.... (this.props.history.push("/listview")')
             this.props.history.push('/listview');
         }
+    }
+
+    handleVisibility(event){
+
+        console.log('HandleVisibility event triggered!')
+        console.log('/////////')
+        console.log('Event')
+        console.log(event)
+        console.log('/////////')
+
+        console.log('///SUPER IMPORTANT///')
+        console.log('event.target.parentNode')
+        console.dir(event.target.parentNode)
+        console.log('///SUPER IMPORTANT///')
+
+        console.log('///ALSO PRETTY IMPORTANT//')
+        var dateResult = $('#date-input-value').val()
+        console.log(dateResult)
+        console.log('///ALSO PRETTY IMPORTANT//')
+
+
+        if (this.state.currentQuestion == 1){
+            this.setState({
+                tripType: event.target.parentNode.value
+            });
+        }
+
+        if (this.state.currentQuestion == 2){
+            this.setState({
+                tripSetting: event.target.parentNode.value
+            });
+        }
+
+        if (this.state.currentQuestion == 3){
+            var destination = $('#destination-input-text').val()
+            this.setState({
+                destination: destination
+            });
+        }
+
+        if (this.state.currentQuestion == 4){
+            var tripDate = $('#date-input-value').val()
+            this.setState({
+                tripDate: tripDate
+            })
+        }
+
+        if (this.state.currentQuestion == 5){
+            this.setState({
+                children: event.target.parentNode.value
+            });
+        }
+
+        console.log('If statements have run!')
+        console.log('THIS.STATE')
+        console.log(this.state)
+
+
+        // console.log('/////////////')
+        // console.log('this.state.currentQuestion')
+        // console.log(this.state.currentQuestion)
+        // console.log('/////////////')
+
+
+        // console.log('/////////////')
+        // console.log('this.state.totalQuestions')
+        // console.log(this.state.totalQuestions)
+        // console.log('/////////////')
+
+
+        var current = (this.state.currentQuestion).toString();
+        var next = (this.state.currentQuestion + 1).toString();
+
+
+        // console.log('/////////////')
+        // console.log('var current')
+        // console.log(current)
+        // console.log('var next')
+        // console.log(next)
+        // console.log('/////////////')
+
+
+        // console.log('Current/total question IF STATEMENT about to run...')
+
+
+
+        if (this.state.currentQuestion === this.state.totalQuestions){
+            // console.log('IF STATEMENT TRIGGERED (currentQuestion = totalQuestions)')
+            // submit the form
+            // console.log("You done it!");
+            $('#next').addClass('not-visible');
+            // console.log("'not-visible' class ADDED to #next")
+            $('#submit').removeClass('not-visible');
+            // console.log("'not-visible' class REMOVED from #submit")
+            // console.log('IF STATEMENT HAS RUN!')
+        }else{
+            // console.log('ELSE STATEMENT TRIGGERED')
+            $('.question-'+current).addClass('not-visible');
+            // console.log('not-visible class ADDED to ('.question-'+current)')
+            // console.log('VALUE OF ('.question-'+current)')
+            // console.log('.question-'+current)
+            $('.question-'+next).removeClass('not-visible');
+            // console.log('not-visible class REMOVED from ('.question-'+next)')
+            // console.log('VALUE OF ('.question-'+next)')
+            // console.log('.question-'+next)
+
+            // var currentQuestionUpdate = this.state.currentQuestion + 1
+            var currentQuestionUpdate = this.state.currentQuestion + 1
+
+
+            // console.log('////////////////')
+            // console.log('currentQuestionUpdate')
+            // console.log(currentQuestionUpdate)
+            // console.log('////////////////')
+
+            // console.log('////////////////')
+            // console.log('this.state BEFORE updating currentQuestion')
+            // console.log(this.state)
+            // console.log('////////////////')
+
+            this.setState({
+                currentQuestion: currentQuestionUpdate
+            });
+
+            // console.log('////////////////')
+            // console.log('this.state AFTER updating currentQuestion')
+            // console.log(this.state)
+            // console.log('////////////////')
+
+            // console.log('ELSE STATEMENT HAS RUN!')
+        }
+
+        // this.setState({
+        //     tripType: tripType,
+        //     tripSetting: tripSetting,
+        //     children: children
+        // })
+
+        // this.props.surveyAction({
+        //     tripType: tripType,
+        //     tripSetting: tripSetting,
+        //     children: children
+        // });  
+
+        console.log('HANDLEVISIBILITY HAS RUN')
     }
 
     handleSurvey(event){
         // console.dir(event.target.childNodes[0].childNodes[2].value)
         event.preventDefault();
+        console.log('HANDLESURVEY EVENT TRIGGERED!')
+
+        console.log('/////////')
+        console.log('event')
+        console.log(event)
+        console.log('/////////')
+
+        console.log('/////////')
+        console.log('this.props')
+        console.log(this.props)
+        console.log('/////////')
+
+
+        console.log('/////////')
+        console.log('event.target.childNodes')
+        console.log(event.target.childNodes)
+        console.log('/////////')
+
 
         var tripType = event.target.childNodes[0].childNodes[1].value;
         var tripSetting = event.target.childNodes[1].childNodes[1].value;
@@ -45,6 +211,39 @@ class Survey extends Component{
 
         var token = this.props.loginInfo.token
 
+
+        console.log('///////////')
+        console.log('var token')
+        console.log(token)
+        console.log('///////////')
+
+
+        console.log('///////////')
+        console.log('var tripType')
+        console.log(tripType)
+        console.log('///////////')
+
+        console.log('///////////')
+        console.log('var tripSetting')
+        console.log(tripSetting)
+        console.log('///////////')
+
+        console.log('///////////')
+        console.log('var destination')
+        console.log(destination)
+        console.log('///////////')
+
+        console.log('///////////')
+        console.log('var tripDate')
+        console.log(tripDate)
+        console.log('///////////')
+
+        console.log('///////////')
+        console.log('var children')
+        console.log(children)
+        console.log('///////////')
+
+
         this.props.surveyAction({
             tripType: tripType,
             tripSetting: tripSetting,
@@ -53,43 +252,19 @@ class Survey extends Component{
             children: children,
             token: token
         });   
-    }
 
-    handleVisibility(event){
-        console.dir(event.target.parentNode.value)
-        console.dir(event.target.parentNode)
-        console.log(this.state.currentQuestion);
-        console.log(this.state.totalQuestions);
-        var current = (this.state.currentQuestion).toString();
-        var next = (this.state.currentQuestion + 1).toString();
-        if (this.state.currentQuestion === this.state.totalQuestions){
-            // submit the form
-            // console.log("You done it!");
-            $('#next').addClass('not-visible');
-            $('#submit').removeClass('not-visible');
-        }else{
-            $('.question-'+current).addClass('not-visible');
-            $('.question-'+next).removeClass('not-visible');
-        var currentQuestionUpdate = this.state.currentQuestion + 1
-            this.setState({
-                currentQuestion: currentQuestionUpdate
-            });
-        }
+        console.log('/////////')
+        console.log("SurveyAction has fired! (Maybe? I mean it would. Ideally. In a perfect world. We'll see.")
+        console.log('/////////')
 
-        // this.setState({
-        //     tripType: '',
-        //     tripSetting: '',
-        //     destination: '',
-        //     tripDate: '',
-        //     children: '',
-        // })
     }
 
 	render(){
-        // console.log("*********************")
-        // console.log(this.props.reduxState)
-        // console.log("*********************")
-        // console.log(this.props.surveyResponse)
+        console.log('/////////')
+        console.log('SURVEY.JS HAS RENDERED')
+        console.log('this.props')
+        console.log(this.props)
+        console.log('/////////')
         
 		return(
             <div className='survey-box text-center'>
@@ -143,13 +318,13 @@ class Survey extends Component{
                     </div>
                     <div className='survey question-3 text-center not-visible'>
                         <h1>Where to?</h1>
-                        <input type='text'/>
+                        <input type='text' id='destination-input-text'/>
                         <br/>
                         <div id='next' onClick={this.handleVisibility}>Next</div>
                     </div>
                     <div className='survey question-4 text-center not-visible'>
                         <h1>When do you leave?</h1>
-                        <input type='date'/>
+                        <input type='date' id='date-input-value'/>
                         <br/>
                         <div id='next' onClick={this.handleVisibility}>Next</div>
                     </div>

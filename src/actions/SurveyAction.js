@@ -2,7 +2,6 @@ import $ from 'jquery';
 import hostAddress from '../config'
 
 export default function(surveyData){
-	console.log()
 
 	var request = $.ajax({
 		method: "POST",
