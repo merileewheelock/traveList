@@ -10,11 +10,11 @@ class Survey extends Component{
         this.state = {
 
             surveyStatus: '1',
-            // tripType: '',
-            // tripSetting: '',
-            // destination: '',
-            // tripDate: '',
-            // children: '',
+            tripType: '',
+            tripSetting: '',
+            destination: '',
+            tripDate: '',
+            children: '',
             totalQuestions: 5,
             currentQuestion: 1
 
@@ -34,7 +34,7 @@ class Survey extends Component{
     }
 
     handleSurvey(event){
-        console.dir(event.target)
+        // console.dir(event.target.childNodes[0].childNodes[2].value)
         event.preventDefault();
 
         var tripType = event.target.childNodes[0].childNodes[1].value;
@@ -42,6 +42,7 @@ class Survey extends Component{
         var destination = event.target.childNodes[2].childNodes[1].value;
         var tripDate = event.target.childNodes[3].childNodes[1].value;
         var children = event.target.childNodes[4].childNodes[1].value;
+
         var token = this.props.loginInfo.token
 
         this.props.surveyAction({
@@ -55,7 +56,8 @@ class Survey extends Component{
     }
 
     handleVisibility(event){
-        console.log(event)
+        console.dir(event.target.parentNode.value)
+        console.dir(event.target.parentNode)
         console.log(this.state.currentQuestion);
         console.log(this.state.totalQuestions);
         var current = (this.state.currentQuestion).toString();
@@ -73,6 +75,14 @@ class Survey extends Component{
                 currentQuestion: currentQuestionUpdate
             });
         }
+
+        // this.setState({
+        //     tripType: '',
+        //     tripSetting: '',
+        //     destination: '',
+        //     tripDate: '',
+        //     children: '',
+        // })
     }
 
 	render(){

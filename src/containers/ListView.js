@@ -23,14 +23,13 @@ class ListView extends Component{
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log("NEXT PROPS")
-		console.log(nextProps)
+		// console.log("NEXT PROPS")
+		// console.log(nextProps)
 
 		var listData = []
 		var lastCategory = "";
-		// var key = 0;
 
-		this.nextProps.listView.map((listItem, index)=>{
+		nextProps.listView.map((listItem, index)=>{
 			if(listItem.itemCategory !== lastCategory){
 				listData.push(
 					<div className="col-sm-offset-6" key={listItem.id}>
@@ -38,7 +37,6 @@ class ListView extends Component{
 					</div>
 				)
 				lastCategory = listItem.itemCategory;
-				// key++;
 			}
 			listData.push(
 				<div key={listItem.id}>
@@ -58,15 +56,10 @@ class ListView extends Component{
 
 	render(){
 
-		// console.log("******THIS.PROPS******")
-		// console.log(this.props)
-		// console.log("******THIS.PROPS******")
-
-		// this.state.listArray.map((listItem)=>{})
 		return(
 			<div>
 				<h1>Your Packing List</h1>
-				{this.state.listData}
+				{this.state.listArray}
 			</div>
 		)
 	}
