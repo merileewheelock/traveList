@@ -1,7 +1,22 @@
+.listview-page{
+	background-color: #005374;
+}
+
+.listview-section{
+	margin-top: 50px;
+	background-color: $tan;
+	border-radius: 10px;
+	color: $dark-blue;
+}
+
 .category-title{
     font-size: 20px;
 }
 
 .item{
 	padding-bottom: 5px;
+}
+
+.list-checkbox{
+
 }

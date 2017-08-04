@@ -32,19 +32,23 @@ class ListView extends Component{
 		nextProps.listView.map((listItem, index)=>{
 			if(listItem.itemCategory !== lastCategory){
 				listData.push(
-					<div className="col-sm-offset-6" key={listItem.id}>
-						<h3 className="category-title">{listItem.itemCategory}</h3>
+					<div className="row">
+						<div className="col-sm-offset-1 col-sm-11" key={listItem.id}>
+							<h3 className="category-title">{listItem.itemCategory}</h3>
+						</div>
 					</div>
 				)
 				lastCategory = listItem.itemCategory;
 			}
 			listData.push(
-				<div key={listItem.id}>
-                	<div className="col-sm-6 text-right">
-						<input type="checkbox" />
-						<span className="slider round"></span>
+				<div className="row" key={listItem.id}>
+                	<div className="col-sm-3 text-right">
+                		<div className="">
+							<input type="checkbox" className="list-checkbox" />
+							<label for="list-checkbox"></label>
+						</div>
 					</div>
-                	<div className="col-sm-6 item">{listItem.item}</div>
+                	<div className="col-sm-9 item">{listItem.item}</div>
                 </div> 
 			)
 		})
@@ -57,9 +61,11 @@ class ListView extends Component{
 	render(){
 
 		return(
-			<div>
-				<h1>Your Packing List</h1>
-				{this.state.listArray}
+			<div className="listview-page">
+				<div className="listview-section col-sm-offset-4 col-sm-4">
+					<h1 className="text-center">Packing Recommendations</h1>
+					{this.state.listArray}
+				</div>
 			</div>
 		)
 	}
