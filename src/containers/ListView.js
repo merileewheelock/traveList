@@ -51,7 +51,9 @@ class ListView extends Component{
 			)
 		})
 
-		this.setState({listArray: listData})
+		this.setState({
+			listArray: listData
+		})
 	}
 
 	render(){
@@ -60,11 +62,11 @@ class ListView extends Component{
 		// console.log(this.props)
 		// console.log("******THIS.PROPS******")
 
-		this.state.listArray.map((listItem)=>{})
+		// this.state.listArray.map((listItem)=>{})
 		return(
 			<div>
 				<h1>Your Packing List</h1>
-				{this.state.listArray}
+				{this.state.listData}
 			</div>
 		)
 	}

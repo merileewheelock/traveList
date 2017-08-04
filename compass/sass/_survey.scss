@@ -12,9 +12,9 @@ div#next{
   cursor: pointer;
   display: inline-block;
 }
-div#next:hover{
-  color: cyan;
-}
+// div#next:hover{
+//   color: cyan;
+// }
 
 .not-visible{
 	display: none;
@@ -32,6 +32,9 @@ div#next:hover{
 	input{
 		height: 50px;
 		width: 200px;
+		background-color: $tan;
+		border-radius: 10px;
+		color: black;
 	}
 }
 
@@ -47,8 +50,52 @@ div#next:hover{
     color: white;
 }
 
-.survey-button{
-	height: 100px;
-	width: 100px;
+.survey-option-box{
+	height: 115px;
+	width: 125px;
 	margin: 10px;
+	background-color: $tan;
+	border-radius: 10px;
+	color: $tan;
+}
+
+.survey-option-box:hover{
+	background-color: lightgray;
+}
+
+i.fa.fa-snowflake-o.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-briefcase.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-sun-o.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-globe.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-suitcase.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-fire.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-black-tie.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-binoculars.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-child.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-users.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-user.fa-5x::before{
+	color: $dark-blue;
+}
+i.fa.fa-times.fa-5x::before{
+	color: $dark-blue;
 }

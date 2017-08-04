@@ -146,11 +146,6 @@ div#next {
   display: inline-block;
 }
 
-/* line 15, ../../compass/sass/_survey.scss */
-div#next:hover {
-  color: cyan;
-}
-
 /* line 19, ../../compass/sass/_survey.scss */
 .not-visible {
   display: none;
@@ -169,9 +164,12 @@ div#next:hover {
 .survey input {
   height: 50px;
   width: 200px;
+  background-color: #E2D3C6;
+  border-radius: 10px;
+  color: black;
 }
 
-/* line 38, ../../compass/sass/_survey.scss */
+/* line 41, ../../compass/sass/_survey.scss */
 .btn {
   display: inline-block;
   border: 2px solid #ccc;
@@ -180,17 +178,85 @@ div#next:hover {
   cursor: pointer;
 }
 
-/* line 45, ../../compass/sass/_survey.scss */
+/* line 48, ../../compass/sass/_survey.scss */
 .btn.on {
   background-color: #777;
   color: white;
 }
 
-/* line 50, ../../compass/sass/_survey.scss */
-.survey-button {
-  height: 100px;
-  width: 100px;
+/* line 53, ../../compass/sass/_survey.scss */
+.survey-option-box {
+  height: 115px;
+  width: 125px;
   margin: 10px;
+  background-color: #E2D3C6;
+  border-radius: 10px;
+  color: #E2D3C6;
+}
+
+/* line 62, ../../compass/sass/_survey.scss */
+.survey-option-box:hover {
+  background-color: lightgray;
+}
+
+/* line 66, ../../compass/sass/_survey.scss */
+i.fa.fa-snowflake-o.fa-5x::before {
+  color: #005374;
+}
+
+/* line 69, ../../compass/sass/_survey.scss */
+i.fa.fa-briefcase.fa-5x::before {
+  color: #005374;
+}
+
+/* line 72, ../../compass/sass/_survey.scss */
+i.fa.fa-sun-o.fa-5x::before {
+  color: #005374;
+}
+
+/* line 75, ../../compass/sass/_survey.scss */
+i.fa.fa-globe.fa-5x::before {
+  color: #005374;
+}
+
+/* line 78, ../../compass/sass/_survey.scss */
+i.fa.fa-suitcase.fa-5x::before {
+  color: #005374;
+}
+
+/* line 81, ../../compass/sass/_survey.scss */
+i.fa.fa-fire.fa-5x::before {
+  color: #005374;
+}
+
+/* line 84, ../../compass/sass/_survey.scss */
+i.fa.fa-black-tie.fa-5x::before {
+  color: #005374;
+}
+
+/* line 87, ../../compass/sass/_survey.scss */
+i.fa.fa-binoculars.fa-5x::before {
+  color: #005374;
+}
+
+/* line 90, ../../compass/sass/_survey.scss */
+i.fa.fa-child.fa-5x::before {
+  color: #005374;
+}
+
+/* line 93, ../../compass/sass/_survey.scss */
+i.fa.fa-users.fa-5x::before {
+  color: #005374;
+}
+
+/* line 96, ../../compass/sass/_survey.scss */
+i.fa.fa-user.fa-5x::before {
+  color: #005374;
+}
+
+/* line 99, ../../compass/sass/_survey.scss */
+i.fa.fa-times.fa-5x::before {
+  color: #005374;
 }
 
 /* line 3, ../../compass/sass/_home.scss */
