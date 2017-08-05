@@ -24,35 +24,35 @@ class Survey extends Component{
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps triggered!')
-        console.log('/////////')
-        console.log("Next props")
-        console.log(nextProps)
-        console.log('/////////')
+        // console.log('componentWillReceiveProps triggered!')
+        // console.log('/////////')
+        // console.log("Next props")
+        // console.log(nextProps)
+        // console.log('/////////')
         if(nextProps.surveyResponse != null){
-            console.log('If statement inside of componentWillReceiveProps triggered (nextProps.surveyResponse!=null)')
-            console.log('Pushing to /listview.... (this.props.history.push("/listview")')
+            // console.log('If statement inside of componentWillReceiveProps triggered (nextProps.surveyResponse!=null)')
+            // console.log('Pushing to /listview.... (this.props.history.push("/listview")')
             this.props.history.push('/listview');
         }
     }
 
     handleVisibility(event){
 
-        console.log('HandleVisibility event triggered!')
-        console.log('/////////')
-        console.log('Event')
-        console.log(event)
-        console.log('/////////')
+        // console.log('HandleVisibility event triggered!')
+        // console.log('/////////')
+        // console.log('Event')
+        // console.log(event)
+        // console.log('/////////')
 
-        console.log('///SUPER IMPORTANT///')
-        console.log('event.target.parentNode')
-        console.dir(event.target.parentNode)
-        console.log('///SUPER IMPORTANT///')
+        // console.log('///SUPER IMPORTANT///')
+        // console.log('event.target.parentNode')
+        // console.dir(event.target.parentNode)
+        // console.log('///SUPER IMPORTANT///')
 
-        console.log('///ALSO PRETTY IMPORTANT//')
+        // console.log('///ALSO PRETTY IMPORTANT//')
         var dateResult = $('#date-input-value').val()
-        console.log(dateResult)
-        console.log('///ALSO PRETTY IMPORTANT//')
+        // console.log(dateResult)
+        // console.log('///ALSO PRETTY IMPORTANT//')
 
 
         if (this.state.currentQuestion == 1){
@@ -87,9 +87,9 @@ class Survey extends Component{
             });
         }
 
-        console.log('If statements have run!')
-        console.log('THIS.STATE')
-        console.log(this.state)
+        // console.log('If statements have run!')
+        // console.log('THIS.STATE')
+        // console.log(this.state)
 
 
         // console.log('/////////////')
@@ -178,70 +178,65 @@ class Survey extends Component{
         //     children: children
         // });  
 
-        console.log('HANDLEVISIBILITY HAS RUN')
+        // console.log('HANDLEVISIBILITY HAS RUN')
     }
 
     handleSurvey(event){
-        // console.dir(event.target.childNodes[0].childNodes[2].value)
         event.preventDefault();
-        console.log('HANDLESURVEY EVENT TRIGGERED!')
+        // console.log('HANDLESURVEY EVENT TRIGGERED!')
 
-        console.log('/////////')
-        console.log('event')
-        console.log(event)
-        console.log('/////////')
+        // console.log('/////////')
+        // console.log('event')
+        // console.log(event)
+        // console.log('/////////')
 
-        console.log('/////////')
-        console.log('this.props')
-        console.log(this.props)
-        console.log('/////////')
+        // console.log('/////////')
+        // console.log('this.props')
+        // console.log(this.props)
+        // console.log('/////////')
 
+        // console.log('/////////')
+        // console.log('event.target.childNodes')
+        // console.log(event.target.childNodes)
+        // console.log('/////////')
 
-        console.log('/////////')
-        console.log('event.target.childNodes')
-        console.log(event.target.childNodes)
-        console.log('/////////')
-
-
-        var tripType = event.target.childNodes[0].childNodes[1].value;
-        var tripSetting = event.target.childNodes[1].childNodes[1].value;
-        var destination = event.target.childNodes[2].childNodes[1].value;
-        var tripDate = event.target.childNodes[3].childNodes[1].value;
-        var children = event.target.childNodes[4].childNodes[1].value;
+        var tripType = this.state.tripType
+        var tripSetting = this.state.tripSetting
+        var destination = this.state.destination
+        var tripDate = this.state.tripDate
+        var children = this.state.children
 
         var token = this.props.loginInfo.token
 
+        // console.log('///////////')
+        // console.log('var token')
+        // console.log(token)
+        // console.log('///////////')
 
-        console.log('///////////')
-        console.log('var token')
-        console.log(token)
-        console.log('///////////')
+        // console.log('///////////')
+        // console.log('var tripType')
+        // console.log(tripType)
+        // console.log('///////////')
 
+        // console.log('///////////')
+        // console.log('var tripSetting')
+        // console.log(tripSetting)
+        // console.log('///////////')
 
-        console.log('///////////')
-        console.log('var tripType')
-        console.log(tripType)
-        console.log('///////////')
+        // console.log('///////////')
+        // console.log('var destination')
+        // console.log(destination)
+        // console.log('///////////')
 
-        console.log('///////////')
-        console.log('var tripSetting')
-        console.log(tripSetting)
-        console.log('///////////')
+        // console.log('///////////')
+        // console.log('var tripDate')
+        // console.log(tripDate)
+        // console.log('///////////')
 
-        console.log('///////////')
-        console.log('var destination')
-        console.log(destination)
-        console.log('///////////')
-
-        console.log('///////////')
-        console.log('var tripDate')
-        console.log(tripDate)
-        console.log('///////////')
-
-        console.log('///////////')
-        console.log('var children')
-        console.log(children)
-        console.log('///////////')
+        // console.log('///////////')
+        // console.log('var children')
+        // console.log(children)
+        // console.log('///////////')
 
 
         this.props.surveyAction({
@@ -253,18 +248,60 @@ class Survey extends Component{
             token: token
         });   
 
-        console.log('/////////')
-        console.log("SurveyAction has fired! (Maybe? I mean it would. Ideally. In a perfect world. We'll see.")
-        console.log('/////////')
+        // console.log('/////////')
+        // console.log("SurveyAction has fired! (Maybe? I mean it would. Ideally. In a perfect world. We'll see.")
+        // console.log('/////////')
 
     }
 
 	render(){
-        console.log('/////////')
-        console.log('SURVEY.JS HAS RENDERED')
-        console.log('this.props')
-        console.log(this.props)
-        console.log('/////////')
+        // console.log('/////////')
+        // console.log('SURVEY.JS HAS RENDERED')
+        // console.log('this.props')
+        // console.log(this.props)
+        // console.log('/////////')
+
+
+        var tripSettingButtons = []
+        if(this.state.tripType == "leisure"){
+            tripSettingButtons.push(
+                <button type='button' value='beach' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-sun-o fa-5x" aria-hidden="true"></i>
+                    Beach
+                </button>,
+                <button type='button' value='winter' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-snowflake-o fa-5x" aria-hidden="true"></i>
+                    Winter
+                </button>,
+                <button type='button' value='camping' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-fire fa-5x" aria-hidden="true"></i>
+                    Camping
+                </button>,
+                <button type='button' value='formal' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
+                    Formal
+                </button>,
+                <button type='button' value='international' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
+                    International
+                </button>
+            )
+        }else if(this.state.tripType == "business"){
+            tripSettingButtons.push(
+                <button type='button' value='business international' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
+                    International
+                </button>,
+                <button type='button' value='business casual' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-suitcase fa-5x" aria-hidden="true"></i>
+                    Casual
+                </button>,
+                <button type='button' value='business formal' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                    <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
+                    Formal
+                </button>
+            )
+        }
         
 		return(
             <div className='survey-box text-center'>
@@ -282,39 +319,7 @@ class Survey extends Component{
                     </div>
                     <div className='survey question-2 text-center not-visible'>
                         <h1>And what is the setting?</h1>
-                        <button type='button' value='beach' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-sun-o fa-5x" aria-hidden="true"></i>
-                            Beach
-                        </button>
-                        <button type='button' value='winter' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-snowflake-o fa-5x" aria-hidden="true"></i>
-                            Winter
-                        </button>
-                        <button type='button' value='camping' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-fire fa-5x" aria-hidden="true"></i>
-                            Camping
-                        </button>
-                        <button type='button' value='formal' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
-                            Formal
-                        </button>
-                        <button type='button' value='international' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
-                            International
-                        </button>
-                        <br/>
-                        <button type='button' value='business international' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
-                            International
-                        </button>
-                        <button type='button' value='business casual' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-suitcase fa-5x" aria-hidden="true"></i>
-                            Casual
-                        </button>
-                        <button type='button' value='business formal' className='survey-option-box' id='next' onClick={this.handleVisibility}>
-                            <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
-                            Formal
-                        </button>
+                        {tripSettingButtons}
                     </div>
                     <div className='survey question-3 text-center not-visible'>
                         <h1>Where to?</h1>

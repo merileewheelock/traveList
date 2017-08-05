@@ -26,7 +26,7 @@ class Profile extends Component{
     render(){
         // console.log(this.props.registerInfo)
     	var userInfoArray = [
-    		<div className="col-sm-2" key='1'>
+    		<div className="col-sm-6" key='1'>
     			<div>{this.props.registerInfo.name}</div>
     			<div>{this.props.registerInfo.email}</div>
     			<div>{this.props.registerInfo.gender}</div>
@@ -38,20 +38,19 @@ class Profile extends Component{
         this.state.savedTrips.map((trip, index)=>{
             if((this.state.savedTrips[index].email === this.props.registerInfo.email) && (this.state.savedTrips[index].tripType === undefined)){
                 savedTripsArray.push(
-                    <div className="col-sm-offset-4 col-sm-4 text-center" key={index}>
+                    <div className="text-center" key={index}>
                         No saved trips
                     </div>
                 )
             }else if (this.state.savedTrips[index].email === this.props.registerInfo.email){
                 savedTripsArray.push(
                     <div key={index}>
-                        <div className="col-sm-offset-4 col-sm-4 text-center">            
+                        <div className="text-center">            
                             <div className="saved-trips-link">
                                 <Link to="/listview">
-                                    <div className="col-sm-3">{this.state.savedTrips[index].tripType}</div>
-                                    <div className="col-sm-3">{this.state.savedTrips[index].tripSetting}</div>
-                                    <div className="col-sm-3">{this.state.savedTrips[index].destination}</div>
-                                    <div className="col-sm-3">{this.state.savedTrips[index].children}</div>
+                                    <div className="col-sm-4">{this.state.savedTrips[index].tripType}</div>
+                                    <div className="col-sm-4">{this.state.savedTrips[index].tripSetting}</div>
+                                    <div className="col-sm-4">{this.state.savedTrips[index].children}</div>
                                 </Link>
                             </div>
                         </div>
@@ -61,24 +60,25 @@ class Profile extends Component{
         })
 
         return(
-        	<div className="user-profile">
-            	<h1>User Profile</h1>
-            	<div className="basic-user-info col-sm-offset-4 col-sm-2 text-right">
-            		<div>Name:</div>
-            		<div>Email:</div>
-            		<div>Gender:</div>
+        	<div className="user-profile col-sm-offset-4 col-sm-4">
+            	<h1 className="text-center">User Profile</h1>
+                <div className="row basic-user-info">
+                	<div className="col-sm-6 text-right">
+                		<div>Name:</div>
+                		<div>Email:</div>
+                		<div>Gender:</div>
+                	</div>
+                	{userInfoArray}
+                </div>
+            	<div className="row trip-user-info text-center">
+            		<div><Link to="/survey"><i className="fa fa-plus" aria-hidden="true"></i> Add Trip</Link></div>
             	</div>
-            	{userInfoArray}
-            	<div className="trip-user-info col-sm-offset-4 col-sm-4 text-center">
-            		<div><Link to="/survey">Add a Trip</Link></div>
-            	</div>
-                <h4 className="col-sm-offset-4 col-sm-4 text-center">Saved Trips</h4>
-                <div className="col-sm-offset-4 col-sm-4 text-center">            
+                <h4 className="row text-center">Saved Trips</h4>
+                <div className="row text-center">            
                     <div>
-                        <div className="saved-header col-sm-3">Trip Type</div>
-                        <div className="saved-header col-sm-3">Setting</div>
-                        <div className="saved-header col-sm-3">Destination</div>
-                        <div className="saved-header col-sm-3">Children</div>
+                        <div className="saved-header col-sm-4">Trip Type</div>
+                        <div className="saved-header col-sm-4">Setting</div>
+                        <div className="saved-header col-sm-4">Children</div>
                     </div>
                 </div>
                 {savedTripsArray}

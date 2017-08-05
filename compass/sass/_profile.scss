@@ -1,21 +1,29 @@
-.trip-user-info{
-	border-top: solid 1px darkgray;
-	border-bottom: solid 1px darkgray;
-	margin-top: 10px;
-	padding-top: 10px;
-	margin-bottom: 10px;
+.user-profile{
+	background: $green;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 10px;
+	padding-bottom: 20px;
+}
+
+.basic-user-info{
+	color: $tan;
+	font-size: 18px;
 	padding-bottom: 10px;
+}
+
+.trip-user-info{
+
 	a{
 		color: #cdcdcd;
 	}
 }
 
 .saved-header{
-	border-bottom: solid 1px darkgray;
+	border-bottom: 1px solid $tan;
 }
 
 .saved-trips-link{
-	border-bottom: solid 1px darkgray;
 	a{
 		color: #cdcdcd;
 	}

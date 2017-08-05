@@ -481,29 +481,32 @@ i.fa.fa-times.fa-5x::before {
 }
 
 /* line 1, ../../compass/sass/_profile.scss */
-.trip-user-info {
-  border-top: solid 1px darkgray;
-  border-bottom: solid 1px darkgray;
-  margin-top: 10px;
-  padding-top: 10px;
-  margin-bottom: 10px;
+.user-profile {
+  background: #00665E;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+/* line 9, ../../compass/sass/_profile.scss */
+.basic-user-info {
+  color: #E2D3C6;
+  font-size: 18px;
   padding-bottom: 10px;
 }
-/* line 8, ../../compass/sass/_profile.scss */
+
+/* line 17, ../../compass/sass/_profile.scss */
 .trip-user-info a {
   color: #cdcdcd;
 }
 
-/* line 13, ../../compass/sass/_profile.scss */
+/* line 22, ../../compass/sass/_profile.scss */
 .saved-header {
-  border-bottom: solid 1px darkgray;
+  border-bottom: 1px solid #E2D3C6;
 }
 
-/* line 17, ../../compass/sass/_profile.scss */
-.saved-trips-link {
-  border-bottom: solid 1px darkgray;
-}
-/* line 19, ../../compass/sass/_profile.scss */
+/* line 27, ../../compass/sass/_profile.scss */
 .saved-trips-link a {
   color: #cdcdcd;
 }

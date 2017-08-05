@@ -45,7 +45,7 @@ class ListView extends Component{
                 	<div className="col-sm-3 text-right">
                 		<div className="">
 							<input type="checkbox" className="list-checkbox" />
-							<label for="list-checkbox"></label>
+							<label htmlFor="list-checkbox"></label>
 						</div>
 					</div>
                 	<div className="col-sm-9 item">{listItem.item}</div>
