@@ -134,7 +134,7 @@ router.post('/survey', (req, res)=>{
     	childrenCheck += `${tripSettingCheck} AND babyJoining = 1`
     }else if (children == 'none'){
     	childrenCheck += `${tripSettingCheck} AND noChildren = 1`
-    }else if (children == 'childrenAndBabies'){
+    }else if (children == 'both'){
     	childrenCheck += `${tripSettingCheck} AND childAndBaby = 1`
     }
 
@@ -219,7 +219,7 @@ router.post('/listview', (req,res)=>{
 	                childrenCheck += `${tripSettingCheck} AND babyJoining = 1`
 	            }else if (results2[0].children == 'none'){
 	                childrenCheck += `${tripSettingCheck} AND noChildren = 1`
-	            }else if (results2[0].children == 'childrenAndBabies'){
+	            }else if (results2[0].children == 'both'){
 	                childrenCheck += `${tripSettingCheck} AND childAndBaby = 1`
 	            }
 	            // console.log(childrenCheck)

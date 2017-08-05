@@ -45,7 +45,7 @@ class Profile extends Component{
             }else if (this.state.savedTrips[index].email === this.props.registerInfo.email){
                 savedTripsArray.push(
                     <div key={index}>
-                        <div className="text-center">            
+                        <div className="row text-center">            
                             <div className="saved-trips-link">
                                 <Link to="/listview">
                                     <div className="col-sm-4">{this.state.savedTrips[index].tripType}</div>
@@ -78,7 +78,7 @@ class Profile extends Component{
                     <div>
                         <div className="saved-header col-sm-4">Trip Type</div>
                         <div className="saved-header col-sm-4">Setting</div>
-                        <div className="saved-header col-sm-4">Children</div>
+                        <div className="saved-header col-sm-4">Children/Babies</div>
                     </div>
                 </div>
                 {savedTripsArray}

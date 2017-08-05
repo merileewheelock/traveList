@@ -347,7 +347,7 @@ class Survey extends Component{
                             <i className="fa fa-child fa-5x" aria-hidden="true"></i>
                             Yes, babies
                         </button>
-                        <button type='button' value='childrenAndBabies' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='both' className='survey-option-box' id='next' onClick={this.handleVisibility}>
                             <i className="fa fa-users fa-5x" aria-hidden="true"></i>
                             Both!
                         </button>
