@@ -70,17 +70,16 @@ class Profile extends Component{
                 	</div>
                 	{userInfoArray}
                 </div>
-            	<div className="row trip-user-info text-center">
-            		<div><Link to="/survey"><i className="fa fa-plus" aria-hidden="true"></i> Add Trip</Link></div>
-            	</div>
-                <h4 className="row text-center">Saved Trips</h4>
-                <div className="row text-center">            
-                    <div>
-                        <div className="saved-header col-sm-4">Trip Type</div>
-                        <div className="saved-header col-sm-4">Setting</div>
-                        <div className="saved-header col-sm-4">Children/Babies</div>
-                    </div>
+                <h2 className="col-xs-9 text-left">Saved Trips</h2>
+                <div className="col-xs-3 add-trip text-center">
+                    <Link to="/survey"><i className="fa fa-plus" aria-hidden="true"></i>Add Trip</Link>
                 </div>
+                <div className="saved-trips-table text-center">            
+                    <div className="saved-header col-xs-4">Trip Type</div>
+                    <div className="saved-header col-xs-4">Setting</div>
+                    <div className="saved-header col-xs-4">Children/Babies</div>
+                </div>
+                <hr />
                 {savedTripsArray}
             </div>
         )

@@ -382,8 +382,8 @@ i.fa.fa-times.fa-5x::before {
 
 /* line 1, ../../compass/sass/_about.scss */
 #about {
-  height: 100vh;
-  margin-top: 20vh;
+  height: 110vh;
+  margin-top: 15vh;
 }
 /* line 4, ../../compass/sass/_about.scss */
 #about h1 {
@@ -402,55 +402,56 @@ i.fa.fa-times.fa-5x::before {
   margin-bottom: 50px;
 }
 
-/* line 22, ../../compass/sass/_about.scss */
+/* line 23, ../../compass/sass/_about.scss */
 .inspiration p {
   padding: 0px 50px;
 }
 
-/* line 27, ../../compass/sass/_about.scss */
+/* line 28, ../../compass/sass/_about.scss */
 .team-member {
-  margin-top: 5vh;
+  margin-top: 50px;
   display: inline-block;
   height: 100%;
 }
-/* line 31, ../../compass/sass/_about.scss */
+/* line 32, ../../compass/sass/_about.scss */
 .team-member img {
   height: 200px;
   width: 200px;
   border-radius: 100px;
 }
-/* line 36, ../../compass/sass/_about.scss */
+/* line 37, ../../compass/sass/_about.scss */
 .team-member h4 {
   letter-spacing: 2px;
 }
 
-/* line 42, ../../compass/sass/_about.scss */
+/* line 43, ../../compass/sass/_about.scss */
 .fa {
   color: #E2D3C6;
   margin: 20px;
 }
 
-/* line 47, ../../compass/sass/_about.scss */
+/* line 48, ../../compass/sass/_about.scss */
 .technologies {
+  height: 100%;
   overflow-wrap: break-word;
   line-height: 6em;
 }
-/* line 50, ../../compass/sass/_about.scss */
+/* line 52, ../../compass/sass/_about.scss */
 .technologies i {
   font-size: 50px;
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
 }
 
 @media only screen and (max-width: 960px) {
-  /* line 61, ../../compass/sass/_about.scss */
+  /* line 63, ../../compass/sass/_about.scss */
   .team-member img {
     height: 150px;
     width: 150px;
     border-radius: 75px;
   }
 
-  /* line 67, ../../compass/sass/_about.scss */
+  /* line 69, ../../compass/sass/_about.scss */
   .technologies {
     height: 100%;
   }
@@ -496,32 +497,61 @@ i.fa.fa-times.fa-5x::before {
 /* line 1, ../../compass/sass/_profile.scss */
 .user-profile {
   background: #00665E;
-  margin-top: 50px;
+  margin-top: 80px;
   margin-bottom: 50px;
   border-radius: 10px;
   padding-bottom: 20px;
 }
-
-/* line 9, ../../compass/sass/_profile.scss */
-.basic-user-info {
+/* line 7, ../../compass/sass/_profile.scss */
+.user-profile h1 {
+  margin: 40px 0px;
+}
+/* line 10, ../../compass/sass/_profile.scss */
+.user-profile hr {
+  width: 90%;
   color: #E2D3C6;
-  font-size: 18px;
-  padding-bottom: 10px;
+  margin-top: 20px;
 }
 
 /* line 17, ../../compass/sass/_profile.scss */
-.trip-user-info a {
-  color: #cdcdcd;
+.basic-user-info {
+  color: #E2D3C6;
+  font-size: 18px;
+  padding-bottom: 30px;
 }
 
-/* line 22, ../../compass/sass/_profile.scss */
-.saved-header {
-  border-bottom: 1px solid #E2D3C6;
+/* line 24, ../../compass/sass/_profile.scss */
+.add-trip a {
+  color: #00665E;
+  padding: 10px 10px 10px 0px;
+  background-color: #E2D3C6;
+  text-decoration: none;
+  border-radius: 10px;
+}
+/* line 30, ../../compass/sass/_profile.scss */
+.add-trip a i {
+  color: #00665E;
+}
+/* line 34, ../../compass/sass/_profile.scss */
+.add-trip a:hover {
+  color: #E2D3C6;
+  background-color: #00665E;
+  border: solid 1px #E2D3C6;
+}
+/* line 38, ../../compass/sass/_profile.scss */
+.add-trip a:hover i {
+  color: #E2D3C6;
 }
 
-/* line 27, ../../compass/sass/_profile.scss */
+/* line 50, ../../compass/sass/_profile.scss */
 .saved-trips-link a {
   color: #cdcdcd;
+}
+
+/* line 55, ../../compass/sass/_profile.scss */
+.saved-trips-table {
+  width: 100%;
+  margin-top: 90px;
 }
 
 /* line 1, ../../compass/sass/_howitworks.scss */
