@@ -508,37 +508,45 @@ i.fa.fa-times.fa-5x::before {
 }
 
 /* line 24, ../../compass/sass/_profile.scss */
+.add-trip h2, .add-trip .add-trip-button {
+  display: inline-block;
+}
+/* line 27, ../../compass/sass/_profile.scss */
+.add-trip .add-trip-button {
+  float: right;
+}
+/* line 30, ../../compass/sass/_profile.scss */
 .add-trip a {
   color: #00665E;
-  padding: 10px 10px 10px 0px;
+  padding-right: 15px;
   background-color: #E2D3C6;
   text-decoration: none;
   border-radius: 10px;
 }
-/* line 30, ../../compass/sass/_profile.scss */
+/* line 36, ../../compass/sass/_profile.scss */
 .add-trip a i {
   color: #00665E;
 }
-/* line 34, ../../compass/sass/_profile.scss */
+/* line 40, ../../compass/sass/_profile.scss */
 .add-trip a:hover {
   color: #E2D3C6;
   background-color: #00665E;
   border: solid 1px #E2D3C6;
 }
-/* line 38, ../../compass/sass/_profile.scss */
+/* line 44, ../../compass/sass/_profile.scss */
 .add-trip a:hover i {
   color: #E2D3C6;
 }
 
-/* line 50, ../../compass/sass/_profile.scss */
+/* line 56, ../../compass/sass/_profile.scss */
 .saved-trips-link a {
   color: #cdcdcd;
 }
 
-/* line 55, ../../compass/sass/_profile.scss */
+/* line 61, ../../compass/sass/_profile.scss */
 .saved-trips-table {
   width: 100%;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 /* line 1, ../../compass/sass/_howitworks.scss */

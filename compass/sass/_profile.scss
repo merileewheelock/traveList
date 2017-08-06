@@ -21,9 +21,15 @@
 }
 
 .add-trip{
+	h2, .add-trip-button{
+		display: inline-block;
+	}
+	.add-trip-button{
+		float: right;
+	}
 	a{
 		color: $green;
-		padding: 10px 10px 10px 0px;
+		padding-right: 15px;
 		background-color: $tan;
 		text-decoration: none;
 		border-radius: 10px;
@@ -54,5 +60,5 @@
 
 .saved-trips-table{
 	width: 100%;
-	margin-top: 90px;
+	margin-top: 50px;
 }

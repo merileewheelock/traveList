@@ -26,7 +26,7 @@ class Profile extends Component{
     render(){
         // console.log(this.props.registerInfo)
     	var userInfoArray = [
-    		<div className="col-sm-6" key='1'>
+    		<div className="col-xs-6" key='1'>
     			<div>{this.props.registerInfo.name}</div>
     			<div>{this.props.registerInfo.email}</div>
     			<div>{this.props.registerInfo.gender}</div>
@@ -48,9 +48,9 @@ class Profile extends Component{
                         <div className="row text-center">            
                             <div className="saved-trips-link">
                                 <Link to="/listview">
-                                    <div className="col-sm-4">{this.state.savedTrips[index].tripType}</div>
-                                    <div className="col-sm-4">{this.state.savedTrips[index].tripSetting}</div>
-                                    <div className="col-sm-4">{this.state.savedTrips[index].children}</div>
+                                    <div className="col-xs-4">{this.state.savedTrips[index].tripType}</div>
+                                    <div className="col-xs-4">{this.state.savedTrips[index].tripSetting}</div>
+                                    <div className="col-xs-4">{this.state.savedTrips[index].children}</div>
                                 </Link>
                             </div>
                         </div>
@@ -60,19 +60,19 @@ class Profile extends Component{
         })
 
         return(
-        	<div className="user-profile col-sm-offset-4 col-sm-4">
+        	<div className="user-profile col-md-offset-4 col-md-4">
             	<h1 className="text-center">User Profile</h1>
                 <div className="row basic-user-info">
-                	<div className="col-sm-6 text-right">
+                	<div className="col-xs-6 text-right">
                 		<div>Name:</div>
                 		<div>Email:</div>
                 		<div>Gender:</div>
                 	</div>
                 	{userInfoArray}
                 </div>
-                <h2 className="col-xs-9 text-left">Saved Trips</h2>
-                <div className="col-xs-3 add-trip text-center">
-                    <Link to="/survey"><i className="fa fa-plus" aria-hidden="true"></i>Add Trip</Link>
+                <div className="add-trip">
+                    <h2>Saved Trips</h2>
+                    <Link to="/survey" className="add-trip-button"><i className="fa fa-plus" aria-hidden="true"></i>Add Trip</Link>
                 </div>
                 <div className="saved-trips-table text-center">            
                     <div className="saved-header col-xs-4">Trip Type</div>
