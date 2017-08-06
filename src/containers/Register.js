@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Button, Col } from 'react-bootstrap';
 import  {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 import RegisterAction from '../actions/RegisterAction';

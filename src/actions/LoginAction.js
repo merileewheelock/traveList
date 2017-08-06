@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import hostAddress from '../config'
+import config from '../config'
 
 export default function(loginData){
 	var request = $.ajax({
 		method: "POST",
-		url: hostAddress + '/login',
+		url: config.hostAddress + '/login',
 		data: loginData
 	})
 	return{

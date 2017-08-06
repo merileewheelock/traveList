@@ -3,7 +3,7 @@ import  {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import LoginAction from '../actions/LoginAction';
-import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap'
+import { Form, FormGroup, FormControl, Button, Col } from 'react-bootstrap'
 
 class Login extends Component{
 	constructor(props) {

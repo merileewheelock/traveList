@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import  {bindActionCreators} from 'redux';
 import SurveyAction from '../actions/SurveyAction';
+import { getWeatherData } from '../actions/index';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 
@@ -16,11 +17,13 @@ class Survey extends Component{
             tripDate: '',
             children: '',
             totalQuestions: 5,
-            currentQuestion: 1
+            currentQuestion: 1,
+            term: '' 
 
         }
         this.handleSurvey = this.handleSurvey.bind(this);
         this.handleVisibility = this.handleVisibility.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -34,6 +37,10 @@ class Survey extends Component{
             // console.log('Pushing to /listview.... (this.props.history.push("/listview")')
             this.props.history.push('/listview');
         }
+    }
+
+    onInputChange(event) {
+        this.setState({ term: event.target.value })
     }
 
     handleVisibility(event){
@@ -50,38 +57,38 @@ class Survey extends Component{
         // console.log('///SUPER IMPORTANT///')
 
         // console.log('///ALSO PRETTY IMPORTANT//')
-        var dateResult = $('#date-input-value').val()
+        // var dateResult = $('#date-input-value').val()
         // console.log(dateResult)
         // console.log('///ALSO PRETTY IMPORTANT//')
 
 
-        if (this.state.currentQuestion == 1){
+        if (this.state.currentQuestion === 1){
             this.setState({
                 tripType: event.target.parentNode.value
             });
         }
 
-        if (this.state.currentQuestion == 2){
+        if (this.state.currentQuestion === 2){
             this.setState({
                 tripSetting: event.target.parentNode.value
             });
         }
 
-        if (this.state.currentQuestion == 3){
+        if (this.state.currentQuestion === 3){
             var destination = $('#destination-input-text').val()
             this.setState({
                 destination: destination
             });
         }
 
-        if (this.state.currentQuestion == 4){
+        if (this.state.currentQuestion === 4){
             var tripDate = $('#date-input-value').val()
             this.setState({
                 tripDate: tripDate
             })
         }
 
-        if (this.state.currentQuestion == 5){
+        if (this.state.currentQuestion === 5){
             this.setState({
                 children: event.target.parentNode.value
             });
@@ -183,6 +190,9 @@ class Survey extends Component{
 
     handleSurvey(event){
         event.preventDefault();
+
+        this.props.getWeatherData(this.state.term);
+        this.setState({ term: '' });
         // console.log('HANDLESURVEY EVENT TRIGGERED!')
 
         // console.log('/////////')
@@ -263,7 +273,7 @@ class Survey extends Component{
 
 
         var tripSettingButtons = []
-        if(this.state.tripType == "leisure"){
+        if(this.state.tripType === "leisure"){
             tripSettingButtons.push(
                 <button type='button' value='beach' className='survey-option-box' id='next' onClick={this.handleVisibility}>
                     <i className="fa fa-sun-o fa-5x" aria-hidden="true"></i>
@@ -286,7 +296,7 @@ class Survey extends Component{
                     International
                 </button>
             )
-        }else if(this.state.tripType == "business"){
+        }else if(this.state.tripType === "business"){
             tripSettingButtons.push(
                 <button type='button' value='business international' className='survey-option-box' id='next' onClick={this.handleVisibility}>
                     <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
@@ -323,7 +333,14 @@ class Survey extends Component{
                     </div>
                     <div className='survey question-3 text-center not-visible'>
                         <h1>Where to?</h1>
-                        <input type='text' id='destination-input-text'/>
+                        <input
+                            placeholder="Get a five-day forecast in your favorite cities"
+                            className="form-control text-center"
+                            value={this.state.term}
+                            onChange={this.onInputChange}
+                            id='destination-input-value'
+                        />
+                        {/*<input type='text' id='destination-input-text'/>*/}
                         <br/>
                         <div id='next' onClick={this.handleVisibility}>Next</div>
                     </div>
@@ -372,7 +389,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        surveyAction: SurveyAction
+        surveyAction: SurveyAction,
+        getWeatherData: getWeatherData
     }, dispatch)
 }
 
