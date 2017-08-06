@@ -333,15 +333,12 @@ class Survey extends Component{
                     </div>
                     <div className='survey question-3 text-center not-visible'>
                         <h1>Where to?</h1>
-                        <div className="text-center">
-                            <input
-                                placeholder="Destination"
-                                className="form-control"
-                                value={this.state.term}
-                                onChange={this.onInputChange}
-                                id='destination-input-text'
-                            />
-                        </div>
+                        <input
+                            placeholder="Destination"
+                            value={this.state.term}
+                            onChange={this.onInputChange}
+                            id='destination-input-text'
+                        />
                         {/*<input type='text' id='destination-input-text'/>*/}
                         <br/>
                         <div id='next' onClick={this.handleVisibility}>Next</div>
