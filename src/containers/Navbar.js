@@ -9,14 +9,14 @@ class NavBar extends Component{
 		// console.log(this.props.registerInfo.name)
 		if(this.props.registerInfo.name === undefined){
 			var userLoginStatus = [
-				<li className="menu-item"><Link to="/login" key="1">Login</Link></li>,
-				<li className="menu-item"><Link to="/register" key="2">Register</Link></li>	
+				<li className="menu-item" key="1"><Link to="/login">Login</Link></li>,
+				<li className="menu-item" key="2"><Link to="/register">Register</Link></li>	
 			]
 		}else{
 			userLoginStatus = [
-				<li className="menu-item"><Link to="/profile" key="1">Welcome, {this.props.registerInfo.name}</Link></li>,
-				<li className="menu-item"><Link to="/profile" key="2">User Profile</Link></li>,	
-				<a href="http://localhost:3001/" key="3"><li className="menu-item">Logout</li></a>
+				<li className="menu-item" key="1"><Link to="/profile">Welcome, {this.props.registerInfo.name}</Link></li>,
+				<li className="menu-item" key="2"><Link to="/profile">User Profile</Link></li>,	
+				<li className="menu-item" key="3"><a href="http://localhost:3001/">Logout</a></li>
 				// THIS <a> TAG FORCES THE PAGE TO RERENDER AND LOGOUT. CHANGE ADDRESS WHEN LIVE.	
 			]		
 		}
