@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import hostAddress from '../config'
+import config from '../config'
 
 export default function(listData){
 
 
 	var request = $.ajax({
 		method: "POST",
-		url: hostAddress + '/listview',
+		url: config.hostAddress + '/listview',
 		data: listData
 	})
 

@@ -481,6 +481,19 @@ i.fa.fa-times.fa-5x::before {
   padding-bottom: 5px;
 }
 
+/* line 22, ../../compass/sass/_listview.scss */
+.weather-forecast {
+  background-color: #005374;
+  color: #E2D3C6;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+/* line 29, ../../compass/sass/_listview.scss */
+.weather-header {
+  padding-bottom: 20px;
+}
+
 /* line 1, ../../compass/sass/_profile.scss */
 .user-profile {
   background: #00665E;

@@ -33,6 +33,7 @@ class WeatherSearchBar extends Component {
           className="form-control"
           value={this.state.term}
           onChange={this.onInputChange}
+          id='date-input-value'
         />
         <span className="input-group-btn">
           <button type="submit" className="btn btn-secondary">Submit</button>

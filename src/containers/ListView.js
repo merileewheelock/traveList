@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import  {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import ListAction from '../actions/ListAction';
-import $ from 'jquery';
-import hostAddress from '../config'
+import WeatherDiv from './WeatherDiv';
 
 class ListView extends Component{
 	constructor(props) {
@@ -61,10 +60,13 @@ class ListView extends Component{
 	render(){
 
 		return(
-			<div className="listview-page">
-				<div className="listview-section col-sm-offset-4 col-sm-4">
-					<h1 className="text-center">Packing Recommendations</h1>
-					{this.state.listArray}
+			<div>
+				<WeatherDiv />
+				<div className="listview-page">
+					<div className="listview-section col-sm-offset-4 col-sm-4">
+						<h1 className="text-center">Packing Recommendations</h1>
+						{this.state.listArray}
+					</div>
 				</div>
 			</div>
 		)
