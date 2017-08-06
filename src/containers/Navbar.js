@@ -38,8 +38,8 @@ class NavBar extends Component{
 				    
 					<ul id="menu">
 						<li className="menu-item"><a href="/">Home</a></li>
-						<li className="menu-item"><a href="#howitworks">How It Works</a></li>
-						<li className="menu-item"><a href="#about">About</a></li>
+						<li className="menu-item"><a href="/#howitworks">How It Works</a></li>
+						<li className="menu-item"><a href="/#about">About</a></li>
 						<hr className="linebreak" />
 						{userLoginStatus}
 						{/*<Link to="/login"><li>Login</li></Link>
