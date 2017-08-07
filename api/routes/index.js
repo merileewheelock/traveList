@@ -241,6 +241,7 @@ router.post('/listview', (req,res)=>{
 router.post('/savedtrip', (req,res)=>{
 	surveyId = req.body.surveyId;
 	token = req.body.token;
+	console.log(surveyId)
 })
 
 
