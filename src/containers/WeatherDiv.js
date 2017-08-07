@@ -6,7 +6,7 @@ class WeatherDiv extends Component {
 	render() {
 
         var weatherDiv = [];
-		if (this.props.weatherData[0] != undefined){
+		if (this.props.weatherData[0] !== undefined){
 			// console.log('///////////')
 			// console.log('Weather Data')
 			// console.log(this.props.weatherData)

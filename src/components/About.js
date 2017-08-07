@@ -8,7 +8,7 @@ class About extends Component {
 
 				<div className="about-section inspiration col-xs-12 col-md-6 col-lg-4 col-lg-offset-2">
 					<h2>project inspiration</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p>traveList was developed as a final Full-Stack Web Development project by a team of students at <a href="http://www.digitalcrafts.com/" target="_blank" rel="noopener noreferrer">DigitalCrafts</a>. The project was inspired by a friend who went on a business trip and noted the difference in packing for business and for leisure. The team was motivated to develop a tool to help travelers stay organized and prepared during all types of travel.</p>
 				</div>
 				<div className="about-section col-xs-12 col-md-6 col-lg-4">
 					<h2>technologies used</h2>
@@ -26,28 +26,28 @@ class About extends Component {
 				<div className="team-section col-xs-12 text-center">
 					<h2>team members</h2>
 					<div className="team-member col-sm-6 col-xs-12 col-md-3 col-lg-2 col-lg-offset-2">
-						<img src="/images/guido_bacce.png" />
+						<img src="/images/guido_bacce.png" alt="guido_bacce" />
 						<h3>Guido Bacce</h3>
-						<a href="https://www.linkedin.com/in/gbacce/" target="_blank"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
-						<a href="https://github.com/gbacce" target="_blank"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
+						<a href="https://www.linkedin.com/in/gbacce/" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
+						<a href="https://github.com/gbacce" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
 					</div>
 					<div className="team-member col-sm-6 col-xs-12 col-md-3 col-lg-2">
-						<img src="/images/marissa_monivis.png" />
+						<img src="/images/marissa_monivis.png" alt="marissa_monivis" />
 						<h3>Marissa Monivis</h3>
-						<a href="https://www.linkedin.com/in/marissamonivis/" target="_blank"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
-						<a href="https://github.com/mmonivis" target="_blank"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
+						<a href="https://www.linkedin.com/in/marissamonivis/" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
+						<a href="https://github.com/mmonivis" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
 					</div>
 					<div className="team-member col-sm-6 col-xs-12 col-md-3 col-lg-2">
-						<img src="/images/merilee_wheelock.jpg" />
+						<img src="/images/merilee_wheelock.jpg" alt="merilee_wheelock" />
 						<h3>Merilee Wheelock</h3>
-						<a href="https://www.linkedin.com/in/merilee-wheelock-5337b86b/" target="_blank"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
-						<a href="https://github.com/merileewheelock" target="_blank"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
+						<a href="https://www.linkedin.com/in/merilee-wheelock-5337b86b/" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
+						<a href="https://github.com/merileewheelock" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
 					</div>
 					<div className="team-member col-sm-6 col-xs-12 col-md-3 col-lg-2">
-						<img src="/images/michael_gaynor.png" />
+						<img src="/images/michael_gaynor.png" alt="michael_gaynor" />
 						<h3>Michael Gaynor</h3>
-						<a href="https://www.linkedin.com/in/michael-gaynor-3997b123/" target="_blank"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
-						<a href="https://github.com/MichaelGaynor" target="_blank"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
+						<a href="https://www.linkedin.com/in/michael-gaynor-3997b123/" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
+						<a href="https://github.com/MichaelGaynor" target="_blank" rel="noopener noreferrer"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>

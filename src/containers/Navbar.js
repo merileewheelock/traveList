@@ -28,7 +28,7 @@ class NavBar extends Component{
 		});
 
 		return(
-			<nav role="navigation">
+			<nav>
 				<div id="menuToggle">
 				    <input type="checkbox" />
 

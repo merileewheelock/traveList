@@ -63,6 +63,71 @@ div#next{
 	background-color: lightgray;
 }
 
+.ease1{
+	-webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.5s; /* Firefox < 16 */
+        -ms-animation: fadein 1.5s; /* Internet Explorer */
+         -o-animation: fadein 1.5s; /* Opera < 12.1 */
+            animation: fadein 1.5s;
+}
+.ease2{
+	-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
+}
+.ease3{
+	-webkit-animation: fadein 4.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 4.5s; /* Firefox < 16 */
+        -ms-animation: fadein 4.5s; /* Internet Explorer */
+         -o-animation: fadein 4.5s; /* Opera < 12.1 */
+            animation: fadein 4.5s;
+}
+.ease4{
+	-webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 6s; /* Firefox < 16 */
+        -ms-animation: fadein 6s; /* Internet Explorer */
+         -o-animation: fadein 6s; /* Opera < 12.1 */
+            animation: fadein 6s;
+}
+.ease5{
+	-webkit-animation: fadein 7.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 7.5s; /* Firefox < 16 */
+        -ms-animation: fadein 7.5s; /* Internet Explorer */
+         -o-animation: fadein 7.5s; /* Opera < 12.1 */
+            animation: fadein 7.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 i.fa.fa-snowflake-o.fa-5x::before{
 	color: $dark-blue;
 }

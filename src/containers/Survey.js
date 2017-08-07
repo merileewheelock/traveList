@@ -275,38 +275,38 @@ class Survey extends Component{
         var tripSettingButtons = []
         if(this.state.tripType === "leisure"){
             tripSettingButtons.push(
-                <button type='button' value='beach' className='survey-option-box' id='next' onClick={this.handleVisibility} key="1">
+                <button type='button' value='beach' className='survey-option-box ease1' id='next' onClick={this.handleVisibility} key="1">
                     <i className="fa fa-sun-o fa-5x" aria-hidden="true"></i>
                     Beach
                 </button>,
-                <button type='button' value='winter' className='survey-option-box' id='next' onClick={this.handleVisibility} key="2">
+                <button type='button' value='winter' className='survey-option-box ease2' id='next' onClick={this.handleVisibility} key="2">
                     <i className="fa fa-snowflake-o fa-5x" aria-hidden="true"></i>
                     Winter
                 </button>,
-                <button type='button' value='camping' className='survey-option-box' id='next' onClick={this.handleVisibility} key="3">
+                <button type='button' value='camping' className='survey-option-box ease3' id='next' onClick={this.handleVisibility} key="3">
                     <i className="fa fa-fire fa-5x" aria-hidden="true"></i>
                     Camping
                 </button>,
-                <button type='button' value='formal' className='survey-option-box' id='next' onClick={this.handleVisibility} key="4">
+                <button type='button' value='formal' className='survey-option-box ease4' id='next' onClick={this.handleVisibility} key="4">
                     <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
                     Formal
                 </button>,
-                <button type='button' value='international' className='survey-option-box' id='next' onClick={this.handleVisibility} key="5">
+                <button type='button' value='international' className='survey-option-box ease5' id='next' onClick={this.handleVisibility} key="5">
                     <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
                     International
                 </button>
             )
         }else if(this.state.tripType === "business"){
             tripSettingButtons.push(
-                <button type='button' value='business international' className='survey-option-box' id='next' onClick={this.handleVisibility} key="1">
+                <button type='button' value='business international' className='survey-option-box ease1' id='next' onClick={this.handleVisibility} key="1">
                     <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
                     International
                 </button>,
-                <button type='button' value='business casual' className='survey-option-box' id='next' onClick={this.handleVisibility} key="2">
+                <button type='button' value='business casual' className='survey-option-box ease2' id='next' onClick={this.handleVisibility} key="2">
                     <i className="fa fa-suitcase fa-5x" aria-hidden="true"></i>
                     Casual
                 </button>,
-                <button type='button' value='business formal' className='survey-option-box' id='next' onClick={this.handleVisibility} key="3">
+                <button type='button' value='business formal' className='survey-option-box ease3' id='next' onClick={this.handleVisibility} key="3">
                     <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
                     Formal
                 </button>
@@ -318,11 +318,11 @@ class Survey extends Component{
                 <form id='formSubmit' method='post' onSubmit={this.handleSurvey}>
                     <div className='survey question-1 text-center visible'>
                         <h1>What type of trip is this?</h1>
-                        <button type='button' name='business' value='business' className='survey-option-box trip-type' id='next' onClick={this.handleVisibility}>
+                        <button type='button' name='business' value='business' className='survey-option-box trip-type ease1' id='next' onClick={this.handleVisibility}>
                             <i className="fa fa-briefcase fa-5x" aria-hidden="true"></i>
                             Business
                         </button>
-                        <button type='button' name='leisure' value='leisure' className='survey-option-box trip-type' id='next' onClick={this.handleVisibility}>
+                        <button type='button' name='leisure' value='leisure' className='survey-option-box trip-type ease2' id='next' onClick={this.handleVisibility}>
                             <i className="fa fa-binoculars fa-5x" aria-hidden="true"></i>
                             Leisure
                         </button>
@@ -338,6 +338,7 @@ class Survey extends Component{
                             value={this.state.term}
                             onChange={this.onInputChange}
                             id='destination-input-text'
+                            className='ease3'
                         />
                         {/*<input type='text' id='destination-input-text'/>*/}
                         <br/>
@@ -345,25 +346,25 @@ class Survey extends Component{
                     </div>
                     <div className='survey question-4 text-center not-visible'>
                         <h1>When do you leave?</h1>
-                        <input type='date' id='date-input-value'/>
+                        <input type='date' id='date-input-value' className='ease3'/>
                         <br/>
                         <div id='next' onClick={this.handleVisibility}>Next</div>
                     </div>
                     <div className='survey question-5 text-center not-visible'>
                         <h1>Any children or babies on this trip?</h1>
-                        <button type='button' value='none' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='none' className='survey-option-box ease1' id='next' onClick={this.handleVisibility}>
                             <i className="fa fa-times fa-5x" aria-hidden="true"></i>
                             No children
                         </button>
-                        <button type='button' value='children' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='children' className='survey-option-box ease2' id='next' onClick={this.handleVisibility}>
                             <i className="fa fa-user fa-5x" aria-hidden="true"></i>
                             Yes, children
                         </button>
-                        <button type='button' value='babies' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='babies' className='survey-option-box ease3' id='next' onClick={this.handleVisibility}>
                             <i className="fa fa-child fa-5x" aria-hidden="true"></i>
                             Yes, babies
                         </button>
-                        <button type='button' value='both' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='both' className='survey-option-box ease4' id='next' onClick={this.handleVisibility}>
                             <i className="fa fa-users fa-5x" aria-hidden="true"></i>
                             Both!
                         </button>

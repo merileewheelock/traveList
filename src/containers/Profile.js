@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import ProfileAction from '../actions/ProfileAction';
 import $ from 'jquery';
-import hostAddress from '../config';
+import config from '../config';
 
 class Profile extends Component{
     constructor(props) {
@@ -15,7 +15,7 @@ class Profile extends Component{
     }
 
     componentDidMount() {
-        const url = hostAddress + '/profile'
+        const url = config.hostAddress + '/profile'
         $.getJSON(url,(data)=>{
             this.setState({
                 savedTrips: data
@@ -36,22 +36,24 @@ class Profile extends Component{
         var savedTripsArray = []
 
         this.state.savedTrips.map((trip, index)=>{
-            if((this.state.savedTrips[index].email === this.props.registerInfo.email) && (this.state.savedTrips[index].tripType === undefined)){
+            // console.log(this.state.savedTrips)
+            {/*if((this.state.savedTrips[index].email === this.props.registerInfo.email) && (this.state.savedTrips[index].tripType === undefined)){
                 savedTripsArray.push(
                     <div className="text-center" key={index}>
                         No saved trips
                     </div>
                 )
-            }else if (this.state.savedTrips[index].email === this.props.registerInfo.email){
+            }*/}
+            if (this.state.savedTrips[index].email === this.props.registerInfo.email){
                 savedTripsArray.push(
                     <div key={index}>
                         <div className="row text-center">            
                             <div className="saved-trips-link">
-                                <Link to="/listview">
+                                {/*<Link to="/listview">*/}
                                     <div className="col-xs-4">{this.state.savedTrips[index].tripType}</div>
                                     <div className="col-xs-4">{this.state.savedTrips[index].tripSetting}</div>
                                     <div className="col-xs-4">{this.state.savedTrips[index].children}</div>
-                                </Link>
+                                {/*</Link>*/}
                             </div>
                         </div>
                     </div> 
@@ -71,7 +73,7 @@ class Profile extends Component{
                 	{userInfoArray}
                 </div>
                 <div className="add-trip">
-                    <h2>Saved Trips</h2>
+                    <h2>Trip History</h2>
                     <Link to="/survey" className="add-trip-button"><i className="fa fa-plus" aria-hidden="true"></i>Add Trip</Link>
                 </div>
                 <div className="saved-trips-table text-center">            
