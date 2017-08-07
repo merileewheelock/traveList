@@ -32,7 +32,7 @@ class ListView extends Component{
 			if(listItem.itemCategory !== lastCategory){
 				listData.push(
 					<div className="row">
-						<div className="col-sm-offset-1 col-sm-11" key={listItem.id}>
+						<div className="col-xs-offset-1 col-xs-11" key={listItem.id}>
 							<h3 className="category-title">{listItem.itemCategory}</h3>
 						</div>
 					</div>
@@ -41,13 +41,13 @@ class ListView extends Component{
 			}
 			listData.push(
 				<div className="row" key={listItem.id}>
-                	<div className="col-sm-3 text-right">
+                	<div className="col-xs-3 text-right">
                 		<div className="">
 							<input type="checkbox" className="list-checkbox" />
 							<label htmlFor="list-checkbox"></label>
 						</div>
 					</div>
-                	<div className="col-sm-9 item">{listItem.item}</div>
+                	<div className="col-xs-9 item">{listItem.item}</div>
                 </div> 
 			)
 		})
@@ -63,7 +63,7 @@ class ListView extends Component{
 			<div>
 				<WeatherDiv />
 				<div className="listview-page">
-					<div className="listview-section col-sm-offset-4 col-sm-4">
+					<div className="listview-section col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
 						<h1 className="text-center">Packing Recommendations</h1>
 						{this.state.listArray}
 					</div>

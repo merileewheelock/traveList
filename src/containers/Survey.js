@@ -275,38 +275,38 @@ class Survey extends Component{
         var tripSettingButtons = []
         if(this.state.tripType === "leisure"){
             tripSettingButtons.push(
-                <button type='button' value='beach' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='beach' className='survey-option-box' id='next' onClick={this.handleVisibility} key="1">
                     <i className="fa fa-sun-o fa-5x" aria-hidden="true"></i>
                     Beach
                 </button>,
-                <button type='button' value='winter' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='winter' className='survey-option-box' id='next' onClick={this.handleVisibility} key="2">
                     <i className="fa fa-snowflake-o fa-5x" aria-hidden="true"></i>
                     Winter
                 </button>,
-                <button type='button' value='camping' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='camping' className='survey-option-box' id='next' onClick={this.handleVisibility} key="3">
                     <i className="fa fa-fire fa-5x" aria-hidden="true"></i>
                     Camping
                 </button>,
-                <button type='button' value='formal' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='formal' className='survey-option-box' id='next' onClick={this.handleVisibility} key="4">
                     <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
                     Formal
                 </button>,
-                <button type='button' value='international' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='international' className='survey-option-box' id='next' onClick={this.handleVisibility} key="5">
                     <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
                     International
                 </button>
             )
         }else if(this.state.tripType === "business"){
             tripSettingButtons.push(
-                <button type='button' value='business international' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='business international' className='survey-option-box' id='next' onClick={this.handleVisibility} key="1">
                     <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
                     International
                 </button>,
-                <button type='button' value='business casual' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='business casual' className='survey-option-box' id='next' onClick={this.handleVisibility} key="2">
                     <i className="fa fa-suitcase fa-5x" aria-hidden="true"></i>
                     Casual
                 </button>,
-                <button type='button' value='business formal' className='survey-option-box' id='next' onClick={this.handleVisibility}>
+                <button type='button' value='business formal' className='survey-option-box' id='next' onClick={this.handleVisibility} key="3">
                     <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
                     Formal
                 </button>
