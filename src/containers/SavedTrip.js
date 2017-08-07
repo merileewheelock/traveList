@@ -21,13 +21,13 @@ class SavedTrip extends Component{
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log("NEXT PROPS")
-		console.log(nextProps)
+		// console.log("NEXT PROPS")
+		// console.log(nextProps)
 
 		var listData = []
 		var lastCategory = "";
 
-		nextProps.listView.map((listItem, index)=>{
+		nextProps.savedTripReducer.map((listItem, index)=>{
 			if(listItem.itemCategory !== lastCategory){
 				listData.push(
 					<div className="row" key={listItem.id}>

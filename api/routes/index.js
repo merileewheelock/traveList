@@ -242,6 +242,10 @@ router.post('/savedtrip', (req,res)=>{
 	surveyId = req.body.surveyId;
 	token = req.body.token;
 	console.log(surveyId)
+	// const testQuery = `SELECT * FROM packlist`
+	// connection.query(testQuery, (error,results)=>{
+	// 	res.json(results)
+	// })
 })
 
 

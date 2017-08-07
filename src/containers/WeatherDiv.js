@@ -7,10 +7,10 @@ class WeatherDiv extends Component {
 
         var weatherDiv = [];
 		if (this.props.weatherData[0] !== undefined){
-			console.log('///////////')
-			console.log('Weather Data')
-			console.log(this.props.weatherData)
-			console.log('///////////')
+			// console.log('///////////')
+			// console.log('Weather Data')
+			// console.log(this.props.weatherData)
+			// console.log('///////////')
             weatherDiv.push(
                 <div className="weather-forecast text-center col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10" key="1">
                     <div className="">
