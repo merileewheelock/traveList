@@ -229,13 +229,18 @@ router.post('/listview', (req,res)=>{
 	                if (error3) {
 	                    res.json(error3);
 	                } else {
-	                    // console.log(results3)
+	                    console.log(results3)
 	                    res.json(results3);
 	                }
 	            })
 	        })
 	    })
     }
+})
+
+router.post('/savedtrip', (req,res)=>{
+	surveyId = req.body.surveyId;
+	token = req.body.token;
 })
 
 

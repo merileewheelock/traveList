@@ -49,11 +49,11 @@ class Profile extends Component{
                     <div key={index}>
                         <div className="row text-center">            
                             <div className="saved-trips-link">
-                                {/*<Link to="/listview">*/}
+                                <Link to="/savedtrip">
                                     <div className="col-xs-4">{this.state.savedTrips[index].tripType}</div>
                                     <div className="col-xs-4">{this.state.savedTrips[index].tripSetting}</div>
                                     <div className="col-xs-4">{this.state.savedTrips[index].children}</div>
-                                {/*</Link>*/}
+                                </Link>
                             </div>
                         </div>
                     </div> 
