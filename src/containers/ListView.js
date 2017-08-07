@@ -31,8 +31,8 @@ class ListView extends Component{
 		nextProps.listView.map((listItem, index)=>{
 			if(listItem.itemCategory !== lastCategory){
 				listData.push(
-					<div className="row">
-						<div className="col-xs-offset-1 col-xs-11" key={listItem.id}>
+					<div className="row" key={listItem.id}>
+						<div className="col-xs-offset-1 col-xs-11">
 							<h3 className="category-title">{listItem.itemCategory}</h3>
 						</div>
 					</div>

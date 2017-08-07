@@ -62,7 +62,7 @@ class Profile extends Component{
         })
 
         return(
-        	<div className="user-profile col-md-offset-4 col-md-4">
+        	<div className="user-profile col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
             	<h1 className="text-center">User Profile</h1>
                 <div className="row basic-user-info">
                 	<div className="col-xs-6 text-right">

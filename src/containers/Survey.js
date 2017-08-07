@@ -51,15 +51,15 @@ class Survey extends Component{
         // console.log(event)
         // console.log('/////////')
 
-        // console.log('///SUPER IMPORTANT///')
-        // console.log('event.target.parentNode')
-        // console.dir(event.target.parentNode)
-        // console.log('///SUPER IMPORTANT///')
+        console.log('///SUPER IMPORTANT///')
+        console.log('event.target.parentNode')
+        console.dir(event.target.parentNode)
+        console.log('///SUPER IMPORTANT///')
 
-        // console.log('///ALSO PRETTY IMPORTANT//')
-        // var dateResult = $('#date-input-value').val()
-        // console.log(dateResult)
-        // console.log('///ALSO PRETTY IMPORTANT//')
+        console.log('///ALSO PRETTY IMPORTANT//')
+        console.log("event.target.parentNode.value")
+        console.log(event.target.parentNode.value)
+        console.log('///ALSO PRETTY IMPORTANT//')
 
 
         if (this.state.currentQuestion === 1){
