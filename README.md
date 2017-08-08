@@ -1,123 +1,121 @@
+![traveList Screenshot](assets/images/travelist.png "traveList Homepage")
+
 # traveList
 ## Made with React, Redux, Express, MySQL, Javascript, jQuery, Booststrap, CSS, and SASS
 
 ### Overview
-traveList was developed as a final Full-Stack Web Development project by a team of students at DigitalCrafts. The project was inspired by a friend who went on a business trip and noted the difference in packing for business and for leisure. The team was motivated to develop a tool to help travelers stay organized and prepared during all types of travel.
+traveList is a web app designed to help travelers stay organized and prepared during all types of travel. The project was inspired by a friend who went on a business trip and noted the difference in packing for business versus packing for leisure. This was created as a tool to help users plan for their upcoming trips based on the type of trip they are taking, including types and settings such as business, international, beach, winter, and many more.
 
 ### Team Members
 * Guido Bacce
 * Merilee Wheelock
 * Marissa Monivis
-* Ian Booton
+* Michael Gaynor
 
 ### Technologies Used
-* Google Maps API
+* OpenWeatherMap API
 * jQuery
 * AJAX
 * Bootstrap
 * MySQL
 * Express
-* EJS
+* Sass / Compass
 * Node.js
 
 ### Dependencies
 ```
 npm install express
-npm install request
 npm install mysql
-
-npm install ejs
-npm install express-session
 npm install bcrypt-nodejs
+
+npm install react-redux
+npm install react-router-dom
+npm install react-bootstrap
+npm install redux-promise
 ```
 
 ### Challenges and Solutions
-#### Learning SourceTree and GitHub
-Our team collaborated through GitHub within the SourceTree UI. Most of the challenges we faced involved merge conflicts working on the same files among four team members. We were able to better understand the Resolve Conflicts options via "mine" or "their" files. We also grasped a better understanding of the commit/pull/push flow.
-#### Processing Get/Post requests in a Single-Page Application
-For our project, we decided to pursue the UX option of a single-page web application. Without applying React methodologies to our code, this proposed an issue with the standard "get" and "post" interactions of express. Since the user never actually leaves the index.ejs file after entering in start and end points, the site never reopened a "post" request to HTTP. To solve this, we added a "revisited" boolean to determine if the user is on the "get" or "post" index page.
-#### JavaScript Promises
-At this point in our course, we did not review JavaScript promises as a class, so we needed to explore documentation and promises syntax on our own. This allowed us to really dive into the methodolgies behind JavaScript promises and grasp a solid understanding of how it works in the code. We've included examples of the promise scripts in the code snippets below.
+#### JavaScript is Asynchronous
+
+
+#### Creating a Single-Page Look in React
+
+
+#### Creating a MySQL Database From Scratch
+
 
 ### Code Snippets
-#### Log in functionality from index.js file
+#### Insert Survey Results into tripInfo MySQL Database Table
 ```
-router.post('/processLogin', function(req,res){
-    var email = req.body.email
-    var password = req.body.password
-    var selectQuery = "SELECT * FROM userInfo WHERE email = ?";
-    connection.query(selectQuery, [email], function(error,results){
-        if(results.length == 1){
-            var match = bcrypt.compareSync(password, results[0].password)
-            if (match == true){
-                req.session.loggedin = true;
-                req.session.username = results[0].username;
-                req.session.email = results[0].email;
-                req.session.id = results[0].id;
-                currentID = results[0].id;
-                res.redirect('/?msg=loggedin')
-            }else{
-                res.redirect('/?msg=badPass')
-            }
-        }else{
-            res.redirect('/?msg=badEmailLogin')
-        }
-    });
-});
+const getUidQuery = `SELECT id from users WHERE token=?`
+connection.query(getUidQuery, [token], (error,results)=>{
+    console.log(token)
+    if(error) throw error;
+    if(results.length == 0){
+        res.json({msg:"badToken"})
+    }else{
+        const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
+            VALUES (?,?,?,?,?,?)`
+        connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
+            // const tripInfoId = results2.insertId
+            // const listResultsQuery = `SELECT id FROM tripInfo
+            //  INNER JOIN packList ON `
+            // connection.query()
+            console.log(tripDate);
+            console.log("****error2****")
+            console.log(error2)
+            if (error2) throw error2;
+            res.json({
+                tripInfoId: results2.insertId
+            })
+            // console.log(results2)
+        })
+    }
+})
 ```
-#### JavaScript Promises from server.js
+#### Using React-Redux Logic to Navigate Users Through the Survey Questions
 ```
-/*              .
-                |
-             .-"^"-.
-            /_....._\
-        .-"`         `"-.
-       (  ooo  ooo  ooo  )
-        '-.,_________,.-'
-            /       \
-          _/         \_
-         `"`         `"`    */
-         
-getData: function(originInput, destinationInput) {
-            var mapDetails = {};
-            return new Promise((resolve, reject) => {
-                getDirections(originInput, destinationInput).then(
-                    function(directionsData){
-                    	mapDetails.directionsData = directionsData;
-                        getElevation(encodedPolyline).then(
-		                    function(elevationData){
-		                    	mapDetails.elevationData = elevationData;
-		                        mapDetails.staticMap = drawStaticMap(encodedPolyline)
-		                        resolve(mapDetails);
-		                    }                        	
-                        )
-                    }
-                )
-        	});
-		}
-```
-#### For Loop to display multiple routes and elevation maps
-```
-<% for (let i = 0; i < routeCount; i++) { %>
+handleButton(value){
 
-    <div class="item <% if (i == 0) {%>active<% } %>">
-    <!-- mapApiUrl div -->
-    <div class="text-center map-div" id="map<%=i + 1%>_div"><img class="map" src="<%= encodeURI(mapDetails.staticMap[i])%>" /></div>
-    <!-- elevationData chart -->
-    <div class="text-center elev-chart" id="chart<%=i + 1%>_div"></div>
-    <!-- Distance / Change in Elevation / Time div -->
-    <div class="carousel-caption caption">
-        <h3>Route <%=i + 1%></h3>
-        <ul>
-            <li class="carousel-list">Distance: <span class="distance-result-<%=i + 1%>"><%=mapDetails.directionsData.routes[i].legs[0].distance.text%></span></li>
-            <li class="carousel-list">Time: <span class="time-result-<%=i + 1%>"><%=mapDetails.directionsData.routes[i].legs[0].duration.text%></span></li>
-        </ul>
-    </div>
-</div>
-<% } %>
+    if (this.state.currentQuestion === 1){
+        this.setState({
+            tripType: value
+        });
+    }
+
+    if (this.state.currentQuestion === 2){
+        this.setState({
+            tripSetting: value
+        });
+    }
+
+    if (this.state.currentQuestion === 5){
+        this.setState({
+            children: value
+        });
+    }
+
+    var current = (this.state.currentQuestion).toString();
+    var next = (this.state.currentQuestion + 1).toString();
+
+
+    if (this.state.currentQuestion === this.state.totalQuestions){
+        $('#next').addClass('not-visible');
+        $('#submit').removeClass('not-visible');
+    }else{   
+        $('.question-'+current).addClass('not-visible');
+        $('.question-'+next).removeClass('not-visible');
+     
+        var currentQuestionUpdate = this.state.currentQuestion + 1
+
+        this.setState({
+            currentQuestion: currentQuestionUpdate
+        });        
+    }
+}
 ```
 
-### Screenshots
+<!-- ### Screenshots
 #### Homepage
 ![Homepage](/public/images/homepage.png)
 #### Route Search
@@ -127,4 +125,4 @@ getData: function(originInput, destinationInput) {
 #### Register Modal
 ![Register Modal](/public/images/register-modal.png)
 #### User Profile Page
-![User Profile Page](/public/images/profile-page.png)
+![User Profile Page](/public/images/profile-page.png) -->
