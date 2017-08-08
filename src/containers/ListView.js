@@ -59,11 +59,13 @@ class ListView extends Component{
 
 			else if(listItem.itemCategory !== lastCategory){
 				listData.push(
-					<div className='col-xs-12 add-item-row'>
-						<div className='col-xs-7 col-xs-offset-3'>
+					<div className='row add-item-row'>
+						<div className='col-xs-6 col-xs-offset-3'>
 							<input className='add-item-input current-input' />
 						</div>
-						<div className='col-xs-1 add-item-button' onClick={ () => {this.addNewItem(newItemIndex, listItem.itemCategory)}}>Add Item</div>
+						<div className='col-xs-3'>
+							<div className='add-item-button' onClick={ () => {this.addNewItem(newItemIndex, listItem.itemCategory)}}><img src="../images/plus.png" /></div>
+						</div>
 					</div>,
 					<div className="row" key={listItem.id}>
 						<div className="col-xs-offset-1 col-xs-11">
