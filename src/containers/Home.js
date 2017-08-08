@@ -6,7 +6,7 @@ class Home extends Component{
 	render(){
 
 		$(window).bind('scroll', function() {
-		     if ($(window).scrollTop() > 400) {
+		     if ($(window).scrollTop() > 100) {
 		         $('.next-page-div').fadeOut("slow");
 		     }
 		     else {

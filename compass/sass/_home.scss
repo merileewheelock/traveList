@@ -68,16 +68,27 @@
 	outline: none;
 }
 
-@media screen only and (max-width: 960px){
-	.header-div{
-		top: 10vh;
-		position: fixed;
+@media only screen and (max-width: 960px){
+	.homepage{
+		h1{
+			font-size: 80px;
+		}
+		h2{
+			font-size: 24px;
+		}
+	}
+	.site-title{
+		font-size: 100px;
+		display: inline-block;
+	}
+	.get-started-button{
+		font-size: 16px;
 	}
 }
 
 .next-page-div{
 	bottom: 0px;
-	position: absolute;
+	position: fixed;
 	text-align: center;
 	width: 100%;
 	left: 0px;
@@ -105,4 +116,28 @@
 	font-family: $header-font;
 	font-size: 20px;
 	color: $tan;
+}
+
+@media only screen and (max-width: 420px){
+	.home-button{
+		margin-top: 40px;
+	}
+	.next-page-div{
+		position: fixed;
+		text-align: center;
+		margin-bottom: 50px;
+		z-index: 6;
+	}
+	.next-page-title{
+		font-family: $header-font;
+		font-size: 16px;
+		color: $tan;
+	}
+	.next-page-arrow-right, .next-page-arrow-left{
+		background-color: $tan;
+		height: 3px;
+		width: 40px;
+		display: inline-block;
+		margin: -2px;
+	}
 }

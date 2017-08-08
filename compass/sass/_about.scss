@@ -1,34 +1,28 @@
 #about{
-	height: 110vh;
+	height: 100vh;
 	margin-top: 15vh;
 	h1{
 		text-align: center;
 		font-size: 80px;
+		margin-bottom: 40px;
 	}
 }
 
 .about-section{
-	height: 40%;
-	margin-top: 5vh;
-	padding: 20px;
-	// margin-bottom: 80px;
-	// border: solid 2px gray;
 	h2{
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 	}
 }
 
 .inspiration{
-	// height: 100%;
 	p{
 		padding: 0px 50px;
 	}
 }
 
 .team-member{
-	margin-top: 50px;
+	margin-top: 40px;
 	display: inline-block;
-	height: 100%;
 	img{
 		height: 200px;
 		width: 200px;
@@ -46,7 +40,6 @@
 }
 
 .technologies{
-	height: 100%;
 	overflow-wrap: break-word;
 	line-height: 6em;
 	i{
@@ -59,14 +52,11 @@
 
 @media only screen and (max-width: 960px){
 	.team-member{
-		// margin-bottom: 11em;
+		margin-bottom: 30px;
 		img{
 			height: 150px;
 			width: 150px;
 			border-radius: 75px;
 		}
-	}
-	.technologies{
-		height: 100%;
 	}
 }
