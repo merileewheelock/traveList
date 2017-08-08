@@ -36,11 +36,9 @@ npm install redux-promise
 
 ### Challenges and Solutions
 #### JavaScript is Asynchronous
-
-
+When creating the survey, we wanted users to be asked each question individually. Based on their answer, they would be given a series of questions based on the options they chose. As an example, if a user chose Business, they would be asked if it was International, Formal, or Casual – it would not show the Beach or Winter options, etc. Since JavaScript is asynchronous, the option the user chose would not be passed into the database before the page re-rendered.
 #### Creating a Single-Page Look in React
-
-
+React is known for utilizing components to let you split the UI into independent, reusable pieces, and think about each piece in isolation. Since components re-render the DOM when routing to new Links, it was a challenge to maintain a single-page experience. To solve this, we created a Container component that housed the single-page components that we wanted to display on the main page. With that, we linked navigation links to jump to the specific div on the page.
 #### Creating a MySQL Database From Scratch
 
 
@@ -57,10 +55,6 @@ connection.query(getUidQuery, [token], (error,results)=>{
         const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
             VALUES (?,?,?,?,?,?)`
         connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
-            // const tripInfoId = results2.insertId
-            // const listResultsQuery = `SELECT id FROM tripInfo
-            //  INNER JOIN packList ON `
-            // connection.query()
             console.log(tripDate);
             console.log("****error2****")
             console.log(error2)
