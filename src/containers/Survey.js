@@ -22,8 +22,10 @@ class Survey extends Component{
 
         }
         this.handleSurvey = this.handleSurvey.bind(this);
-        this.handleVisibility = this.handleVisibility.bind(this);
+        // this.handleVisibility = this.handleVisibility.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        this.handleButton = this.handleButton.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -43,38 +45,197 @@ class Survey extends Component{
         this.setState({ term: event.target.value })
     }
 
-    handleVisibility(event){
+    // handleVisibility(event, value){
 
-        // console.log('HandleVisibility event triggered!')
-        // console.log('/////////')
-        // console.log('Event')
-        // console.log(event)
-        // console.log('/////////')
+    //     // console.log('HandleVisibility event triggered!')
+    //     // console.log('/////////')
+    //     // console.log('Event')
+    //     // console.log(event)
+    //     // console.log('/////////')
 
-        console.log('///SUPER IMPORTANT///')
-        console.log('event.target.parentNode')
-        console.dir(event.target.parentNode)
-        console.log('///SUPER IMPORTANT///')
+    //     // console.log('///SUPER IMPORTANT///')
+    //     // console.log('event.target.parentNode')
+    //     // console.dir(event.target.parentNode)
+    //     // console.log('///SUPER IMPORTANT///')
 
-        console.log('///ALSO PRETTY IMPORTANT//')
-        console.log('this.state.currentQuestion')
-        console.log(this.state.currentQuestion)
-        console.log("event.target.parentNode.value")
-        console.log(event.target.parentNode.value)
-        console.log('///ALSO PRETTY IMPORTANT//')
+    //     console.log('///ALSO PRETTY IMPORTANT//')
+    //     console.log('this.state.currentQuestion')
+    //     console.log(this.state.currentQuestion)
+    //     // console.log("event.target.parentNode.value")
+    //     // console.dir(event.target)
+    //     console.log(value)
+    //     console.log('///ALSO PRETTY IMPORTANT//')
 
+
+    //     if (this.state.currentQuestion === 1){
+    //         this.setState({
+    //             tripType: value
+    //         });
+    //     }
+
+    //     if (this.state.currentQuestion === 2){
+    //         this.setState({
+    //             tripSetting: value
+    //         });
+    //     }
+
+    //     if (this.state.currentQuestion === 3){
+    //         var destination = $('#destination-input-text').val()
+    //         this.setState({
+    //             destination: destination
+    //         });
+    //     }
+
+    //     if (this.state.currentQuestion === 4){
+    //         var tripDate = $('#date-input-value').val()
+    //         this.setState({
+    //             tripDate: tripDate
+    //         })
+    //     }
+
+    //     if (this.state.currentQuestion === 5){
+    //         this.setState({
+    //             children: value
+    //         });
+    //     }
+
+    //     // console.log('If statements have run!')
+    //     // console.log('THIS.STATE')
+    //     // console.log(this.state)
+
+
+    //     // console.log('/////////////')
+    //     // console.log('this.state.currentQuestion')
+    //     // console.log(this.state.currentQuestion)
+    //     // console.log('/////////////')
+
+
+    //     // console.log('/////////////')
+    //     // console.log('this.state.totalQuestions')
+    //     // console.log(this.state.totalQuestions)
+    //     // console.log('/////////////')
+
+
+    //     var current = (this.state.currentQuestion).toString();
+    //     var next = (this.state.currentQuestion + 1).toString();
+
+
+    //     // console.log('/////////////')
+    //     // console.log('var current')
+    //     // console.log(current)
+    //     // console.log('var next')
+    //     // console.log(next)
+    //     // console.log('/////////////')
+
+
+    //     // console.log('Current/total question IF STATEMENT about to run...')
+
+
+
+    //     if (this.state.currentQuestion === this.state.totalQuestions){
+    //         // console.log('IF STATEMENT TRIGGERED (currentQuestion = totalQuestions)')
+    //         // submit the form
+    //         // console.log("You done it!");
+    //         $('#next').addClass('not-visible');
+    //         // console.log("'not-visible' class ADDED to #next")
+    //         $('#submit').removeClass('not-visible');
+    //         // console.log("'not-visible' class REMOVED from #submit")
+    //         // console.log('IF STATEMENT HAS RUN!')
+    //     }else{
+    //         // console.log('ELSE STATEMENT TRIGGERED')
+    //         $('.question-'+current).addClass('not-visible');
+    //         // console.log('not-visible class ADDED to ('.question-'+current)')
+    //         // console.log('VALUE OF ('.question-'+current)')
+    //         // console.log('.question-'+current)
+    //         $('.question-'+next).removeClass('not-visible');
+    //         // console.log('not-visible class REMOVED from ('.question-'+next)')
+    //         // console.log('VALUE OF ('.question-'+next)')
+    //         // console.log('.question-'+next)
+
+    //         // var currentQuestionUpdate = this.state.currentQuestion + 1
+    //         var currentQuestionUpdate = this.state.currentQuestion + 1
+
+
+    //         // console.log('////////////////')
+    //         // console.log('currentQuestionUpdate')
+    //         // console.log(currentQuestionUpdate)
+    //         // console.log('////////////////')
+
+    //         // console.log('////////////////')
+    //         // console.log('this.state BEFORE updating currentQuestion')
+    //         // console.log(this.state)
+    //         // console.log('////////////////')
+
+    //         this.setState({
+    //             currentQuestion: currentQuestionUpdate
+    //         });
+
+    //         // console.log('////////////////')
+    //         // console.log('this.state AFTER updating currentQuestion')
+    //         // console.log(this.state)
+    //         // console.log('////////////////')
+
+    //         // console.log('ELSE STATEMENT HAS RUN!')
+    //     }
+
+    //     // this.setState({
+    //     //     tripType: tripType,
+    //     //     tripSetting: tripSetting,
+    //     //     children: children
+    //     // })
+
+    //     // this.props.surveyAction({
+    //     //     tripType: tripType,
+    //     //     tripSetting: tripSetting,
+    //     //     children: children
+    //     // });  
+
+    //     // console.log('HANDLEVISIBILITY HAS RUN')
+    // }
+
+    handleButton(value){
 
         if (this.state.currentQuestion === 1){
             this.setState({
-                tripType: event.target.parentNode.value
+                tripType: value
             });
         }
 
         if (this.state.currentQuestion === 2){
             this.setState({
-                tripSetting: event.target.parentNode.value
+                tripSetting: value
             });
         }
+
+        if (this.state.currentQuestion === 5){
+            this.setState({
+                children: value
+            });
+        }
+
+        var current = (this.state.currentQuestion).toString();
+        var next = (this.state.currentQuestion + 1).toString();
+
+
+        if (this.state.currentQuestion === this.state.totalQuestions){
+            $('#next').addClass('not-visible');
+            $('#submit').removeClass('not-visible');
+        }else{   
+            $('.question-'+current).addClass('not-visible');
+            $('.question-'+next).removeClass('not-visible');
+         
+            var currentQuestionUpdate = this.state.currentQuestion + 1
+
+            this.setState({
+                currentQuestion: currentQuestionUpdate
+            });        
+        }
+    }
+
+
+
+
+    handleInput(event){
 
         if (this.state.currentQuestion === 3){
             var destination = $('#destination-input-text').val()
@@ -90,105 +251,29 @@ class Survey extends Component{
             })
         }
 
-        if (this.state.currentQuestion === 5){
-            this.setState({
-                children: event.target.parentNode.value
-            });
-        }
-
-        // console.log('If statements have run!')
-        // console.log('THIS.STATE')
-        // console.log(this.state)
-
-
-        // console.log('/////////////')
-        // console.log('this.state.currentQuestion')
-        // console.log(this.state.currentQuestion)
-        // console.log('/////////////')
-
-
-        // console.log('/////////////')
-        // console.log('this.state.totalQuestions')
-        // console.log(this.state.totalQuestions)
-        // console.log('/////////////')
-
-
         var current = (this.state.currentQuestion).toString();
         var next = (this.state.currentQuestion + 1).toString();
 
 
-        // console.log('/////////////')
-        // console.log('var current')
-        // console.log(current)
-        // console.log('var next')
-        // console.log(next)
-        // console.log('/////////////')
-
-
-        // console.log('Current/total question IF STATEMENT about to run...')
-
-
-
         if (this.state.currentQuestion === this.state.totalQuestions){
-            // console.log('IF STATEMENT TRIGGERED (currentQuestion = totalQuestions)')
-            // submit the form
-            // console.log("You done it!");
             $('#next').addClass('not-visible');
-            // console.log("'not-visible' class ADDED to #next")
             $('#submit').removeClass('not-visible');
-            // console.log("'not-visible' class REMOVED from #submit")
-            // console.log('IF STATEMENT HAS RUN!')
-        }else{
-            // console.log('ELSE STATEMENT TRIGGERED')
+        }else{   
             $('.question-'+current).addClass('not-visible');
-            // console.log('not-visible class ADDED to ('.question-'+current)')
-            // console.log('VALUE OF ('.question-'+current)')
-            // console.log('.question-'+current)
             $('.question-'+next).removeClass('not-visible');
-            // console.log('not-visible class REMOVED from ('.question-'+next)')
-            // console.log('VALUE OF ('.question-'+next)')
-            // console.log('.question-'+next)
-
-            // var currentQuestionUpdate = this.state.currentQuestion + 1
+         
             var currentQuestionUpdate = this.state.currentQuestion + 1
-
-
-            // console.log('////////////////')
-            // console.log('currentQuestionUpdate')
-            // console.log(currentQuestionUpdate)
-            // console.log('////////////////')
-
-            // console.log('////////////////')
-            // console.log('this.state BEFORE updating currentQuestion')
-            // console.log(this.state)
-            // console.log('////////////////')
 
             this.setState({
                 currentQuestion: currentQuestionUpdate
             });
-
-            // console.log('////////////////')
-            // console.log('this.state AFTER updating currentQuestion')
-            // console.log(this.state)
-            // console.log('////////////////')
-
-            // console.log('ELSE STATEMENT HAS RUN!')
-        }
-
-        // this.setState({
-        //     tripType: tripType,
-        //     tripSetting: tripSetting,
-        //     children: children
-        // })
-
-        // this.props.surveyAction({
-        //     tripType: tripType,
-        //     tripSetting: tripSetting,
-        //     children: children
-        // });  
-
-        // console.log('HANDLEVISIBILITY HAS RUN')
+         
+        } 
     }
+
+
+
+
 
     handleSurvey(event){
         event.preventDefault();
@@ -277,38 +362,38 @@ class Survey extends Component{
         var tripSettingButtons = []
         if(this.state.tripType === "leisure"){
             tripSettingButtons.push(
-                <button type='button' value='beach' className='survey-option-box ease1' id='next' onClick={this.handleVisibility} key="1">
+                <button type='button' value='beach' className='survey-option-box ease1' id='next' onClick={()=>this.handleButton('beach')} key="1">
                     <i className="fa fa-sun-o fa-5x" aria-hidden="true"></i>
                     Beach
                 </button>,
-                <button type='button' value='winter' className='survey-option-box ease2' id='next' onClick={this.handleVisibility} key="2">
+                <button type='button' value='winter' className='survey-option-box ease2' id='next' onClick={()=>this.handleButton('winter')} key="2">
                     <i className="fa fa-snowflake-o fa-5x" aria-hidden="true"></i>
                     Winter
                 </button>,
-                <button type='button' value='camping' className='survey-option-box ease3' id='next' onClick={this.handleVisibility} key="3">
+                <button type='button' value='camping' className='survey-option-box ease3' id='next' onClick={()=>this.handleButton('camping')} key="3">
                     <i className="fa fa-fire fa-5x" aria-hidden="true"></i>
                     Camping
                 </button>,
-                <button type='button' value='formal' className='survey-option-box ease4' id='next' onClick={this.handleVisibility} key="4">
+                <button type='button' value='formal' className='survey-option-box ease4' id='next' onClick={()=>this.handleButton('formal')} key="4">
                     <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
                     Formal
                 </button>,
-                <button type='button' value='international' className='survey-option-box ease5' id='next' onClick={this.handleVisibility} key="5">
+                <button type='button' value='international' className='survey-option-box ease5' id='next' onClick={()=>this.handleButton('international')} key="5">
                     <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
                     International
                 </button>
             )
         }else if(this.state.tripType === "business"){
             tripSettingButtons.push(
-                <button type='button' value='business international' className='survey-option-box ease1' id='next' onClick={this.handleVisibility} key="1">
+                <button type='button' value='business international' className='survey-option-box ease1' id='next' onClick={()=>this.handleButton('business international')} key="1">
                     <i className="fa fa-globe fa-5x" aria-hidden="true"></i>
                     International
                 </button>,
-                <button type='button' value='business casual' className='survey-option-box ease2' id='next' onClick={this.handleVisibility} key="2">
+                <button type='button' value='business casual' className='survey-option-box ease2' id='next' onClick={()=>this.handleButton('business casual')} key="2">
                     <i className="fa fa-suitcase fa-5x" aria-hidden="true"></i>
                     Casual
                 </button>,
-                <button type='button' value='business formal' className='survey-option-box ease3' id='next' onClick={this.handleVisibility} key="3">
+                <button type='button' value='business formal' className='survey-option-box ease3' id='next' onClick={()=>this.handleButton('business formal')} key="3">
                     <i className="fa fa-black-tie fa-5x" aria-hidden="true"></i>
                     Formal
                 </button>
@@ -320,11 +405,11 @@ class Survey extends Component{
                 <form id='formSubmit' method='post' onSubmit={this.handleSurvey}>
                     <div className='survey question-1 text-center visible'>
                         <h1>What type of trip is this?</h1>
-                        <button type='button' name='business' value='business' className='survey-option-box trip-type ease1' id='next' onClick={this.handleVisibility}>
+                        <button type='button' name='business' value='business' className='survey-option-box trip-type ease1' id='next' onClick={()=>this.handleButton('business')}>
                             <i className="fa fa-briefcase fa-5x" aria-hidden="true"></i>
                             Business
                         </button>
-                        <button type='button' name='leisure' value='leisure' className='survey-option-box trip-type ease2' id='next' onClick={this.handleVisibility}>
+                        <button type='button' name='leisure' value='leisure' className='survey-option-box trip-type ease2' id='next' onClick={()=>this.handleButton('leisure')}>
                             <i className="fa fa-binoculars fa-5x" aria-hidden="true"></i>
                             Leisure
                         </button>
@@ -344,29 +429,29 @@ class Survey extends Component{
                         />
                         {/*<input type='text' id='destination-input-text'/>*/}
                         <br/>
-                        <div id='next' onClick={this.handleVisibility}>Next</div>
+                        <div id='next' onClick={this.handleInput}>Next</div>
                     </div>
                     <div className='survey question-4 text-center not-visible'>
                         <h1>When do you leave?</h1>
                         <input type='date' id='date-input-value' className='ease3'/>
                         <br/>
-                        <div id='next' onClick={this.handleVisibility}>Next</div>
+                        <div id='next' onClick={this.handleInput}>Next</div>
                     </div>
                     <div className='survey question-5 text-center not-visible'>
                         <h1>Any children or babies on this trip?</h1>
-                        <button type='button' value='none' className='survey-option-box ease1' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='none' className='survey-option-box ease1' id='next' onClick={()=>this.handleButton('none')}>
                             <i className="fa fa-times fa-5x" aria-hidden="true"></i>
                             No children
                         </button>
-                        <button type='button' value='children' className='survey-option-box ease2' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='children' className='survey-option-box ease2' id='next' onClick={()=>this.handleButton('children')}>
                             <i className="fa fa-user fa-5x" aria-hidden="true"></i>
                             Yes, children
                         </button>
-                        <button type='button' value='babies' className='survey-option-box ease3' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='babies' className='survey-option-box ease3' id='next' onClick={()=>this.handleButton('babies')}>
                             <i className="fa fa-child fa-5x" aria-hidden="true"></i>
                             Yes, babies
                         </button>
-                        <button type='button' value='both' className='survey-option-box ease4' id='next' onClick={this.handleVisibility}>
+                        <button type='button' value='both' className='survey-option-box ease4' id='next' onClick={()=>this.handleButton('both')}>
                             <i className="fa fa-users fa-5x" aria-hidden="true"></i>
                             Both!
                         </button>
@@ -398,3 +483,93 @@ function mapDispatchToProps(dispatch){
 
 // export default Register;
 export default connect(mapStateToProps,mapDispatchToProps)(Survey);
+
+
+
+
+
+
+
+// handleButton(value){
+
+//         if (this.state.currentQuestion === 1){
+//             this.setState({
+//                 tripType: value
+//             });
+//         }
+
+//         if (this.state.currentQuestion === 2){
+//             this.setState({
+//                 tripSetting: value
+//             });
+//         }
+
+//         if (this.state.currentQuestion === 5){
+//             this.setState({
+//                 children: value
+//             });
+//         }
+
+//         var current = (this.state.currentQuestion).toString();
+//         var next = (this.state.currentQuestion + 1).toString();
+
+
+//         if (this.state.currentQuestion === this.state.totalQuestions){
+//             $('#next').addClass('not-visible');
+//             $('#submit').removeClass('not-visible');
+//         }else{   
+//             $('.question-'+current).addClass('not-visible');
+//             $('.question-'+next).removeClass('not-visible');
+         
+//             var currentQuestionUpdate = this.state.currentQuestion + 1
+
+//             this.setState({
+//                 currentQuestion: currentQuestionUpdate
+//             });        
+//         }
+//     }
+
+
+
+
+// handleInput(event){
+
+//         if (this.state.currentQuestion === 3){
+//             var destination = $('#destination-input-text').val()
+//             this.setState({
+//                 destination: destination
+//             });
+//         }
+
+//         if (this.state.currentQuestion === 4){
+//             var tripDate = $('#date-input-value').val()
+//             this.setState({
+//                 tripDate: tripDate
+//             })
+//         }
+
+//         var current = (this.state.currentQuestion).toString();
+//         var next = (this.state.currentQuestion + 1).toString();
+
+
+//         if (this.state.currentQuestion === this.state.totalQuestions){
+//             $('#next').addClass('not-visible');
+//             $('#submit').removeClass('not-visible');
+//         }else{   
+//             $('.question-'+current).addClass('not-visible');
+//             $('.question-'+next).removeClass('not-visible');
+         
+//             var currentQuestionUpdate = this.state.currentQuestion + 1
+
+//             this.setState({
+//                 currentQuestion: currentQuestionUpdate
+//             });
+         
+//         } 
+//     }
+
+
+
+
+
+
