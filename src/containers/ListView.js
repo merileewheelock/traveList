@@ -96,12 +96,10 @@ class ListView extends Component{
 
 	addNewItem(item, itemCategory){
 
-		newItem = $('.new-add-item-input.' + itemCategory)
-
 		this.props.userPackingListAction({
 			token: this.state.token,
 			tripId: this.state.surveyId,
-			item: {/* Value of Input Box*/},
+			item: item,
 			itemCategory: itemCategory,
 			query: 'INSERT INTO userListItems (tripId, item, itemCategory) VALUES (?, ?)' 
 		})
