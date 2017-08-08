@@ -89,7 +89,7 @@ class ListView extends Component{
 						</div>
 					</div>
                 	<div className= 'col-xs-8 item'>{listItem.item}</div>
-                	<div className='not-visible col-xs-1 delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}}>x</div>
+                	<div className='not-visible col-xs-1 delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}}><img src="../images/delete.png" /></div>
                 </div> 
 			)
 		})
