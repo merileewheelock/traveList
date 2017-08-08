@@ -144,21 +144,18 @@ router.post('/survey', (req, res)=>{
     const getUidQuery = `SELECT id from users WHERE token=?`
 	connection.query(getUidQuery, [token], (error,results)=>{
 		console.log(token)
-		if(error) throw error;
+		if (error){console.log('SURVEY — Error 1')};
 		if(results.length == 0){
 			res.json({msg:"badToken"})
 		}else{
 			const addToTripsQuery = `INSERT INTO tripInfo (uid, tripType, tripSetting, destination, tripDate, children)
 				VALUES (?,?,?,?,?,?)`
 			connection.query(addToTripsQuery, [results[0].id, tripType, tripSetting, destination, tripDate, children], (error2,results2)=>{
-				// const tripInfoId = results2.insertId
-				// const listResultsQuery = `SELECT id FROM tripInfo
-				// 	INNER JOIN packList ON `
-				// connection.query()
+
 				console.log(tripDate);
 				console.log("****error2****")
 				console.log(error2)
-				if (error2) throw error2;
+				if (error){console.log('SURVEY — Error 2')};
 				res.json({
 					tripInfoId: results2.insertId
 				})
@@ -172,13 +169,17 @@ router.post('/listview', (req,res)=>{
     surveyId = req.body.surveyId;
     token = req.body.token;
 
-    var LISTITEMS;
+    console.log('survey ID and token')
+    console.log(surveyId)
+    console.log(token)
+    // var LISTITEMS;
 
     if (surveyId != undefined){
         console.log(surveyId)
 
-		const getUidQuery = `SELECT id,gender from users WHERE token=?`
+		const getUidQuery = `SELECT id,gender from users WHERE token= ?`
 		connection.query(getUidQuery, [token], (error,results)=>{
+			if (error){console.log('LIST — Error 1')}
 
 			var gender = results[0].gender
 			console.log(gender)
@@ -195,6 +196,7 @@ router.post('/listview', (req,res)=>{
 	        const currentTripQuery = `SELECT * FROM tripInfo WHERE id = ?`
 	        // console.log(currentTripQuery)
 	        connection.query(currentTripQuery, [surveyId], (error2,results2)=>{
+	        	if (error2){console.log('LIST — Error 2')}
 	            console.log(results2[0])
 	            var tripSettingCheck = ''
 	            if (results2[0].tripSetting == 'beach'){
@@ -226,21 +228,10 @@ router.post('/listview', (req,res)=>{
 	                childrenCheck += `${tripSettingCheck} AND childAndBaby = 1`
 	            }
 	            // console.log(childrenCheck)
-	            const createListQuery = `SELECT * from packList WHERE 1 ${childrenCheck} ${genderCheck}`
-	            console.log(createListQuery)
-	            connection.query(createListQuery, (error3,results3)=>{
-	                if (error3) {
-	                    res.json(error3);
-	                } else {
-	                    // console.log(results3)
-	                    LISTITEMS = (results3)
-	                    LISTITEMS.map((listItem, index)=>{
-	                    	connection.query('INSERT INTO userListItems (tripId, item, itemCategory) VALUES (?, ?, ?)', [surveyId, listItem.item, listItem.itemCategory], (error4, results4) => {
-	                    		if (error4) throw error4;
-	                    		return
-	                    	})
-	                    })
-	                    res.json(LISTITEMS);
+	            connection.query(`SELECT * from packList WHERE 1 ${childrenCheck} ${genderCheck}`, (error3,results3)=>{
+	                if (error3) {console.log("List — Error 3")}
+	                else {
+	                	res.json(results3)
 	                }
 	            })
 	        })
@@ -249,21 +240,32 @@ router.post('/listview', (req,res)=>{
 })
 
 
-router.post('/userPackingList', (req,res)=>{
-	item = req.body.item;
-	itemCategory = req.body.itemCategory;
-	tripId = req.body.tripId;
-	query = req.body.query;
-	token = req.body.token; 
+// console.log(results3)
+	                    // LISTITEMS = (results3)
+	                    // LISTITEMS.map((listItem, index)=>{
+	                    // 	connection.query('INSERT INTO userListItems (tripId, item, itemCategory) VALUES (?, ?, ?)', [surveyId, listItem.item, listItem.itemCategory], (error4, results4) => {
+	                    // 		if (error4) throw error4;
+	                    // 		console.log(results4)
+	                    // 	})
+	                    // })
+	                    // res.json(LISTITEMS);
 
-	connection.query(query, [tripId, item, itemCategory]), (error, results)=>{
-		if (error) throw error;
-		connection.query('SELECT * FROM userListItems WHERE tripId=(?)', [tripId], (error2, results2) => {
-			if (error2) throw error;
-			res.json(results2)
-		})
-	}
-})
+
+// router.post('/userPackingList', (req,res)=>{
+// 	item = req.body.item;
+// 	itemCategory = req.body.itemCategory;
+// 	tripId = req.body.tripId;
+// 	query = req.body.query;
+// 	token = req.body.token; 
+
+// 	connection.query(query, [tripId, item, itemCategory]), (error, results)=>{
+// 		if (error) throw error;
+// 		connection.query('SELECT * FROM userListItems WHERE tripId=(?)', [tripId], (error2, results2) => {
+// 			if (error2) throw error;
+// 			res.json(results2)
+// 		})
+// 	}
+// })
 
 
 module.exports = router;

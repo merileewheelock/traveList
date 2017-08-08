@@ -16,7 +16,8 @@ class ListView extends Component{
 			showDelete: false
 		}
 
-		this.deleteToggle = this.deleteToggle.bind(this)
+		this.deleteToggle = this.deleteToggle.bind(this);
+
 	}
 
 
@@ -31,7 +32,7 @@ class ListView extends Component{
 
 
 	componentDidMount() {
-		this.setState({ token, surveyId })
+		this.setState({ token:this.props.loginInfo.token, surveyId: this.props.surveyId })
 	}
 
 
@@ -42,9 +43,11 @@ class ListView extends Component{
 		var listData = []
 		var lastCategory = "";
 
+		var newItemIndex = 1;
+
 		nextProps.listView.map((listItem, index)=>{
 
-			if(listItem.itemCategory == ""){
+			if(lastCategory == ""){
 				listData.push(
 					<div className="row" key={listItem.id}>
 						<div className="col-xs-offset-1 col-xs-11">
@@ -58,20 +61,22 @@ class ListView extends Component{
 				listData.push(
 					<div className='col-xs-12 add-item-row'>
 						<div className='col-xs-7 col-xs-offset-3'>
-							<Input className='add-item-input current-input' />
+							<input className='add-item-input current-input' />
 						</div>
-						<div className='col-xs-1 add-item-button' onClick={addNewItem($('.new-add-item-input.' + itemCategory + '.val()'), {listItem.itemCategory})}>Add Item</div>
-					</div>
+						<div className='col-xs-1 add-item-button' onClick={ () => {this.addNewItem(newItemIndex, listItem.itemCategory)}}>Add Item</div>
+					</div>,
 					<div className="row" key={listItem.id}>
 						<div className="col-xs-offset-1 col-xs-11">
 							<h3 className="category-title">{listItem.itemCategory}</h3>
 						</div>
 					</div>
 				)
-				$('.current-input').addClass({listItem.itemCategory});
+				$('.current-input').addClass(listItem.itemCategory);
+				$('.current-input').addClass(listItem.itemCategory);
 				$('.add-item-input').removeClass('.current-input');
-				lastCategory = listItem.itemCategory;
 			}
+
+			lastCategory = listItem.itemCategory;
 
 			listData.push(
 				<div className="row" key={listItem.id}>
@@ -82,7 +87,7 @@ class ListView extends Component{
 						</div>
 					</div>
                 	<div className= 'col-xs-8 item'>{listItem.item}</div>
-                	<div className='not-visible col-xs-1 delete-button' onClick={deleteItem({listItem.item}, {listItem.itemCategory})}>x</div>
+                	<div className='not-visible col-xs-1 delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}}>x</div>
                 </div> 
 			)
 		})
@@ -95,7 +100,6 @@ class ListView extends Component{
 
 
 	addNewItem(item, itemCategory){
-
 		this.props.userPackingListAction({
 			token: this.state.token,
 			tripId: this.state.surveyId,
@@ -121,12 +125,16 @@ class ListView extends Component{
 	renderDeleteButton(){
 		if (this.state.deleteToggle == false) {
 			return(
-				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" onClick={this.deleteToggle}><h5>Remove Items</h5></div>
+				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" onClick={this.deleteToggle}>
+					<h5>Remove Items</h5>
+				</div>
 			)
 		}
 		else if (this.state.deleteToggle == true) {
 			return(
-				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" onClick={this.deleteToggle}><h5>Done</h5></div>
+				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" onClick={this.deleteToggle}>
+					<h5>Done</h5>
+				</div>
 			)
 		}
 	}
@@ -144,6 +152,8 @@ class ListView extends Component{
 	}
 
 	render(){
+
+		console.log(this.reduxState)
 
 		return(
 			<div>
@@ -171,7 +181,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({
 		listAction: ListAction,
-		userPackingListAction: userPackingListAction
+		userPackingListAction: UserPackingListAction
 	}, dispatch)
 }
 

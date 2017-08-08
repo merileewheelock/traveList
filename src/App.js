@@ -7,7 +7,6 @@ import Login from './containers/Login';
 import Register from './containers/Register';
 import Profile from './containers/Profile';
 import ListView from './containers/ListView';
-import SavedTrip from './containers/SavedTrip';
 import Container from './Container';
 
 class App extends Component {
@@ -25,7 +24,6 @@ class App extends Component {
 						<Route exact path="/survey" component={Survey} />
 						<Route exact path="/listview" component={ListView} />
 						<Route exact path="/profile" component={Profile} />
-						<Route exact path="/savedtrip" component={SavedTrip} />
 					</div>
 
 				</div>
