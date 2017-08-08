@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
 import  {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import SavedTripAction from '../actions/SavedTripAction';
+import UserPackingListAction from '../actions/UserPackingListAction';
 
-class SavedTrip extends Component{
+class UserPackingList extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			listArray: []
+			listArray: [],
+			token: '',
+			surveyId: ''
 		}
 	}
 
 	componentWillMount() {
 		if(this.props.loginInfo.token !== undefined){
-			this.props.savedTripAction({
+			this.setState({
 				token: this.props.loginInfo.token,
 				surveyId: this.props.surveyId
 			})
@@ -27,7 +29,7 @@ class SavedTrip extends Component{
 		var listData = []
 		var lastCategory = "";
 
-		nextProps.savedTripReducer.map((listItem, index)=>{
+		nextProps.userPackingListReducer.map((listItem, index)=>{
 			if(listItem.itemCategory !== lastCategory){
 				listData.push(
 					<div className="row" key={listItem.id}>
@@ -56,6 +58,8 @@ class SavedTrip extends Component{
 		})
 	}
 
+
+
 	render(){
 		return(
 			<div className="listview-page">
@@ -70,7 +74,7 @@ class SavedTrip extends Component{
 
 function mapStateToProps(state){
 	return{
-		savedTripReducer: state.savedTripReducer,
+		userPackingList: state.userPackingList,
 		loginInfo: state.registerReducer,
 		surveyId: state.surveyReducer
 	}
@@ -78,8 +82,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({
-		savedTripAction: SavedTripAction
+		userPackingListAction: userPackingListAction
 	}, dispatch)
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(SavedTrip);
+export default connect(mapStateToProps,mapDispatchToProps)(UserPackingList);

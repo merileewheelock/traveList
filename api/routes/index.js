@@ -171,6 +171,9 @@ router.post('/survey', (req, res)=>{
 router.post('/listview', (req,res)=>{
     surveyId = req.body.surveyId;
     token = req.body.token;
+
+    var LISTITEMS;
+
     if (surveyId != undefined){
         console.log(surveyId)
 
@@ -230,7 +233,14 @@ router.post('/listview', (req,res)=>{
 	                    res.json(error3);
 	                } else {
 	                    // console.log(results3)
-	                    res.json(results3);
+	                    LISTITEMS = (results3)
+	                    LISTITEMS.map((listItem, index)=>{
+	                    	connection.query('INSERT INTO userListItems (tripId, item, itemCategory) VALUES (?, ?, ?)', [surveyId, listItem.item, listItem.itemCategory], (error4, results4) => {
+	                    		if (error4) throw error4;
+	                    		return
+	                    	})
+	                    })
+	                    res.json(LISTITEMS);
 	                }
 	            })
 	        })
@@ -238,14 +248,21 @@ router.post('/listview', (req,res)=>{
     }
 })
 
-router.post('/savedtrip', (req,res)=>{
-	surveyId = req.body.surveyId;
-	token = req.body.token;
-	console.log(surveyId)
-	// const testQuery = `SELECT * FROM packlist`
-	// connection.query(testQuery, (error,results)=>{
-	// 	res.json(results)
-	// })
+
+router.post('/userPackingList', (req,res)=>{
+	item = req.body.item;
+	itemCategory = req.body.itemCategory;
+	tripId = req.body.tripId;
+	query = req.body.query;
+	token = req.body.token; 
+
+	connection.query(query, [tripId, item, itemCategory]), (error, results)=>{
+		if (error) throw error;
+		connection.query('SELECT * FROM userListItems WHERE tripId=(?)', [tripId], (error2, results2) => {
+			if (error2) throw error;
+			res.json(results2)
+		})
+	}
 })
 
 
