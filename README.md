@@ -1,4 +1,4 @@
-![traveList Screenshot](assets/images/travelist.png "traveList Homepage")
+![traveList Screenshot](./public/images/travelist.png?raw=true "traveList Homepage")
 
 # traveList
 ## Made with React, Redux, Express, MySQL, Javascript, jQuery, Booststrap, CSS, and SASS
