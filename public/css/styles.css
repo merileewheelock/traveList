@@ -633,6 +633,18 @@ i.fa.fa-times.fa-5x::before {
   padding-bottom: 20px;
 }
 
+/* line 33, ../../compass/sass/_listview.scss */
+.add-item-button:hover {
+  width: 27px;
+  height: 27px;
+}
+
+/* line 38, ../../compass/sass/_listview.scss */
+.delete-button:hover {
+  width: 27px;
+  height: 27px;
+}
+
 /* line 1, ../../compass/sass/_profile.scss */
 .user-profile {
   background: #00665E;

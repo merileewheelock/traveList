@@ -22,23 +22,23 @@ class WeatherDiv extends Component {
                             <thead>
                                 <tr>
                                     <th className="text-center">Date</th>
-                                    <th className="text-center">{this.props.weatherData[0].list[5].dt_txt.slice(0, -9)}</th>
-                                    <th className="text-center">{this.props.weatherData[0].list[13].dt_txt.slice(0, -9)}</th>
-                                    <th className="text-center">{this.props.weatherData[0].list[21].dt_txt.slice(0, -9)}</th>
+                                    <th className="text-center">{this.props.weatherData[0].list[0].dt_txt.slice(0, -9)}</th>
+                                    <th className="text-center">{this.props.weatherData[0].list[8].dt_txt.slice(0, -9)}</th>
+                                    <th className="text-center">{this.props.weatherData[0].list[16].dt_txt.slice(0, -9)}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th className="text-center">Temperature</th>
-                                    <td>{this.props.weatherData[0].list[5].main.temp}&deg;F</td>
-                                    <td>{this.props.weatherData[0].list[13].main.temp}&deg;F</td>
-                                    <td>{this.props.weatherData[0].list[21].main.temp}&deg;F</td>
+                                    <td>{this.props.weatherData[0].list[0].main.temp}&deg;F</td>
+                                    <td>{this.props.weatherData[0].list[8].main.temp}&deg;F</td>
+                                    <td>{this.props.weatherData[0].list[16].main.temp}&deg;F</td>
                                 </tr>
                                 <tr>
                                     <th className="text-center">Description</th>
-                                    <td>{this.props.weatherData[0].list[5].weather[0].description} </td>
-                                    <td>{this.props.weatherData[0].list[13].weather[0].description}</td>
-                                    <td>{this.props.weatherData[0].list[21].weather[0].description}</td>
+                                    <td>{this.props.weatherData[0].list[0].weather[0].description} </td>
+                                    <td>{this.props.weatherData[0].list[8].weather[0].description}</td>
+                                    <td>{this.props.weatherData[0].list[16].weather[0].description}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -32,7 +32,10 @@ class ListView extends Component{
 
 
 	componentDidMount() {
-		this.setState({ token:this.props.loginInfo.token, surveyId: this.props.surveyId })
+		this.setState({
+			token:this.props.loginInfo.token,
+			surveyId: this.props.surveyId
+		})
 	}
 
 
@@ -42,6 +45,7 @@ class ListView extends Component{
 
 		var listData = []
 		var lastCategory = "";
+		// var categoryArray = [];
 
 		var newItemIndex = 1;
 
@@ -55,16 +59,18 @@ class ListView extends Component{
 						</div>
 					</div>
 				)
+
+				// categoryArray.push(listItem.itemCategory)
 			}
 
 			else if(listItem.itemCategory !== lastCategory){
 				listData.push(
 					<div className='row add-item-row'>
 						<div className='col-xs-6 col-xs-offset-3'>
-							<input className='add-item-input current-input' />
+							<input className='add-item-input current-input' placeholder="Add Item" />
 						</div>
 						<div className='col-xs-3'>
-							<div className='add-item-button' onClick={ () => {this.addNewItem(newItemIndex, listItem.itemCategory)}}><img src="../images/plus.png" /></div>
+							<img className='add-item-button' src="../images/plus.png" onClick={ () => {this.addNewItem(newItemIndex, listItem.itemCategory)}} />
 						</div>
 					</div>,
 					<div className="row" key={listItem.id}>
@@ -74,8 +80,11 @@ class ListView extends Component{
 					</div>
 				)
 				$('.current-input').addClass(listItem.itemCategory);
-				$('.current-input').addClass(listItem.itemCategory);
+				// console.log(listItem.itemCategory)
+				// $('.current-input').addClass(listItem.itemCategory);
 				$('.add-item-input').removeClass('.current-input');
+
+				// categoryArray.push(listItem.itemCategory)
 			}
 
 			lastCategory = listItem.itemCategory;
@@ -89,7 +98,9 @@ class ListView extends Component{
 						</div>
 					</div>
                 	<div className= 'col-xs-8 item'>{listItem.item}</div>
-                	<div className='not-visible col-xs-1 delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}}><img src="../images/delete.png" /></div>
+                	<div className='col-xs-1'>
+                		<img className='not-visible delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}} src="../images/delete.png" />
+                	</div>
                 </div> 
 			)
 		})
@@ -155,7 +166,8 @@ class ListView extends Component{
 
 	render(){
 
-		console.log(this.reduxState)
+		// console.log(this.reduxState)
+		console.log(this.state)
 
 		return(
 			<div>
