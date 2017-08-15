@@ -1,4 +1,4 @@
-![traveList Screenshot](assets/images/travelist.png "traveList Homepage")
+![traveList Screenshot](./public/images/travelist.png?raw=true "traveList Homepage")
 
 # traveList
 ## Made with React, Redux, Express, MySQL, Javascript, jQuery, Booststrap, CSS, and SASS
@@ -40,7 +40,7 @@ When creating the survey, we wanted users to be asked each question individually
 #### Creating a Single-Page Look in React
 React is known for utilizing components to let you split the UI into independent, reusable pieces, and think about each piece in isolation. Since components re-render the DOM when routing to new Links, it was a challenge to maintain a single-page experience. To solve this, we created a Container component that housed the single-page components that we wanted to display on the main page. With that, we linked navigation links to jump to the specific div on the page.
 #### Creating a MySQL Database From Scratch
-
+In order for the page to display the appropriate packing list items based on the user's answers to the survey questions, our team had to organize the MySQL database to associate each of the packing list items with certain survey answers.Having said that, one of the challenges we faced was organizing the data tables so that it displays the right packing list information on the page for the user. To solve this, we created a workflow diagram to brainstorm the table categories for each survey answer path.
 
 ### Code Snippets
 #### Insert Survey Results into tripInfo MySQL Database Table
