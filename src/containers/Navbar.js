@@ -16,7 +16,7 @@ class NavBar extends Component{
 			userLoginStatus = [
 				<li className="menu-item" key="1"><Link to="/profile">Welcome, {this.props.registerInfo.name}</Link></li>,
 				<li className="menu-item" key="2"><Link to="/profile">User Profile</Link></li>,	
-				<li className="menu-item" key="3"><a href="http://localhost:3001/">Logout</a></li>
+				<li className="menu-item" key="3"><a href="http://travelist.merileewheelock.com/">Logout</a></li>
 				// THIS <a> TAG FORCES THE PAGE TO RERENDER AND LOGOUT. CHANGE ADDRESS WHEN LIVE.	
 			]		
 		}

@@ -16,7 +16,7 @@ class WeatherDiv extends Component {
                     <div className="">
                         <div className="weather-header">
                             <h1>{this.props.weatherData[0].city.name}</h1>
-                            <h4>3-day forecast</h4>
+                            <h4>Forecast</h4>
                         </div>
                         <table className="table table-condensed">
                             <thead>

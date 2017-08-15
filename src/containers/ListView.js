@@ -13,11 +13,15 @@ class ListView extends Component{
 			listArray: [],
 			token: '',
 			surveyId: '',
+			item: '',
+			itemCategory: '',
+			tripId: '',
+			query: '',
 			showDelete: false
 		}
 
 		this.deleteToggle = this.deleteToggle.bind(this);
-
+		this.renderDeleteButton = this.renderDeleteButton.bind(this);
 	}
 
 
@@ -44,14 +48,28 @@ class ListView extends Component{
 		// console.log(nextProps)
 
 		var listData = []
-		var lastCategory = "";
-		// var categoryArray = [];
-
 		var newItemIndex = 1;
+		var currentCategory = "init";
 
 		nextProps.listView.map((listItem, index)=>{
 
-			if(lastCategory == ""){
+			if(listItem.itemCategory !== currentCategory){
+				console.log("Running listItem.itemCategory !== currentCategory")
+
+				// if (currentCategory !== "init") {
+				// 	listData.push(
+				// 		<div className='row add-item-row'>
+				// 			<div className='col-xs-6 col-xs-offset-3'>
+				// 				<input className={currentCategory} placeholder="Add Item" />
+				// 			</div>
+				// 			<div className='col-xs-3'>
+				// 				<img className='add-item-button' src="../images/plus.png" onClick={ () => {this.addNewItem(newItemIndex, currentCategory)}} />
+				// 			</div>
+				// 		</div>
+				// 	)
+				// }
+
+
 				listData.push(
 					<div className="row" key={listItem.id}>
 						<div className="col-xs-offset-1 col-xs-11">
@@ -60,50 +78,65 @@ class ListView extends Component{
 					</div>
 				)
 
-				// categoryArray.push(listItem.itemCategory)
-			}
-
-			else if(listItem.itemCategory !== lastCategory){
 				listData.push(
-					<div className='row add-item-row'>
-						<div className='col-xs-6 col-xs-offset-3'>
-							<input className='add-item-input current-input' placeholder="Add Item" />
-						</div>
-						<div className='col-xs-3'>
-							<img className='add-item-button' src="../images/plus.png" onClick={ () => {this.addNewItem(newItemIndex, listItem.itemCategory)}} />
-						</div>
-					</div>,
 					<div className="row" key={listItem.id}>
-						<div className="col-xs-offset-1 col-xs-11">
-							<h3 className="category-title">{listItem.itemCategory}</h3>
-						</div>
-					</div>
-				)
-				$('.current-input').addClass(listItem.itemCategory);
-				// console.log(listItem.itemCategory)
-				// $('.current-input').addClass(listItem.itemCategory);
-				$('.add-item-input').removeClass('.current-input');
-
-				// categoryArray.push(listItem.itemCategory)
-			}
-
-			lastCategory = listItem.itemCategory;
-
-			listData.push(
-				<div className="row" key={listItem.id}>
-                	<div className="col-xs-3 text-right">
-                		<div className="">
+	                	<div className="col-xs-3 text-right">
 							<input type="checkbox" className="list-checkbox" />
 							<label htmlFor="list-checkbox"></label>
 						</div>
-					</div>
-                	<div className= 'col-xs-8 item'>{listItem.item}</div>
-                	<div className='col-xs-1'>
-                		<img className='not-visible delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}} src="../images/delete.png" />
-                	</div>
-                </div> 
-			)
+	                	<div className= 'col-xs-8 item'>{listItem.item}</div>
+	                	{/*<div className='col-xs-1'>
+	                		<img className='not-visible delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}} src="../images/delete.png" />
+	                	</div>*/}
+                	</div> 
+				)
+
+				currentCategory = listItem.itemCategory
+			}
+
+
+			if(listItem.itemCategory == currentCategory) {
+				console.log("Running listItem.itemCategory == currentCategory")
+
+				listData.push( 
+					<div className="row" key={listItem.id}>
+	                	<div className="col-xs-3 text-right">
+	                		<div className="">
+								<input type="checkbox" className="list-checkbox" />
+								<label htmlFor="list-checkbox"></label>
+							</div>
+						</div>
+	                	<div className= 'col-xs-7 item'>{listItem.item}</div>
+	                	<div className='col-xs-2'>
+	                		{/*<img className='not-visible delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}} src="../images/delete.png" />*/}
+	                		{/*<img className='delete-button' onClick={ ()=> {this.deleteItem(listItem.item, listItem.itemCategory)}} src="../images/delete.png" />*/}
+	                	</div>
+	                </div> 
+				)
+			}		
 		})
+
+
+		var finalCategory = "";
+
+		nextProps.listView.map((listItem, index)=>{
+
+			if (listItem.itemCategory !== finalCategory){
+				finalCategory = listItem.itemCategory
+			}
+		})
+
+		// listData.push(
+		// 	<div className='row add-item-row'>
+		// 		<div className='col-xs-6 col-xs-offset-3'>
+		// 			<input className={finalCategory} placeholder="Add Item" />
+		// 		</div>
+		// 		<div className='col-xs-3'>
+		// 			<img className='add-item-button' src="../images/plus.png" onClick={ () => {this.addNewItem(newItemIndex, finalCategory)}} />
+		// 		</div>
+		// 	</div>
+		// )
+
 
 		this.setState({
 			listArray: listData
@@ -113,10 +146,28 @@ class ListView extends Component{
 
 
 	addNewItem(item, itemCategory){
+
+
+		var itemString = 'input.' + itemCategory
+
+		console.log('////ITEM STRING///')
+		console.log(itemString)
+
+		var newItem = $(itemString).val()
+
+		console.log('////NEW ITEM///')
+		console.log(newItem)
+
+		console.log(this.state.token)
+		console.log(this.state.surveyId)
+		console.log(this.state.newItem)
+		console.log(this.state.itemCategory)
+		console.log(this.state.query)
+
 		this.props.userPackingListAction({
 			token: this.state.token,
 			tripId: this.state.surveyId,
-			item: item,
+			item: newItem,
 			itemCategory: itemCategory,
 			query: 'INSERT INTO userListItems (tripId, item, itemCategory) VALUES (?, ?)' 
 		})
@@ -125,27 +176,48 @@ class ListView extends Component{
 
 
 	deleteItem(item, itemCategory){
+		console.log(item)
+		console.log(itemCategory)
+
+		this.setState({
+			item: item,
+			itemCategory: itemCategory,
+			query: 'DELETE FROM userListItems WHERE tripId=(?) AND item=(?) AND itemCategory=(?)'
+		})
+
+		console.log(this.state.token)
+		console.log(this.state.surveyId)
+		console.log(this.state.item)
+		console.log(this.state.itemCategory)
+		console.log(this.state.query)
+
+
 		this.props.userPackingListAction({
 			token: this.state.token,
 			tripId: this.state.surveyId,
 			item: item,
 			itemCategory: itemCategory,
+			// query: 'DELETE FROM userListItems WHERE tripId=(?) AND item=(?) AND itemCategory=(?)'
 			query: 'DELETE FROM userListItems WHERE tripId=(?) AND item=(?) AND itemCategory=(?)'
 		})
 	}
 
+// onClick={this.deleteToggle}
 
 	renderDeleteButton(){
-		if (this.state.deleteToggle == false) {
+		console.log("we are in render delete button")
+		console.log(this.state.showDelete)
+
+		if (this.state.showDelete == false) {
 			return(
-				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" onClick={this.deleteToggle}>
+				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" >
 					<h5>Remove Items</h5>
 				</div>
 			)
 		}
-		else if (this.state.deleteToggle == true) {
+		else if (this.state.showDelete == true) {
 			return(
-				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" onClick={this.deleteToggle}>
+				<div className="delete-toggle col-md-offset-3 col-md-1 col-sm-offset-2 col-sm-1 col-xs-1 text-right" >
 					<h5>Done</h5>
 				</div>
 			)
@@ -167,7 +239,7 @@ class ListView extends Component{
 	render(){
 
 		// console.log(this.reduxState)
-		console.log(this.state)
+		// console.log(this.state)
 
 		return(
 			<div>
@@ -175,9 +247,9 @@ class ListView extends Component{
 				<div className="listview-page">
 					<div className="listview-section col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
 						<h1 className="text-center">Packing Recommendations</h1>
+						{this.renderDeleteButton}
 						{this.state.listArray}
 					</div>
-					{this.renderDeleteButton}
 				</div>
 			</div>
 		)

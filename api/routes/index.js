@@ -231,7 +231,14 @@ router.post('/listview', (req,res)=>{
 	            connection.query(`SELECT * from packList WHERE 1 ${childrenCheck} ${genderCheck}`, (error3,results3)=>{
 	                if (error3) {console.log("List — Error 3")}
 	                else {
-	                	res.json(results3)
+	                	LISTITEMS = (results3)
+	                    LISTITEMS.map((listItem, index)=>{
+	                    	connection.query('INSERT INTO userListItems (tripId, item, itemCategory) VALUES (?, ?, ?)', [surveyId, listItem.item, listItem.itemCategory], (error4, results4) => {
+	                    		if (error4) throw error4;
+	                    		// console.log(results4)
+	                    	})
+	                    })
+	                    res.json(LISTITEMS);
 	                }
 	            })
 	        })
@@ -240,32 +247,32 @@ router.post('/listview', (req,res)=>{
 })
 
 
-// console.log(results3)
-	                    // LISTITEMS = (results3)
-	                    // LISTITEMS.map((listItem, index)=>{
-	                    // 	connection.query('INSERT INTO userListItems (tripId, item, itemCategory) VALUES (?, ?, ?)', [surveyId, listItem.item, listItem.itemCategory], (error4, results4) => {
-	                    // 		if (error4) throw error4;
-	                    // 		console.log(results4)
-	                    // 	})
-	                    // })
-	                    // res.json(LISTITEMS);
+router.post('/userPackingList', (req,res)=>{
+	console.log(req.body)
+	item = req.body.item;
+	itemCategory = req.body.itemCategory;
+	tripId = req.body.tripId;
+	query = req.body.query;
+	token = req.body.token; 
+	console.log("item")
+	console.log(item)
+	console.log("itemCategory")
+	console.log(itemCategory)
+	console.log("tripId")
+	console.log(tripId)
+	console.log("query")
+	console.log(query)
+	console.log("token")
+	console.log(token)
 
-
-// router.post('/userPackingList', (req,res)=>{
-// 	item = req.body.item;
-// 	itemCategory = req.body.itemCategory;
-// 	tripId = req.body.tripId;
-// 	query = req.body.query;
-// 	token = req.body.token; 
-
-// 	connection.query(query, [tripId, item, itemCategory]), (error, results)=>{
-// 		if (error) throw error;
-// 		connection.query('SELECT * FROM userListItems WHERE tripId=(?)', [tripId], (error2, results2) => {
-// 			if (error2) throw error;
-// 			res.json(results2)
-// 		})
-// 	}
-// })
+	connection.query(query, [tripId, item, itemCategory]), (error, results)=>{
+		if (error) throw error;
+		connection.query('SELECT * FROM userListItems WHERE tripId=(?)', [tripId], (error2, results2) => {
+			if (error2) throw error;
+			res.json(results2)
+		})
+	}
+})
 
 
 module.exports = router;
