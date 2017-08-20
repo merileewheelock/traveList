@@ -10,7 +10,6 @@ traveList is a web app designed to help travelers stay organized and prepared du
 * Guido Bacce
 * Merilee Wheelock
 * Marissa Monivis
-* Michael Gaynor
 
 ### Technologies Used
 * OpenWeatherMap API
