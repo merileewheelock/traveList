@@ -13,7 +13,6 @@ var connection = mysql.createConnection({
 })
 connection.connect();
 
-
 router.post('/register', (req, res)=>{
 	var email = req.body.email;
 	var password = bcrypt.hashSync(req.body.password);
@@ -192,7 +191,6 @@ router.post('/listview', (req,res)=>{
 			}
 			console.log(genderCheck)
 
-
 	        const currentTripQuery = `SELECT * FROM tripInfo WHERE id = ?`
 	        // console.log(currentTripQuery)
 	        connection.query(currentTripQuery, [surveyId], (error2,results2)=>{
@@ -273,6 +271,5 @@ router.post('/userPackingList', (req,res)=>{
 		})
 	}
 })
-
 
 module.exports = router;
